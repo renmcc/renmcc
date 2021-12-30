@@ -37,4 +37,4 @@
 
 ****
 ## 微信公众号
-![图 1](https://raw.githubusercontent.com/renmcc/renmcc/main/img/gongzhonghao.png) 
+![图 1](https://cdn.jsdelivr.net/gh/renmcc/renmcc@main/img/gongzhonghao.png) 
