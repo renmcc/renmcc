@@ -34,3 +34,7 @@
 <img alt="ouuan's github stats" height='230' src="https://github-readme-stats.vercel.app/api?username=renmcc&show_icons=true&include_all_commits=true&theme=tokyonight">
 <img alt="ouuan's github stats" height='230' src="https://github-readme-stats.vercel.app/api/top-langs/?username=renmcc&theme=tokyonight">
 </p>
+
+****
+## 微信公众号
+![图 1](https://raw.githubusercontent.com/renmcc/renmcc/main/img/gongzhonghao.png) 
