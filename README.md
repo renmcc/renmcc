@@ -3,13 +3,13 @@
 <p align="center">
   <strong><a href="https://renm.top">博客</a></strong> |
   <strong><a href="https://www.yuque.com/renmcc">语雀</a></strong> |
-  <strong><a href="https://renm.top/about/">About</a></strong>  
+  <strong><a href="https://rem.cc/about/">About</a></strong>  
 </p>
 <a href="https://www.renm.top"><p align="center"> Visitor count<br> <img src="https://profile-counter.glitch.me/renmcc/count.svg" /></a>
 
 ##  [Welcome To 梦の空间](https://renm.top)
 <a href="https://alili.tech"><img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" align="right" height="275" /></a>
-- 👨🏻‍💻  [Linux笔记](https://renm.top/tags/linux/)
+<!-- - 👨🏻‍💻  [Linux笔记](https://renm.top/tags/linux/)
 - 👨🏻‍💻  [阿里云ACP考试总结](https://renm.top/tags/acp/)
 - 👨🏻‍💻  [网络知识总结](https://renm.top/tags/net/)
 - 👨🏻‍💻  [安全知识总结](https://renm.top/tags/security/)
@@ -22,7 +22,7 @@
 - 👩🏻‍💻  [Fastapi学习笔记](https://renm.top/tags/fastapi/)
 - 👨🏻‍💻  [Golang学习笔记](https://renm.top/tags/golang/)
 - 👩🏻‍💻  [JavaScript学习笔记](https://renm.top/tags/javascript/)
-- 👩🏻‍💻  [VUE学习笔记](https://renm.top/tags/vue/)
+- 👩🏻‍💻  [VUE学习笔记](https://renm.top/tags/vue/) -->
 
 
 
