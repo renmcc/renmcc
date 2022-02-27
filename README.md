@@ -8,7 +8,7 @@
 <a href="https://renm.cc"><p align="center"> Visitor count<br> <img src="https://profile-counter.glitch.me/renmcc/count.svg" /></a>
 
 ##  [Welcome To 梦の空间](https://renm.top)
-<a href="https://alili.tech"><img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" align="right" height="275" /></a>
+<a href="https://alili.tech"><img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" align="right" height="255" /></a>
 - 👨🏻‍💻  [Linux笔记](https://renm.cc/categories/linux/)
 - 👩🏻‍💻  [Docker笔记](https://renm.cc/categories/docker/)
 - 👨🏻‍💻  [Kubernetes笔记](https://renm.cc/categories/kubernetes/)
