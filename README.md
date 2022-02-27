@@ -14,11 +14,11 @@
 - 👨🏻‍💻  [Kubernetes笔记](https://renm.cc/categories/kubernetes/)
 - 👨🏻‍💻  [Rancher笔记](https://renm.cc/categories/rancher/)
 - 👨🏻‍💻  [Mysql笔记](https://renm.cc/categories/mysql/)
+- 👨🏻‍💻  [Redis笔记](https://renm.cc/categories/redis/)
+- 👨🏻‍💻  [Mongodb笔记](https://renm.cc/categories/mongodb/)
 - 👨🏻‍💻  [Golang笔记](https://renm.cc/categories/golang/)
 - 👨🏻‍💻  [大数据笔记](https://renm.cc/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/)
 <!-- 
-- 👨🏻‍💻  [网络知识总结](https://renm.top/tags/net/)
-- 👨🏻‍💻  [安全知识总结](https://renm.top/tags/security/)
 - 👩🏻‍💻  [Python学习笔记](https://renm.top/tags/python/)
 - 👨🏻‍💻  [Django学习笔记](https://renm.top/tags/django/)
 - 👩🏻‍💻  [Fastapi学习笔记](https://renm.top/tags/fastapi/)
