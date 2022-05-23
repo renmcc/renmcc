@@ -1,13 +1,13 @@
 <h1 align="center">Hi, I'm <a href="https://renm.cc/">{R.C.M}</a>!</h1>
 <h1 align="center">一个运维工程师</h1>
 <p align="center">
-  <strong><a href="https://renm.cc">博客</a></strong> |
+  <strong><a href="https://renm.cc/">博客</a></strong> |
   <strong><a href="https://www.yuque.com/renmcc">语雀</a></strong> |
   <strong><a href="https://renm.cc/about/">About</a></strong>  
 </p>
-<a href="https://renm.cc"><p align="center"> Visitor count<br> <img src="https://profile-counter.glitch.me/renmcc/count.svg" /></a>
+<a href="https://renm.cc/"><p align="center"> Visitor count<br> <img src="https://profile-counter.glitch.me/renmcc/count.svg" /></a>
 
-##  [Welcome To 梦の空间](https://renm.cc)
+##  [Welcome To 梦の空间](https://renm.cc/)
 <a href="https://renm.cc"><img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" align="right" height="230" /></a>
 - 👨🏻‍💻  [Linux笔记](https://renm.cc/categories/linux/)
 - 👩🏻‍💻  [Docker笔记](https://renm.cc/categories/docker/)
@@ -17,12 +17,7 @@
 - 👨🏻‍💻  [Redis笔记](https://renm.cc/categories/redis/)
 - 👨🏻‍💻  [Mongodb笔记](https://renm.cc/categories/mongodb/)
 - 👨🏻‍💻  [Golang笔记](https://renm.cc/categories/golang/)
-<!-- 
-- 👩🏻‍💻  [Python学习笔记](https://renm.top/tags/python/)
-- 👨🏻‍💻  [Django学习笔记](https://renm.top/tags/django/)
-- 👩🏻‍💻  [Fastapi学习笔记](https://renm.top/tags/fastapi/)
-- 👩🏻‍💻  [JavaScript学习笔记](https://renm.top/tags/javascript/)
-- 👩🏻‍💻  [VUE学习笔记](https://renm.top/tags/vue/) -->
+
 
 
 
