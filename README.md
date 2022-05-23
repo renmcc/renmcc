@@ -7,8 +7,8 @@
 </p>
 <a href="https://renm.cc"><p align="center"> Visitor count<br> <img src="https://profile-counter.glitch.me/renmcc/count.svg" /></a>
 
-##  [Welcome To 梦の空间](https://renm.top)
-<a href="https://alili.tech"><img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" align="right" height="255" /></a>
+##  [Welcome To 梦の空间](https://renm.cc)
+<a href="https://renm.cc"><img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" align="right" height="230" /></a>
 - 👨🏻‍💻  [Linux笔记](https://renm.cc/categories/linux/)
 - 👩🏻‍💻  [Docker笔记](https://renm.cc/categories/docker/)
 - 👨🏻‍💻  [Kubernetes笔记](https://renm.cc/categories/kubernetes/)
@@ -17,7 +17,6 @@
 - 👨🏻‍💻  [Redis笔记](https://renm.cc/categories/redis/)
 - 👨🏻‍💻  [Mongodb笔记](https://renm.cc/categories/mongodb/)
 - 👨🏻‍💻  [Golang笔记](https://renm.cc/categories/golang/)
-- 👨🏻‍💻  [大数据笔记](https://renm.cc/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/)
 <!-- 
 - 👩🏻‍💻  [Python学习笔记](https://renm.top/tags/python/)
 - 👨🏻‍💻  [Django学习笔记](https://renm.top/tags/django/)
