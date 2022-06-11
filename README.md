@@ -30,6 +30,4 @@
 <img alt="ouuan's github stats" height='230' src="https://github-readme-stats.vercel.app/api/top-langs/?username=renmcc">
 </p>
 
-****
-## 微信公众号
-![图 1](https://cdn.jsdelivr.net/gh/renmcc/renmcc@main/img/gongzhonghao.png) 
+
