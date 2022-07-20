@@ -10,14 +10,14 @@
 ##  [Welcome To 梦の空间](https://renm.cc/)
 <img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" align="right" height="230" />
 
-- 👨🏻‍💻  [Linux笔记](https://renm.cc/categories/linux/)
-- 👩🏻‍💻  [Docker笔记](https://renm.cc/categories/docker/)
-- 👨🏻‍💻  [Kubernetes笔记](https://renm.cc/categories/kubernetes/)
-- 👨🏻‍💻  [Rancher笔记](https://renm.cc/categories/rancher/)
-- 👨🏻‍💻  [Mysql笔记](https://renm.cc/categories/mysql/)
-- 👨🏻‍💻  [Redis笔记](https://renm.cc/categories/redis/)
-- 👨🏻‍💻  [Mongodb笔记](https://renm.cc/categories/mongodb/)
-- 👨🏻‍💻  [Golang笔记](https://renm.cc/categories/golang/)
+- 👨🏻‍💻  [Linux笔记](https://renm.cc/categories/linux)
+- 👩🏻‍💻  [Docker笔记](https://renm.cc/categories/docker)
+- 👨🏻‍💻  [Kubernetes笔记](https://renm.cc/categories/kubernetes)
+- 👨🏻‍💻  [Rancher笔记](https://renm.cc/categories/rancher)
+- 👨🏻‍💻  [Mysql笔记](https://renm.cc/categories/mysql)
+- 👨🏻‍💻  [Redis笔记](https://renm.cc/categories/redis)
+- 👨🏻‍💻  [Mongodb笔记](https://renm.cc/categories/mongodb)
+- 👨🏻‍💻  [Golang笔记](https://renm.cc/categories/golang)
 
 
 
