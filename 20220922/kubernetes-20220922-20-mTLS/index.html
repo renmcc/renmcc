@@ -1,0 +1,452 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>20.mTLS | 任的博客</title><meta name="keywords" content="kubernetes"><meta name="author" content="ren_mcc"><meta name="copyright" content="ren_mcc"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1. 简介 两台主机通信的时候，如果是通过明文的方式通信两者之间的数据很容易被截获，两台主机要安全通信，需要在两者之间实现数据的加密。主要涉及到对称加密，非对称加密，哈希函数。 2. 对称加密 所谓对称加密，即加密和解密使用相同的密钥，这个密钥可以理解为就是密码。  这里A用一个对称加密密钥haha001加密了一个数据，然后把加密之后的数据发送给B之后，因为是加密数据，所以B是打不开的。所以A需要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20.mTLS">
+<meta property="og:url" content="https://blog.renm.cc/20220922/kubernetes-20220922-20-mTLS/index.html">
+<meta property="og:site_name" content="任的博客">
+<meta property="og:description" content="1. 简介 两台主机通信的时候，如果是通过明文的方式通信两者之间的数据很容易被截获，两台主机要安全通信，需要在两者之间实现数据的加密。主要涉及到对称加密，非对称加密，哈希函数。 2. 对称加密 所谓对称加密，即加密和解密使用相同的密钥，这个密钥可以理解为就是密码。  这里A用一个对称加密密钥haha001加密了一个数据，然后把加密之后的数据发送给B之后，因为是加密数据，所以B是打不开的。所以A需要">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.renm.cc/img/yuanshen/avatar/20210501094041_26fef.webp">
+<meta property="article:published_time" content="2022-09-22T11:23:01.000Z">
+<meta property="article:modified_time" content="2023-06-28T13:47:21.810Z">
+<meta property="article:author" content="ren_mcc">
+<meta property="article:tag" content="kubernetes">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.renm.cc/img/yuanshen/avatar/20210501094041_26fef.webp"><link rel="shortcut icon" href="/img/EPm3X74Wvr.png"><link rel="canonical" href="https://blog.renm.cc/20220922/kubernetes-20220922-20-mTLS/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":2000},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '20.mTLS',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-06-28 21:47:21'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/twikoo-beautify.css"  media="defer" onload="this.media='all'"><meta name="referrer" content="no-referrer-when-downgrade" /><link rel="stylesheet" href="/js/function.min.css"><script src="/js/jquery.min.js"></script><script src="/js/custom.js"></script><meta name="baidu-site-verification" content="codeva-5GkhCSwwXt" /><link rel="stylesheet" href="/css/iconfont.css"><link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-clock/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script async src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.gif" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">132</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">任的博客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">20.mTLS</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-22T11:23:01.000Z" title="发表于 2022-09-22 19:23:01">2022-09-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-06-28T13:47:21.810Z" title="更新于 2023-06-28 21:47:21">2023-06-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/kubernetes/">kubernetes</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>14分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="20.mTLS"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="1-简介-20">1. 简介</h2>
+<p>两台主机通信的时候，如果是通过明文的方式通信两者之间的数据很容易被截获，两台主机要安全通信，需要在两者之间实现数据的加密。主要涉及到对称加密，非对称加密，哈希函数。</p>
+<h2 id="2-对称加密">2. 对称加密</h2>
+<p>所谓对称加密，即加密和解密使用相同的密钥，这个密钥可以理解为就是密码。</p>
+<img src="/20220922/kubernetes-20220922-20-mTLS/image-1653550238917.png" class="">
+<p>这里A用一个对称加密密钥haha001加密了一个数据，然后把加密之后的数据发送给B之后，因为是加密数据，所以B是打不开的。所以A需要把密码告诉B才行。但是如何告诉B密钥是haha001呢？这是一个问题，因为这个过程很可能被别人监测到。</p>
+<h2 id="3-非对称加密">3. 非对称加密</h2>
+<p>对于非对称加密算法来说，包括2个密钥一个是公钥，一个是私钥。公钥是可以公开的，私钥需要保护好。对于非对称加密来说主要作用有两个，一是数据加密，而是数字签名。</p>
+<h3 id="3-1数据加密">3.1数据加密</h3>
+<img src="/20220922/kubernetes-20220922-20-mTLS/image-1653550269579.png" class="">
+<p>上图里锁的图标表示公钥，钥匙的图标表示私钥。</p>
+<ul>
+<li>第一步：B把公钥发送给A</li>
+<li>第二步：A用B的公钥加密数据</li>
+<li>第三步：A把加密后的数据发送给B</li>
+<li>第四步：B用自己的私钥对加密数据进行解密</li>
+</ul>
+<p>因为别人获取不到B的私钥，所以在第三步里即便数据被接获了也解密不了，因为只有B的私钥才能解密。</p>
+<p>如果把对称加密和非对称加密结合使用的话，这样利用非对称加密就可以解决了前面对称加密算法中，对称加密私钥不方便传输的问题了。</p>
+<img src="/20220922/kubernetes-20220922-20-mTLS/image-1653550288439.png" class="">
+<ul>
+<li>第一步： B把公钥发送给A</li>
+<li>第二步：A用B的公钥加密对称加密密钥haha001</li>
+<li>第三步：A把加密后的密钥发送给B</li>
+<li>第四步：B用自己的私钥解密A发送过来的数据，得到对称加密的密钥haha001</li>
+<li>第五步：B用haha001解密A发送过来的对称加密数据</li>
+</ul>
+<p>这样A用对称加密的数据发送给B之后，B也能顺利的打开了，这种方式看起来安全，但其实很容易受到中间人攻击，因为第一步里我们假设的是A获取的就是B的公钥，而不是别人冒充的。</p>
+<p>下面我们看一下中间人攻击的过程，这里假设C是中间人</p>
+<img src="/20220922/kubernetes-20220922-20-mTLS/image-1653550312207.png" class="">
+<ul>
+<li>第一步：B把公钥发送给A，但C把原本发送给A的公钥截获了，此时C有了B的公钥。</li>
+<li>第二步：C把自己的公钥发送给A，但是宣称是“B的公钥”，A不明真相，以为就是B的公钥</li>
+<li>第三步：A用“B的公钥”（其实是C的公钥）加密对称加密的密钥</li>
+<li>第四步：把加密后的对称加密的密钥发送给B，但是这个又被C截获了，因为实际用的是C的公钥加密的，所以C用自己的私钥是能够解密的。此时C获取了对称加密的密钥haha001</li>
+<li>第五步：C用B的公钥加密对称加密密钥haha001，之后发送给B</li>
+<li>第六步：B用自己的私钥解密数据，得到对称密钥haha001</li>
+<li>第七步：A把用对称加密后的护具发送给B，但也被C截获了，因为C知道了对称加密密钥，所以C是能看到数据里的内容并做修改的。</li>
+<li>第八步：C再次用对称密钥haha001加密数据之后转发给B</li>
+<li>第九步：B用对称密钥haha001解密数据</li>
+</ul>
+<p>整个过程A和B都以为他们是直接通信的，殊不知这中间所有的数据都被C看到了，这就是中间人攻击。<br>
+那么如何解决这个问题呢？我们先了解数字签名。</p>
+<h2 id="4-数字签名">4. 数字签名</h2>
+<p>数字签名是私钥加密数据，公钥解密数据。</p>
+<img src="/20220922/kubernetes-20220922-20-mTLS/image-1653550339488.png" class="">
+<ul>
+<li>第一步：B先把公钥发送给A</li>
+<li>第二步：B然后用哈希函数对所要传输的数据求的哈希值hash1，哈希函数的特点是输入不定长的值总是得到定长的值，比如：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">root@vms61:~<span class="comment"># wc -c /etc/hosts</span></span><br><span class="line">291 /etc/hosts</span><br><span class="line">root@vms61:~<span class="comment"># wc -c /etc/services </span></span><br><span class="line">19183 /etc/services</span><br><span class="line">root@vms61:~<span class="comment"># </span></span><br><span class="line">root@vms61:~<span class="comment"># </span></span><br><span class="line">root@vms61:~<span class="comment"># md5sum /etc/hosts</span></span><br><span class="line">219ebb29a192b6e41af2dc98865df58e  /etc/hosts</span><br><span class="line">root@vms61:~<span class="comment"># md5sum /etc/services </span></span><br><span class="line">567c100888518c1163b3462993de7d47  /etc/services</span><br><span class="line">root@vms61:~<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>第三步：B会用自己的私钥对哈希值hash1进行加密</li>
+<li>第四步：B把原始数据和加密后的哈希值发送给A</li>
+<li>第五步：A先用B的公钥把收到的加密后的哈希值hash1解密，得到hash1，这个hash1和第2步生成hash1是一样的。</li>
+<li>第六步：B会对收到的数据data求得哈希值hash2</li>
+<li>第七步：B对比hash1和hash2来判断data在传输过程中是不是被修改过。如果两个hash值是一样的，就说明数据data在传输过程中是没有被修改的，如果两个哈希值不一样说明数据传输过程中被修改过。</li>
+</ul>
+<p>这里会带来两个问题：</p>
+<ul>
+<li>第一：这里也会遇到中间人攻击的问题，即第一步的公钥被C截获了，然后把自己的公钥发送给了A。在第四步里，数据data和hash1被C截获，然后C修改了data的数据，然后求得哈希值之后用自己的私钥做数据签名。其实所有的中间人攻击的根本在于此。</li>
+<li>第二：即使没有中间人攻击，B的密钥对跟B这个主体之间没有必然的联系，因为B可以随时删除掉自己的密钥对，然后重新生成。</li>
+</ul>
+<h2 id="5-证书中心">5. 证书中心</h2>
+<p>在互联网上存在一种权威机构叫做证书中心（简称CA），一个前提就是我们都要信任CA。</p>
+<img src="/20220922/kubernetes-20220922-20-mTLS/image-1653550378823.png" class="">
+<p>前面讲中间人攻击的主要原因就是A获取B的公钥可能是假冒的，所以A不会信任别人发给他的公钥，且B也知道他直接把他自己生成的公钥发送给别人，别人也不信任，所以B不会再生成私钥了。</p>
+<ul>
+<li>第一步：B会用自己的私钥生成一个证书请求文件（类似于申请书）</li>
+<li>第二步：B把证书请求文件发送到CA去申请证书。</li>
+<li>第三步：CA会审核B的身份，之后会颁发证书给B，这个证书其实就是公钥，只是上面有了CA的数字签名，以证明这个证书是CA颁发的。这一步解决了”数字签名“部分B和他的密钥对之间每有必然联系的问题，因为这里有CA来证明这个密钥对就是B的，B不能抵赖。</li>
+<li>第四步：B会把证书发送给A，说这是我的证书并且上面有CA的数字签名，不会被别人伪冒。</li>
+<li>第五步：A是持怀疑态度的，到底是不是真的由CA颁发的，还是别人伪冒的呢？所以A要验证这个证书的真伪性。此时A需要CA的公钥（像浏览器里都内置了权威CA的公钥），然后会用权威CA的公钥验证B证书的公钥上的数字签名。</li>
+</ul>
+<p>之后，A会用B的证书加密对称加密算法的密钥发送给B，B用私钥解密，这样A和B就可以安全的传输数据了，整个过程叫做TLS（传输层安全）<br>
+这里只有A验证了B的证书合法性，所以叫做单向TLS，如果A也有自己的私钥及CA颁发的证书，那么除了A要验证B证书的合法性之外，B也要验证A证书的合法性，即两边互相验证，这个就叫做mTLS（mutual TLS，双向TLS）了。</p>
+<h2 id="6-k8s里的mTLS">6. k8s里的mTLS</h2>
+<img src="/20220922/kubernetes-20220922-20-mTLS/2022-09-23-120031.png" class="">
+<p>kubeadm方式部署，创建2个CA中心，kubernetes组件一个，etcd组件一个。组件签发证书为1年，CA证书为10年。</p>
+<h3 id="6-1-验证tls">6.1 验证tls</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">openssl rand -hex 10</span><br><span class="line"><span class="built_in">cat</span> bb.csv</span><br><span class="line">56247b326b6e5bf83198,admin2,3</span><br><span class="line"></span><br><span class="line">- --token-auth-file=/etc/kubernetes/pki/bb.csv</span><br><span class="line"></span><br><span class="line">kubectl -s=<span class="string">&quot;https://192.168.26.51:6443&quot;</span> --insecure-skip-tls-verify=<span class="literal">true</span> --token=<span class="string">&quot;56247b326b6e5bf83198&quot;</span> get pods -n kube-system</span><br></pre></td></tr></table></figure>
+<h2 id="7-cfssl工具签发私有证书">7. cfssl工具签发私有证书</h2>
+<p>下载地址</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -OL https://pkg.cfssl.org/R1.2/cfssl_linux-amd64</span><br><span class="line">curl -OL https://pkg.cfssl.org/R1.2/cfssljson_linux-amd64</span><br><span class="line">curl -OL https://pkg.cfssl.org/R1.2/cfssl-certinfo_linux-amd64</span><br></pre></td></tr></table></figure>
+<p>修改文件名权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> * ; <span class="keyword">do</span> n=<span class="variable">$&#123;i%_*&#125;</span> ; <span class="built_in">mv</span> <span class="variable">$i</span> <span class="variable">$n</span>; <span class="keyword">done</span> ; <span class="built_in">chmod</span> +x</span><br></pre></td></tr></table></figure>
+<h3 id="7-1-概念">7.1 概念</h3>
+<p>ca-config.json：可以定义多个 profiles，分别指定不同的过期时间、使用场景等参数；后续在签名证书时使用某个 profile；<br>
+signing：表示该证书可用于签名其它证书；生成的 ca.pem 证书中 CA=TRUE；<br>
+server auth：表示client可以用该 CA 对server提供的证书进行验证；<br>
+client auth：表示server可以用该CA对client提供的证书进行验证；</p>
+<p>CN: Common Name，浏览器使用该字段验证网站是否合法，一般写的是域名。<br>
+C: Country， 国家<br>
+L: Locality，地区，城市<br>
+ST: State，州，省<br>
+O: Organization Name，组织名称，公司名称<br>
+OU: Organization Unit Name，组织单位名称，公司部门</p>
+<h3 id="7-2-生成ca配置文件">7.2 生成ca配置文件</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cfssl print-defaults config &gt; ca-config.json</span><br></pre></td></tr></table></figure>
+<p>ca-config.json</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;signing&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;default&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;expiry&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1680h&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;profiles&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;www&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;expiry&quot;</span><span class="punctuation">:</span> <span class="string">&quot;8760h&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;usages&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                    <span class="string">&quot;signing&quot;</span><span class="punctuation">,</span></span><br><span class="line">                    <span class="string">&quot;key encipherment&quot;</span><span class="punctuation">,</span></span><br><span class="line">                    <span class="string">&quot;server auth&quot;</span></span><br><span class="line">                <span class="punctuation">]</span></span><br><span class="line">             <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="7-3-生成证书请求文件配置">7.3 生成证书请求文件配置</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cfssl print-defaults csr &gt; ca-csr.json</span><br></pre></td></tr></table></figure>
+<p>root@vms41:~/CA# cat ca-csr.json</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;CN&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ck8s.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;key&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;algo&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ecdsa&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;size&quot;</span><span class="punctuation">:</span> <span class="number">256</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;names&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;C&quot;</span><span class="punctuation">:</span> <span class="string">&quot;CN&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;ST&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Jiangsu&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;L&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Xuzhou&quot;</span><span class="punctuation">,</span> </span><br><span class="line">            <span class="attr">&quot;O&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Lduan&quot;</span><span class="punctuation">,</span> </span><br><span class="line">            <span class="attr">&quot;OU&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cks&quot;</span> </span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="7-4-生成自签名证书">7.4 生成自签名证书</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cfssl gencert -initca ca-csr.json | cfssljson -bare ca</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@vms41:~/CA<span class="comment"># ll</span></span><br><span class="line">total 28</span><br><span class="line">drwxr-xr-x 2 root root 4096 Sep 23 15:26 ./</span><br><span class="line">drwx------ 6 root root 4096 Sep 23 12:18 ../</span><br><span class="line">-rw-r--r-- 1 root root  343 Sep 23 12:13 ca-config.json</span><br><span class="line">-rw-r--r-- 1 root root  460 Sep 23 15:26 ca.csr</span><br><span class="line">-rw-r--r-- 1 root root  265 Sep 23 12:18 ca-csr.json</span><br><span class="line">-rw------- 1 root root  227 Sep 23 15:26 ca-key.pem</span><br><span class="line">-rw-r--r-- 1 root root  810 Sep 23 15:26 ca.pem</span><br></pre></td></tr></table></figure>
+<h3 id="7-5-生成用户证书请求文件">7.5 生成用户证书请求文件</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cfssl print-defaults csr &gt; client-csr.json</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;CN&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ck8s.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;key&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;algo&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ecdsa&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;size&quot;</span><span class="punctuation">:</span> <span class="number">256</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;hosts&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;www1.ck8s.com&quot;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;names&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;C&quot;</span><span class="punctuation">:</span> <span class="string">&quot;CN&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;L&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Xuzhou&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;ST&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Jiangsu&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;O&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Lduan&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;OU&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cks&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="7-6-签发client证书">7.6 签发client证书</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=www client-csr.json| cfssljson -bare client</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">root@vms41:~/CA<span class="comment"># ll</span></span><br><span class="line">total 44</span><br><span class="line">drwxr-xr-x 2 root root 4096 Sep 23 15:36 ./</span><br><span class="line">drwx------ 6 root root 4096 Sep 23 15:33 ../</span><br><span class="line">-rw-r--r-- 1 root root  343 Sep 23 12:13 ca-config.json</span><br><span class="line">-rw-r--r-- 1 root root  460 Sep 23 15:26 ca.csr</span><br><span class="line">-rw-r--r-- 1 root root  265 Sep 23 12:18 ca-csr.json</span><br><span class="line">-rw------- 1 root root  227 Sep 23 15:26 ca-key.pem</span><br><span class="line">-rw-r--r-- 1 root root  810 Sep 23 15:26 ca.pem</span><br><span class="line">-rw-r--r-- 1 root root  517 Sep 23 15:36 client.csr</span><br><span class="line">-rw-r--r-- 1 root root  306 Sep 23 15:33 client-csr.json</span><br><span class="line">-rw------- 1 root root  227 Sep 23 15:36 client-key.pem</span><br><span class="line">-rw-r--r-- 1 root root  871 Sep 23 15:36 client.pem</span><br></pre></td></tr></table></figure>
+<h2 id="8-cert-manager">8. cert-manager</h2>
+<img src="/20220922/kubernetes-20220922-20-mTLS/2022-09-23-163531.png" class="">
+<p>官方文档：<a target="_blank" rel="noopener" href="https://letsencrypt.org/zh-cn/docs/">https://letsencrypt.org/zh-cn/docs/</a><br>
+运行方式：<a target="_blank" rel="noopener" href="https://letsencrypt.org/zh-cn/how-it-works/">https://letsencrypt.org/zh-cn/how-it-works/</a><br>
+安装文档：<a target="_blank" rel="noopener" href="https://letsencrypt.org/zh-cn/how-it-works/">https://letsencrypt.org/zh-cn/how-it-works/</a></p>
+<h3 id="8-1-创建">8.1 创建</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f cert-manager.yaml</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">root@vms40:~/yaml/cert-manager<span class="comment"># kubectl -n cert-manager get all</span></span><br><span class="line">NAME                                           READY   STATUS    RESTARTS   AGE</span><br><span class="line">pod/cert-manager-594bcb5484-22467              1/1     Running   0          55s</span><br><span class="line">pod/cert-manager-cainjector-544bcd9bfc-bzzzp   1/1     Running   0          55s</span><br><span class="line">pod/cert-manager-webhook-5999fd64fb-gzx9c      1/1     Running   0          55s</span><br><span class="line"></span><br><span class="line">NAME                           TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE</span><br><span class="line">service/cert-manager           ClusterIP   10.103.180.45   &lt;none&gt;        9402/TCP   55s</span><br><span class="line">service/cert-manager-webhook   ClusterIP   10.98.222.244   &lt;none&gt;        443/TCP    55s</span><br><span class="line"></span><br><span class="line">NAME                                      READY   UP-TO-DATE   AVAILABLE   AGE</span><br><span class="line">deployment.apps/cert-manager              1/1     1            1           55s</span><br><span class="line">deployment.apps/cert-manager-cainjector   1/1     1            1           55s</span><br><span class="line">deployment.apps/cert-manager-webhook      1/1     1            1           55s</span><br><span class="line"></span><br><span class="line">NAME                                                 DESIRED   CURRENT   READY   AGE</span><br><span class="line">replicaset.apps/cert-manager-594bcb5484              1         1         1       55s</span><br><span class="line">replicaset.apps/cert-manager-cainjector-544bcd9bfc   1         1         1       55s</span><br><span class="line">replicaset.apps/cert-manager-webhook-5999fd64fb      1         1         1       55s</span><br></pre></td></tr></table></figure>
+<h3 id="8-2-创建clusterIssuer">8.2 创建clusterIssuer</h3>
+<p><strong>创建secret</strong><br>
+dns的token</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Secret</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">cloudflare-api-token-secret</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">cert-manager</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">Opaque</span></span><br><span class="line"><span class="attr">stringData:</span></span><br><span class="line">  <span class="attr">api-token:</span> <span class="string">were2wrj234lk4rj23l</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="8-3-创建clusterissue">8.3 创建clusterissue</h3>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">cert-manager.io/v1alpha2</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ClusterIssuer</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">letsencrypt-dns01</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">acme:</span></span><br><span class="line">    <span class="attr">privateKeySecretRef:</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">letsencrypt-dns01</span></span><br><span class="line">    <span class="attr">server:</span> <span class="string">https://acme-v02.api.letsencrypt.org/directory</span></span><br><span class="line">    <span class="attr">solvers:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">dns01:</span></span><br><span class="line">        <span class="attr">cloudflare:</span></span><br><span class="line">          <span class="attr">email:</span> <span class="string">my-cloudflare-acc@example.com</span></span><br><span class="line">          <span class="attr">apiTokenSecretRef:</span></span><br><span class="line">            <span class="attr">key:</span> <span class="string">api-token</span></span><br><span class="line">            <span class="attr">name:</span> <span class="string">cloudflare-api-token-secret</span></span><br></pre></td></tr></table></figure>
+<div class="note warning no-icon flat"><p>DNS-01 的校验原理是利用 DNS 提供商的 API Key 拿到你的 DNS控制权限， 在 Let’s Encrypt 为 ACME 客户端提供令牌后，ACME 客户端 (cert-manager) 将创建从该令牌和您的帐户密钥派生的 TXT 记录，并将该记录放在 _acmechallenge.&lt;YOUR_DOMAIN&gt;。Let’s Encrypt 将向 DNS 系统查询该记录，如果找到匹配项，就可以颁发证书。此方法不需要你的服务使用 Ingress，并且支持泛域名证书。</p>
+</div>
+<h3 id="8-3-申请证书">8.3 申请证书</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f certificate.yaml </span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">cert-manager.io/v1alpha2</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Certificate</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">www-ck8s-com</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">dnsNames:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">www.ck8s.com</span></span><br><span class="line">  <span class="attr">issuerRef:</span></span><br><span class="line">    <span class="attr">kind:</span> <span class="string">ClusterIssuer</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">letsencrypt-dns01</span></span><br><span class="line">  <span class="attr">secretName:</span> <span class="string">www-ck8s-com-tls</span></span><br></pre></td></tr></table></figure>
+<p><strong>查看证书申请</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@vms40:~/yaml/cert-manager<span class="comment"># kubectl get certificaterequests.cert-manager.io </span></span><br><span class="line">NAME                 APPROVED   DENIED   READY   ISSUER              REQUESTOR                                         AGE</span><br><span class="line">www-ck8s-com-dfwlq   True                False   letsencrypt-dns01   system:serviceaccount:cert-manager:cert-manager   27s</span><br></pre></td></tr></table></figure>
+<p><strong>查看签发状态</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@vms40:~/yaml/cert-manager<span class="comment"># kubectl get challenges.acme.cert-manager.io </span></span><br><span class="line">NAME                                       STATE     DOMAIN         AGE</span><br><span class="line">www-ck8s-com-dfwlq-3476287311-2898304443   pending   www.ck8s.com   63s</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>查看证书</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@vms40:~/yaml/cert-manager<span class="comment"># kubectl get certificate</span></span><br><span class="line">NAME           READY   SECRET             AGE</span><br><span class="line">www-ck8s-com   False   www-ck8s-com-tls   2m38s</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>修改ingress使用签发的证书</strong></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">networking.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Ingress</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">mying</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">ingressClassName:</span> <span class="string">nginx</span></span><br><span class="line">  <span class="attr">tls:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">hosts:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">www1.ck8s.com</span></span><br><span class="line">    <span class="attr">secretName:</span> <span class="string">www-ck8s-com-tls</span></span><br><span class="line">  <span class="attr">rules:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">host:</span> <span class="string">www1.ck8s.com</span></span><br><span class="line">    <span class="attr">http:</span></span><br><span class="line">      <span class="attr">paths:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">path:</span> <span class="string">/</span></span><br><span class="line">        <span class="attr">pathType:</span> <span class="string">Prefix</span></span><br><span class="line">        <span class="attr">backend:</span></span><br><span class="line">          <span class="attr">service:</span></span><br><span class="line">            <span class="attr">name:</span> <span class="string">svc1</span></span><br><span class="line">            <span class="attr">port:</span></span><br><span class="line">              <span class="attr">number:</span> <span class="number">80</span></span><br></pre></td></tr></table></figure>
+<p><strong>自动申请证书</strong><br>
+创建ingress自动去ClusterIssuer申请证书</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">extensions/v1beta1</span> </span><br><span class="line"><span class="attr">kind:</span> <span class="string">Ingress</span> </span><br><span class="line"><span class="attr">metadata:</span> </span><br><span class="line">  <span class="attr">name:</span> <span class="string">solo-ingress</span> </span><br><span class="line">  <span class="attr">annotations:</span> </span><br><span class="line">    <span class="attr">kubernietes.io/ingress.class:</span> <span class="string">&quot;nginx&quot;</span> </span><br><span class="line">    <span class="attr">cert-manager.io/cluster-issuer:</span> <span class="string">&quot;letsencrypt-prod&quot;</span> </span><br><span class="line"><span class="attr">spec:</span> </span><br><span class="line">  <span class="attr">tls:</span> </span><br><span class="line">  <span class="bullet">-</span> <span class="attr">hosts:</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="string">www.ck8s.com</span> </span><br><span class="line">    <span class="attr">secretName:</span> <span class="string">rhce-tls</span> </span><br><span class="line"><span class="attr">rules:</span> </span><br><span class="line"><span class="bullet">-</span> <span class="attr">host:</span> <span class="string">www.ck8s.com</span> </span><br><span class="line">  <span class="attr">http:</span> </span><br><span class="line">    <span class="attr">paths:</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="attr">path:</span> <span class="string">/</span> </span><br><span class="line">      <span class="attr">backend:</span> </span><br><span class="line">        <span class="attr">serviceName:</span> <span class="string">svc1</span> </span><br><span class="line">        <span class="attr">servicePort:</span> <span class="number">80</span></span><br></pre></td></tr></table></figure>
+<h3 id="8-4-使用自签名CA">8.4 使用自签名CA</h3>
+<h4 id="8-4-1-创建secret">8.4.1 创建secret</h4>
+<p>把CA的证书和密钥写入到 secre</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create secret tls ca-key --cert=ca.pem --key=ca-key.pem --namespace=cert-manager</span><br></pre></td></tr></table></figure>
+<h4 id="8-4-2-创建clusterissuer">8.4.2 创建clusterissuer</h4>
+<p>用自己的CA模拟签发机构</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">cert-manager.io/v1alpha2</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ClusterIssuer</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">letsencrypt-prod</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">cert-manager</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">ca:</span></span><br><span class="line">    <span class="attr">secretName:</span> <span class="string">ca-ke</span></span><br></pre></td></tr></table></figure>
+<h4 id="8-4-3-创建ingress">8.4.3 创建ingress</h4>
+<p>ingress中指定签发机构</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">extensions/v1beta1</span> </span><br><span class="line"><span class="attr">kind:</span> <span class="string">Ingress</span> </span><br><span class="line"><span class="attr">metadata:</span> </span><br><span class="line">  <span class="attr">name:</span> <span class="string">solo-ingress</span> </span><br><span class="line">  <span class="attr">annotations:</span> </span><br><span class="line">    <span class="attr">kubernietes.io/ingress.class:</span> <span class="string">&quot;nginx&quot;</span> </span><br><span class="line">    <span class="attr">cert-manager.io/cluster-issuer:</span> <span class="string">&quot;letsencrypt-prod&quot;</span> </span><br><span class="line"><span class="attr">spec:</span> </span><br><span class="line">  <span class="attr">tls:</span> </span><br><span class="line">  <span class="bullet">-</span> <span class="attr">hosts:</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="string">www.ck8s.com</span> </span><br><span class="line">    <span class="attr">secretName:</span> <span class="string">rhce-tls</span> </span><br><span class="line"><span class="attr">rules:</span> </span><br><span class="line"><span class="bullet">-</span> <span class="attr">host:</span> <span class="string">www.ck8s.com</span> </span><br><span class="line">  <span class="attr">http:</span> </span><br><span class="line">    <span class="attr">paths:</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="attr">path:</span> <span class="string">/</span> </span><br><span class="line">      <span class="attr">backend:</span> </span><br><span class="line">        <span class="attr">serviceName:</span> <span class="string">svc1</span> </span><br><span class="line">        <span class="attr">servicePort:</span> <span class="number">80</span></span><br></pre></td></tr></table></figure>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/kubernetes/">kubernetes</a></div><div class="post_share"><div class="social-share" data-image="/img/yuanshen/avatar/20210501094041_26fef.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.png" target="_blank"><img class="post-qr-code-img" src="/img/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.png" target="_blank"><img class="post-qr-code-img" src="/img/alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/20220919/kubernetes-20220919-19-kubeadm%E9%AB%98%E5%8F%AF%E7%94%A8%E9%83%A8%E7%BD%B2/"><img class="prev-cover" src="/img/yuanshen/avatar/bf096b63f6246b60841dc6d1f61c7845500fa275.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">19.kubeadm高可用部署</div></div></a></div><div class="next-post pull-right"><a href="/20220925/kubernetes-20220925-21-%E7%B3%BB%E7%BB%9F%E5%BC%BA%E5%8C%96/"><img class="next-cover" src="/img/yuanshen/avatar/1000.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">21.系统强化</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/20220228/istio-20220228-1-%E6%9C%8D%E5%8A%A1%E7%BD%91%E6%A0%BC/" title="1.服务网格"><img class="cover" src="/img/yuanshen/avatar/0df3d7ca7bcb0a462f0550cc7d87942d6a60af0a.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-28</div><div class="title">1.服务网格</div></div></a></div><div><a href="/20220210/kubernetes-20220210-kubectl%E5%91%BD%E4%BB%A4%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8/" title="kubectl命令自动补全"><img class="cover" src="/img/yuanshen/avatar/949456h38p0.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-10</div><div class="title">kubectl命令自动补全</div></div></a></div><div><a href="/20220216/kubernetes-20220216-k8s%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" title="k8s基础环境配置"><img class="cover" src="/img/yuanshen/avatar/a044ad345982b2b7baab40edbd93e6e676099bae.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-16</div><div class="title">k8s基础环境配置</div></div></a></div><div><a href="/20220806/kubernetes-20220806-1-k8s%E7%AE%80%E4%BB%8B/" title="1.k8s简介"><img class="cover" src="/img/yuanshen/avatar/6d6b36c8dca7430b8429929ff6c3b71d!400x400.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-06</div><div class="title">1.k8s简介</div></div></a></div><div><a href="/20220905/kubernetes-20220905-2-%E5%AE%89%E8%A3%85k8s/" title="2.安装k8s"><img class="cover" src="/img/yuanshen/avatar/b7fd5266d01609241b7224facde357f3e4cd34ed.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-05</div><div class="title">2.安装k8s</div></div></a></div><div><a href="/20220906/kubernetes-20220906-3-k8s%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%AE%A1%E7%90%86/" title="3.k8s的基本管理"><img class="cover" src="/img/yuanshen/avatar/63d9f2d3572c11df029f74b27ec300d9f503c2c7.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-06</div><div class="title">3.k8s的基本管理</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%AE%80%E4%BB%8B-20"><span class="toc-text">1. 简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="toc-text">2. 对称加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="toc-text">3. 非对称加密</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86"><span class="toc-text">3.1数据加密</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D"><span class="toc-text">4. 数字签名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%AF%81%E4%B9%A6%E4%B8%AD%E5%BF%83"><span class="toc-text">5. 证书中心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-k8s%E9%87%8C%E7%9A%84mTLS"><span class="toc-text">6. k8s里的mTLS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E9%AA%8C%E8%AF%81tls"><span class="toc-text">6.1 验证tls</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-cfssl%E5%B7%A5%E5%85%B7%E7%AD%BE%E5%8F%91%E7%A7%81%E6%9C%89%E8%AF%81%E4%B9%A6"><span class="toc-text">7. cfssl工具签发私有证书</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-%E6%A6%82%E5%BF%B5"><span class="toc-text">7.1 概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-%E7%94%9F%E6%88%90ca%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">7.2 生成ca配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6%E8%AF%B7%E6%B1%82%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="toc-text">7.3 生成证书请求文件配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4-%E7%94%9F%E6%88%90%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6"><span class="toc-text">7.4 生成自签名证书</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-5-%E7%94%9F%E6%88%90%E7%94%A8%E6%88%B7%E8%AF%81%E4%B9%A6%E8%AF%B7%E6%B1%82%E6%96%87%E4%BB%B6"><span class="toc-text">7.5 生成用户证书请求文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-6-%E7%AD%BE%E5%8F%91client%E8%AF%81%E4%B9%A6"><span class="toc-text">7.6 签发client证书</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-cert-manager"><span class="toc-text">8. cert-manager</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-%E5%88%9B%E5%BB%BA"><span class="toc-text">8.1 创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-%E5%88%9B%E5%BB%BAclusterIssuer"><span class="toc-text">8.2 创建clusterIssuer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-%E5%88%9B%E5%BB%BAclusterissue"><span class="toc-text">8.3 创建clusterissue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6"><span class="toc-text">8.3 申请证书</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-4-%E4%BD%BF%E7%94%A8%E8%87%AA%E7%AD%BE%E5%90%8DCA"><span class="toc-text">8.4 使用自签名CA</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-4-1-%E5%88%9B%E5%BB%BAsecret"><span class="toc-text">8.4.1 创建secret</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-4-2-%E5%88%9B%E5%BB%BAclusterissuer"><span class="toc-text">8.4.2 创建clusterissuer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-4-3-%E5%88%9B%E5%BB%BAingress"><span class="toc-text">8.4.3 创建ingress</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By ren_mcc</div><div class="footer_custom_text"><a rel="noopener external nofollow noreferrer noopener" target="_blank" href="https://beian.miit.gov.cn/"> <img class="icp-icon entered loading" alt="ICP" src="/img/icp.png" data-ll-status><span>京ICP备2022001205号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>function loadGiscus () {
+  let nowTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
+
+  const config = Object.assign({
+    src: 'https://giscus.app/client.js',
+    'data-repo': 'renmcc/renmcc',
+    'data-repo-id': 'R_kgDOGmaz0g',
+    'data-category-id': 'DIC_kwDOGmaz0s4CSQTq',
+    'data-mapping': 'pathname',
+    'data-theme': nowTheme,
+    'data-reactions-enabled': '1',
+    crossorigin: 'anonymous',
+    async: true
+  },{"category":"Announcements","data-lang":"zh-CN","mapping":"pathname","emit-metadata":"1"})
+
+  let ele = document.createElement('script')
+  for (let key in config) {
+    ele.setAttribute(key, config[key])
+  }
+  document.getElementById('giscus-wrap').insertAdjacentElement('afterbegin',ele)
+}
+
+function changeGiscusTheme () {
+  const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
+
+  function sendMessage(message) {
+    const iframe = document.querySelector('iframe.giscus-frame');
+    if (!iframe) return;
+    iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+  }
+
+  sendMessage({
+    setConfig: {
+      theme: theme
+    }
+  });
+}
+
+if ('Giscus' === 'Giscus' || !false) {
+  if (false) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+  else loadGiscus()
+} else {
+  function loadOtherComment () {
+    loadGiscus()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="7211977673" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="list" data-preload="none" data-autoplay="false" muted></div><script src="https://ifconfig.io/all.js"></script><script src="/js/ip_content.js"></script><script src="https://www.clustrmaps.com/map_v2.png?d=Nn9bjjl1Wty5ejFU6wND1o3jH3o6isyJnZx5HWTAxCU&cl=ffffff"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["link[rel=\"canonical\"]","meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://npm.elemecdn.com/hexo-butterfly-clock/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_injector_config();
+  }
+  </script><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script data-pjax src="https://npm.elemecdn.com/hexo-butterfly-clock/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;20220221/大数据-20220221-大数据概论/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="/img/yuanshen/avatar/20210501094041_26fef.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-02-21</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;20220221/大数据-20220221-大数据概论/&quot;);" href="javascript:void(0);" alt="">大数据概论</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;20220221/大数据-20220221-大数据概论/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;20220210/kubernetes-20220210-kubectl命令自动补全/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="/img/yuanshen/avatar/949456h38p0.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-02-10</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;20220210/kubernetes-20220210-kubectl命令自动补全/&quot;);" href="javascript:void(0);" alt="">kubectl命令自动补全</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;20220210/kubernetes-20220210-kubectl命令自动补全/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;20220806/kubernetes-20220806-1-k8s简介/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="/img/yuanshen/avatar/6d6b36c8dca7430b8429929ff6c3b71d!400x400.jpeg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-08-06</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;20220806/kubernetes-20220806-1-k8s简介/&quot;);" href="javascript:void(0);" alt="">1.k8s简介</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;20220806/kubernetes-20220806-1-k8s简介/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;20221125/golang-20221125-golang简介/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="/img/yuanshen/avatar/1000111.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-11-25</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;20221125/golang-20221125-golang简介/&quot;);" href="javascript:void(0);" alt="">golang简介</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;20221125/golang-20221125-golang简介/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;20221028/redis-20221028-NoSQL数据库简介/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="/img/yuanshen/avatar/a36d4630e6b14d8181d65abf6beb1383.jpeg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-10-28</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;20221028/redis-20221028-NoSQL数据库简介/&quot;);" href="javascript:void(0);" alt="">NoSQL数据库简介</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;20221028/redis-20221028-NoSQL数据库简介/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;20230619/python-20230619-01基础语法/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="/img/yuanshen/avatar/5366d0160924ab18a1113d3fa6c4cbc47b890b7e.jpeg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-06-19</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;20230619/python-20230619-01基础语法/&quot;);" href="javascript:void(0);" alt="">基础语法</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;20230619/python-20230619-01基础语法/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>
