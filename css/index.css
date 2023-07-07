@@ -3311,27 +3311,24 @@ li.categoryBar-list-item:nth-child(9) {
   background: url('/img/k8s.jpg');
 }
 li.categoryBar-list-item:nth-child(10) {
-  background: url('/img/kvm.webp');
-}
-li.categoryBar-list-item:nth-child(11) {
   background: url('/img/nginx.webp');
 }
-li.categoryBar-list-item:nth-child(12) {
+li.categoryBar-list-item:nth-child(11) {
   background: url('/img/python.webp');
 }
-li.categoryBar-list-item:nth-child(13) {
+li.categoryBar-list-item:nth-child(12) {
   background: url('/img/rancher.webp');
 }
-li.categoryBar-list-item:nth-child(14) {
+li.categoryBar-list-item:nth-child(13) {
   background: url('/img/7439a7c5caf87d535f26a4571abb23a082cc51c3.jpg');
 }
-li.categoryBar-list-item:nth-child(15) {
+li.categoryBar-list-item:nth-child(14) {
   background: url('/img/vue.jpeg');
 }
-li.categoryBar-list-item:nth-child(16) {
+li.categoryBar-list-item:nth-child(15) {
   background: url('/img/Big-Data-Hadoop.jpg');
 }
-li.categoryBar-list-item:nth-child(17) {
+li.categoryBar-list-item:nth-child(16) {
   background: url('/img/img_19178.png');
 }
 li.categoryBar-list-item:nth-child(1)>span::after {
@@ -3362,27 +3359,24 @@ li.categoryBar-list-item:nth-child(9)>span::after {
   content: 'k8s学习笔记' !important;
 }
 li.categoryBar-list-item:nth-child(10)>span::after {
-  content: 'kvm学习笔记' !important;
-}
-li.categoryBar-list-item:nth-child(11)>span::after {
   content: 'nginx学习笔记' !important;
 }
-li.categoryBar-list-item:nth-child(12)>span::after {
+li.categoryBar-list-item:nth-child(11)>span::after {
   content: 'python学习笔记' !important;
 }
-li.categoryBar-list-item:nth-child(13)>span::after {
+li.categoryBar-list-item:nth-child(12)>span::after {
   content: 'rancher总结笔记' !important;
 }
-li.categoryBar-list-item:nth-child(14)>span::after {
+li.categoryBar-list-item:nth-child(13)>span::after {
   content: 'redis总结笔记' !important;
 }
-li.categoryBar-list-item:nth-child(15)>span::after {
+li.categoryBar-list-item:nth-child(14)>span::after {
   content: 'vue学习笔记' !important;
 }
-li.categoryBar-list-item:nth-child(16)>span::after {
+li.categoryBar-list-item:nth-child(15)>span::after {
   content: '大数据学习笔记' !important;
 }
-li.categoryBar-list-item:nth-child(17)>span::after {
+li.categoryBar-list-item:nth-child(16)>span::after {
   content: '工具箱' !important;
 }
 li.categoryBar-list-item {
@@ -3396,7 +3390,7 @@ li.categoryBar-list-item {
   }
 }
 .categoryBar-list {
-  max-height: 380px;
+  max-height: 760px;
   overflow: auto;
 }
 .categoryBar-list::-webkit-scrollbar {
@@ -3404,7 +3398,7 @@ li.categoryBar-list-item {
 }
 @media screen and (max-width: 650px) {
   .categoryBar-list {
-    max-height: 320px;
+    max-height: 640px;
   }
 }
 #post-comment .comment-head {
