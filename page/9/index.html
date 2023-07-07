@@ -56,7 +56,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-07-07 20:18:14'
+  postUpdate: '2023-07-08 01:23:00'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -160,117 +160,266 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="referrer" content="no-referrer-when-downgrade" /><script src="/js/jquery.min.js"></script><link rel="stylesheet" href="/js/function.min.css"><link rel="stylesheet" href="/css/iconfont.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><script src="/js/custom.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.gif" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">129</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ren_mccの博客"><span class="site-name">ren_mccの博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220919/kubernetes-20220919-19-kubeadm%E9%AB%98%E5%8F%AF%E7%94%A8%E9%83%A8%E7%BD%B2/" title="19.kubeadm高可用部署">19.kubeadm高可用部署</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-19T10:46:52.000Z" title="发表于 2022-09-19 18:46:52">2022-09-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/kubernetes/">kubernetes</a></span></div><div class="content">1. 前言
-官网：https://kubernetes.io/
-官方文档：https://kubernetes.io/zh-cn/docs/home/
-
-2. 前期准备（所有节点）
-2.1 修改主机名和配置 hosts
-先部署 1master 和 2node 节点，后面再加一个 master 节点
-123456# 在192.168.0.113执行hostnamectl set-hostname  k8s-master-168-0-113# 在192.168.0.114执行hostnamectl set-hostname k8s-node1-168-0-114# 在192.168.0.115执行hostnamectl set-hostname k8s-node2-168-0-115
-配置 hosts
-12345cat &gt;&gt; /etc/hosts&lt;&lt;EOF192.168.0.113 k8s-master-168-0-113192.168.0.114 k8s-node1-168-0-114192.168.0.115 k8s-node2-168-0-115EOF
-2.2 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220915/kubernetes-20220915-18-devops/" title="18.devops">18.devops</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-15T07:52:15.000Z" title="发表于 2022-09-15 15:52:15">2022-09-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/kubernetes/">kubernetes</a></span></div><div class="content">1. 简介
-开发运维一体化
-CI/CD持续集成，持续交付
-
-2. 部署harbor服务器
-2.1 安装docker-ce
-通过文章docker安装和加速安装docker-ce
-2.2 安装harbor
-通过文章harbor安装harbor
-2.3 集群节点配置私有harbor
-123vim /etc/containerd/config.toml        [plugins.&quot;io.containerd.grpc.v1.cri&quot;.registry.mirrors.&quot;192.168.10.251&quot;]          endpoint = [&quot;http://192.168.10.251&quot;]
-重启服务
-1systemctl restart containerd
-3. 部署ops服务器
-3.1 安装docker
-通过文章docker安装和加速安装docker-ce
-3.2 配置docker
-配置私有harbor
-12vim /usr/lib/systemd/system/docker.serviceExecStart=/usr/b ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220915/kubernetes-20220915-17-%E8%B5%84%E6%BA%90%E8%AF%B7%E6%B1%82%E4%B8%8E%E9%99%90%E5%88%B6/" title="17.资源请求与限制">17.资源请求与限制</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-14T16:49:40.000Z" title="发表于 2022-09-15 00:49:40">2022-09-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/kubernetes/">kubernetes</a></span></div><div class="content">1. 简介
-在kubernetets系统上，1个单位的CPU相当于虚拟机上的一颗虚拟CPU（vCPU）或者物理机上的一个超线程（HyperThread，或者称一个逻辑（CPU），它支持分数计量方式，一个核心（1core）相当于1000个微核心（millicores），因此500m相当于是0.5个核心，即二分之一个核心
-2. resource字段来限制
-创建pod做资源限制
-1234567891011121314151617181920212223apiVersion: v1kind: Podmetadata:  creationTimestamp: null  labels:    run: pod1  name: pod1-newspec:  #serviceAccount: sa1  containers:  - image: centos    imagePullPolicy: IfNotPresent    name: pod1    resources:      requests:        memory: &quot;256Mi&quot;        cpu: & ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220914/kubernetes-20220914-16-%E8%AE%A4%E8%AF%81%E6%8E%88%E6%9D%83/" title="16.认证授权">16.认证授权</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-14T03:44:03.000Z" title="发表于 2022-09-14 11:44:03">2022-09-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/kubernetes/">kubernetes</a></span></div><div class="content">1. 认证
-1.1 token登录
-1.1.1 生成token
-1openssl rand -hex 10
-1.1.2 创建认证文件
-12cat /etc/kubernetes/pki/ren.csvd4cd5cf1f44fc9232f4c,ren,3
-1.1.3 修改kube-api配置
-1- --token-auth-file=/etc/kubernetes/pki/ren.csv
-1.1.4 重启kubelet
-1systemctl restart kubelet
-1.1.5 登录
-1kubectl -s https://172.17.203.55:6443 --insecure-skip-tls-verify=true --token=&quot;d4cd5cf1f44fc9232f4c&quot; get nodes
-1.2 kubeconfig登录
-123456789101112131415161718192021[root@node001 chap11-helm]# kubectl config viewapiVersion: v1clusters:- cluster:  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220913/kubernetes-20220913-15-helm/" title="15.helm">15.helm</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-13T09:04:53.000Z" title="发表于 2022-09-13 17:04:53">2022-09-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/kubernetes/">kubernetes</a></span></div><div class="content">1. 简介
-helm的作用就是把许多的定义比如svc，deployment，seucrt一次性全部定义好，放在源里统一管理，方便部署到其他集群上。
-2. 安装helm
-https://github.com/helm/helm/releases/tag/v3.2.1
-tar zxf helm-v3.2.1-linux-amd64.tar.gz
-mv linux-amd64/helm /usr/local/bin/
-编辑/etc/profile
-source &lt;(helm completion bash)
-保存退出
-source /etc/profil
-3. helm仓库
-12345helm repo listhelm repo add azure http://mirror.azure.cn/kubernetes/charts/helm repo add github https://burdenbear.github.io/kube-charts-mirrorhelm repo add stable https://kubernetes.oss-cn-hangzhou.aliyu ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220913/kubernetes-20220913-14-%E7%BD%91%E7%BB%9C%E7%AD%96%E7%95%A5/" title="14.网络策略">14.网络策略</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-13T07:14:35.000Z" title="发表于 2022-09-13 15:14:35">2022-09-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/kubernetes/">kubernetes</a></span></div><div class="content">1. pod间通信
-
-2. 网络解决方案
-CNI(container network interface) CNCF下的一个项目，由coreOS提出
-通过插件的方式统一配置
-flannel—基于overlay 不支持网络策略
-calico—基于BGP 支持网络策略
-canal 支持网络策略
-3. 各种解决方案的对比
-
-不管哪种解决方案，每个pod都有独立IP，可以直接通信，只是性能及配置的难易及是否支持网络策略
-4. 网络策略
-只允许特定的客户端能访问，其他客户端不能访问
-1.此网络策略要保护谁
-2.指定入口流量还是出口流量
-3.具体的规则
-4.1 查看集群是否有网络策略
-1kubectl get networkpolicies
-4.2 创建策略
-只允指定网络能访问
-1234567891011121314151617181920212223242526apiVersion: networking.k8s.io/v1kind: NetworkPolicymetadata:  name: mypolicy1  namespace: chap10-netspec:  podSelector: ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220913/kubernetes-20220913-13-k8s%E5%AE%89%E8%A3%85calico%E6%97%B6%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E7%BD%91%E5%8D%A1/" title="13.k8s安装calico时如何选择网卡">13.k8s安装calico时如何选择网卡</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-13T05:30:04.000Z" title="发表于 2022-09-13 13:30:04">2022-09-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/kubernetes/">kubernetes</a></span></div><div class="content">1. 了解calico的通信
-默认情况下calico使用的是IPIP模式进行通信，所有节点之间建立tunl0隧道，每创建一个pod在宿主机上都会产生一个以cali开头的虚拟接口，如下图pod1生成了一个calixxxx网卡，pod2生成了一个caliyyyy虚拟网卡。每个pod发出去的数据包会直接转发到cali开头的网卡，这个接口跟pod里的网卡是veth pair的关系。
-veth pari最直接的理解就是&quot;网线直连&quot;，pod1发出去的所有数据包，”闭着眼“转发给calixxx，calixxx从其他地方收到数据包”闭着眼“转发给pod1.
-
-cali开头的网卡会连接到tunl0上，pod1和pod2通信时，pod1发出的数据包先到达calixxx，然后进入vms71的tunl0接口，再然后到达隧道的另一端vms72的tunl0接口，然后转发到caliyyy，最终到达了pod2,所以tunl0隧道的作用就是封装所有pod之间的流量。
-现在的问题是tunl0隧道所走的物理线路是哪条呢？默认情况下calico会自动选择，但是如果有多张网卡的话我们想手动选择网卡，下面分成 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220912/kubernetes-20220912-12-%E7%BD%91%E7%BB%9C/" title="12.calico通信">12.calico通信</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-12T15:09:26.000Z" title="发表于 2022-09-12 23:09:26">2022-09-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/kubernetes/">kubernetes</a></span></div><div class="content">1. 安装etcd集群
-通过文章部署etcd集群部署etcd集群
-2. 安装docker-ce
-通过文章docker安装和加速安装docker-ce
-2.1 修改配置
-修改docker启动脚本配置存储到etcd
-1ExecStart=/usr/bin/dockerd --cluster-store=etcd://192.168.10.41:2379 -H fd:// --containerd=/run/containerd/containerd.sock
-2.2 重启docker
-12systemctl daemon-reloadsystemctl restart docker
-3. 安装calico
-3.1 创建目录
-1mkdir /etc/calico
-3.2 创建配置文件
-[root@node003 ~]# cat /etc/calico/calicoctl.cfg
-123456apiVersion: v1kind: calicoApiConfigmetadata:spec:  datastoreType: &quot;etcdv2&quot;   etcdEndpoints:  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220911/kubernetes-20220911-11-%E6%9C%8D%E5%8A%A1%E5%8F%91%E5%B8%83/" title="11.服务发布">11.服务发布</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-11T05:29:10.000Z" title="发表于 2022-09-11 13:29:10">2022-09-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/kubernetes/">kubernetes</a></span></div><div class="content">1. 简介
-Service的出现，就是解决ip不固定的问题
-当Pod宕机后重新生成时，其IP等状态信息可能会变动，Service会根据Pod的Label对这些状态信息进行监控和变更，保证上游服务不受Pod的变动而影响。
-在 Kubernetes集群中，每个 Node运行一个 kube-proxy进程。 kube-proxy负责为 Service实现了一种 VIP（虚拟 IP）的形式，而不是 ExternalName的形式。在 Kubernetes v1.0版本，代理完全在 userspace。在 Kubernetes v1.1版本，新增了 iptables代理，但并不是默认的运行模式。从 Kubernetes v1.2起，默认就是 iptables代理。在 Kubernetes v1.8.0-beta.0中，添加了 ipvs代理。在 Kubernetes 1.14版本开始默认使用 ipvs代理。
-2. Service 基础导论
+    })(window)</script><meta name="referrer" content="no-referrer-when-downgrade" /><script src="/js/jquery.min.js"></script><link rel="stylesheet" href="/js/function.min.css"><link rel="stylesheet" href="/css/iconfont.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><script src="/js/custom.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.gif" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">149</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ren_mccの博客"><span class="site-name">ren_mccの博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221125/golang-20221125-golang%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="golang数据类型">golang数据类型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-25T15:02:31.000Z" title="发表于 2022-11-25 23:02:31">2022-11-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">数据类型概览
+基础数据类型
 
 
-客户端访问节点时通过 iptables实现的
-iptables规则是通过 kube-proxy写入的
-apiserver通过监控 kube-proxy去进行 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220910/kubernetes-20220910-10-%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" title="10.定时任务">10.定时任务</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-10T15:53:03.000Z" title="发表于 2022-09-10 23:53:03">2022-09-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/kubernetes/">kubernetes</a></span></div><div class="content">1. 简介
-Kubernetes jobs主要是针对短时和批量的工作负载。它是为了结束而运行的，而不是像deployment、replicasets、replication controllers和DaemonSets等其他对象那样持续运行。
-Kubernetes Jobs会一直运行到Job中指定的任务完成。也就是说，如果pods给出退出代码0，那么Job就会退出。
-2. job
-2.1 创建job
-1kubectl create job my-job --image=busybox --dry-run=client -o yaml -- &#x27;touch /tmp/abc.txt;sleep 10&#x27; &gt; myjob.yaml
-1234567891011121314151617181920212223242526apiVersion: batch/v1kind: Jobmetadata:  creationTimestamp: null  name: my-jobspec:  backoffLimit: 6  completions: 6  parallelism ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/8/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#content-inner">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/#content-inner">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/#content-inner">13</a><a class="extend next" rel="next" href="/page/10/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.gif" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ren_mcc</div><div class="author-info__description">一个收藏回忆与分享技术的地方！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">129</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/renmcc"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230701/python-20230701-%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" title="序列化和反序列化">序列化和反序列化</a><time datetime="2023-06-30T22:14:52.000Z" title="发表于 2023-07-01 06:14:52">2023-07-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230628/python-20230628-%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/" title="目录文件处理">目录文件处理</a><time datetime="2023-06-28T09:02:25.000Z" title="发表于 2023-06-28 17:02:25">2023-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230628/python-20230628-functools%E6%A8%A1%E5%9D%97/" title="functools模块">functools模块</a><time datetime="2023-06-28T06:27:10.000Z" title="发表于 2023-06-28 14:27:10">2023-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230628/python-20230628-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" title="插入排序">插入排序</a><time datetime="2023-06-28T06:20:00.000Z" title="发表于 2023-06-28 14:20:00">2023-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230627/python-20230627-%E7%B1%BB%E5%9E%8B%E6%B3%A8%E9%87%8A/" title="类型注释">类型注释</a><time datetime="2023-06-27T11:25:46.000Z" title="发表于 2023-06-27 19:25:46">2023-06-27</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline">
+
+类型
+长度(字节)
+默认值
+说明
+
+
+
+
+bool
+1
+false
+
+
+
+byte
+1
+0
+uint8，取值范围[0,255]
+
+
+rune
+4
+0
+Unicode Code Point, int32
+
+
+int, uint
+4或8
+0
+32 或 64 位，取决于操作系统
+
+
+int8, uint8
+1
+0
+-128 ~ 127, 0 ~ 255
+
+
+int16, uint16
+2
+0
+-32768 ~ 32767, 0 ~ 65535
+
+
+int32, uint32
+4
+0
+-21亿~ 21亿, 0 ~ 42亿，rune是int32 的别名
+
+
+int64, uint64
+8
+0
+
+
+
+float32
+4
+0.0
+
+
+
+float64
+8
+0.0
+
+
+
+complex64
+8
+
+
+
+
+complex128
+16
+
+
+
+
+uintptr
+4或8
+
+以存储指针的 uint32 或 uint64 整数
+
+
+
+123456789101112131415161718192021222324252627282930313233343536373839fmt.Pr ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221125/golang-20221125-golang%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" title="golang基础语法">golang基础语法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-25T06:32:23.000Z" title="发表于 2022-11-25 14:32:23">2022-11-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">标识符与关键字
+  go变量、常量、自定义类型、包、函数的命名方式必须遵循以下规则：
+
+首字符可以是任意Unicode字符或下划线。
+首字符之外的部分可以是Unicode字符、下划线或数字。
+名字的长度无限制。
+
+
+理论上名字里可以有汉字，甚至可以全是汉字，但实际中不要这么做。
+
+Go语言关键字
+1break  default  func  interface  select  case  defer  go  map  struct  chan  else  goto  package  switch  const  if  range  type  continue  for  import  return  fallthrough  var
+常量
+1true  false  iota  nil   
+数据类型
+1int  int8  int16  int32  int64  uint  uint8  uint16  uint32  uint64  uintptr  float32  float64  complex128  complex64  bool  byte  rune  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221125/golang-20221125-golang%E7%AE%80%E4%BB%8B/" title="golang简介">golang简介</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-25T06:04:30.000Z" title="发表于 2022-11-25 14:04:30">2022-11-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">Go语言发展历史
+阵容豪华的创使人团队
+Ken Thompson
+
+1966年：加入了贝尔实验室，在参与 Multics （多路信息计算）开发期间，创造出了B语言，并用一个月的时间用B语言开发了全新的操作系统UNICS，后来改名为我们所熟悉的UNIX 操作系统。
+1971年：和丹尼斯·利奇（Dennis Ritchie）一起共同发明了C语言。
+1973年：和丹尼斯·利奇（Dennis Ritchie）使用C语言重写了UNIX，并安装于PDP-11的机器之上。
+1983年：美国计算机协会将图灵奖授予汤普森。
+2000年：离开贝尔实验室，已退休的汤普森成为了一名飞行员。
+2006年：加入Google工作。
+2007年：64岁的高龄，与Rob Pike和Robert Griesemer主导了Go语言的开发。
+
+Rob Pike
+
+Go语言项目总负责人。
+贝尔实验室Unix团队成员，参与的项目包括Plan 9，Inferno操作系统和Limbo编程语言。
+UTF-8字符集规范唯二的发明人之一（另一位是Ken Thompson）。
+《UNIX环境编程》和《程序设计实践》这两本书的作者之一。
+第2 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221031/nginx-20221031-nginx/" title="nginx">nginx</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-31T15:46:50.000Z" title="发表于 2022-10-31 23:46:50">2022-10-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/nginx/">nginx</a></span></div><div class="content">一、Nginx 简介
+什么是 Nginx?
+Nginx (engine x) 是一款轻量级的 Web 服务器 、反向代理服务器及电子邮件（IMAP/POP3）代理服务器。
+
+什么是反向代理？
+反向代理（Reverse Proxy）方式是指以代理服务器来接受 internet 上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给 internet 上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。
+
+二、Nginx 入门
+
+详细安装方法请参考：Nginx 运维
+nginx 的使用比较简单，就是几条命令。
+
+常用到的命令如下：
+12345678nginx -s stop       快速关闭Nginx，可能不保存相关信息，并迅速终止web服务。nginx -s quit       平稳关闭Nginx，保存相关信息，有安排的结束web服务。nginx -s reload     因改变了Nginx相关配置，需要重新加载配置而重载。nginx -s reopen     重新打开日志文件。nginx -c filename   为 Nginx 指定 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221029/redis-20221029-Redis%E6%A6%82%E8%BF%B0%E5%AE%89%E8%A3%85/" title="Redis概述安装">Redis概述安装</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-29T14:37:10.000Z" title="发表于 2022-10-29 22:37:10">2022-10-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/redis/">redis</a></span></div><div class="content">1. 概述
+Redis是一个开源的key-value存储系统
+和Memcached类似，它支持存储的value类型相对更多，包括string（字符串）、list（链表）、set（集合）、zset（sorted set --有序集合）和hash（哈希类型）
+这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且这些操作都是原子性的。
+在此基础上，为了保证效率，数据都是缓存在内存中。
+区别的时Redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件。
+并且在此基础上实现了master-slave(主从)同步。
+2. 应用场景
+2.1 配合关系型数据库做高速缓存
+
+高频次，热门访问的数据，降低数据库IO
+分布式架构，做session共享
+
+
+2.2 多样的数据结构存储持久化数据
+
+3. Redis相关知识
+
+Redis是单线程+多路IO复用技术
+多路复用是指使用一个线程来检查多个文件描述符（Socket）的就绪状态，比如调用select和poll函数，传入多个文件描述符，如果有一个文件描述符就绪，则返回，否则阻塞直到超时。得到就绪状态后 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221028/redis-20221028-NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E4%BB%8B/" title="NoSQL数据库简介">NoSQL数据库简介</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-27T16:31:35.000Z" title="发表于 2022-10-28 00:31:35">2022-10-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/redis/">redis</a></span></div><div class="content">1. 技术发展
+
+解决功能性问题：Java、Jsp、RDBMS、Tomcat、HTML、Linux、JDBC、SVN
+解决扩展性问题：Struts、Spring、SpringMVC、Hibernate、Mybatis
+解决性能的问题：NoSQL、Java线程、Hadoop、Nginx、MQ、ElasticSearch
+
+1.1 Web1.0时代
+Web1.0的时代，数据访问量很有限、用一夫当关的高性能的单点服务器可以解决大部分问题。
+
+1.2 Web2.0时代
+随着Web2.0时代的到来，用户访问量大幅度提升，同时产生了大量的用户数据。加上后来的智能移动设备普及，所有的互联网平台都面临了巨大的性能挑战。
+
+1.3 解决CPU及内存压力
+
+1.4 解决IO压力
+
+2. NoSQL数据库概述
+NoSQL(NoSQL = Not Only SQL)，意即“不仅仅是SQL”，泛指非关系型的数据库。
+NoSQL不依赖业务逻辑方式存储，而以简单的key-value模式存储。因此大大的增加了数据库的扩展能力。
+
+不遵循SQL标准。
+不支持ACID
+远超于SQL的性能
+
+3. 适用场景
+
+对数据高并发 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221023/kafka-20221023-kafka%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/" title="kafka安装部署">kafka安装部署</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-23T12:50:34.000Z" title="发表于 2022-10-23 20:50:34">2022-10-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/kafka/">kafka</a></span></div><div class="content">1. 集群规划
+
+
+
+hadoop101
+hadoop102
+hadoop103
+
+
+
+
+zk
+zk
+zk
+
+
+kafka
+kafka
+kafka
+
+
+
+2. 集群部署
+官方下载地址：http://kafka.apache.org/downloads.html
+2.1 解压安装包
+1mkdir /opt/module &amp;&amp; tar xf kafka_2.12-3.0.0.tgz -C /opt/module/
+2.2 修改解压后的文件名称
+1
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221023/kafka-20221023-Kafka%E6%A6%82%E8%BF%B0/" title="Kafka概述">Kafka概述</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-23T08:08:01.000Z" title="发表于 2022-10-23 16:08:01">2022-10-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/kafka/">kafka</a></span></div><div class="content">1. 定义
+Kafka传统定义： Kafka是一个分布式的基于发布/订阅模式的消息队列（MessageQueue），主要应用于大数据实时处理领域。
+发布/订阅： 消息的发布者不会将消息直接发送给特定的订阅者，而是将发布的消息分为不同的类别，订阅者只接收感兴趣的消息。
+kafka最新定义： Kafka是一个开源的分布式事件流平台（Event Streaming Platform），被数千家公司用于高性能数据管道、流分析、数据集成和关键任务应用。
+
+2. 消息队列
+目前企业中比较常见的消息队列产品主要有 Kafka、ActiveMQ、RabbitMQ、RocketMQ等。
+在大数据场景主要采用Kafka作为消息队列。在JavaEE开发中主要采用ActiveMQ、RabbitMQ、RocketMQ。
+2.1 传统消息队列的应用场景
+传统的消息队列的主要应用场景包括：缓存/消峰、解耦和异步通信。
+2.1.1 缓存/消峰
+有助于控制和优化数据流经过系统的速度，解决生产消息和消费消息的处理速度不一致的情况。
+
+2.1.2 解耦
+允许你独立的扩展或修改两边的处理过程，只要确保它们遵守同样的接口约束
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221012/istio-20221012-8-envoy/" title="8.envoy">8.envoy</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-12T09:40:23.000Z" title="发表于 2022-10-12 17:40:23">2022-10-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/istio/">istio</a></span></div><div class="content">1. 配置文件结构
+侦听器Listener
+监听进网关inbound的流量，listener只接受来自绑定端口的请求。任何通过其他端口进来的请求都不会被envoy看到或者处理，发送该请求的用户只会获得错误响应。
+一旦请求被listener接受，他就会经过一条过滤链（filter chain），这个过滤链描述请求一旦进入到envoy之后会被如何处理。
+filterchain 由一些列的filter组成。
+filter决定请求是否继续传递到下一条filter，还是返回给用户404错误。
+如果通过了所有的filter之后，route（filter chain的扩展）将httpd请求转发到正确的集群或者服务（k8s里的svc的概念）。
+
+listen–监听器
+ 1.监听的地址
+ 2.过滤链
+  filter1
+  filter2
+  filter3
+这里filter是用于限制过来的流量的
+比如限速
+比如修改报头信息等
+cluster
+ 转发规则
+ endpoints
+ --指定后端地址
+
+2. 自定义envoy
+2.1 创建2个后端容器
+12docker run -d --name web1  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221011/istio-20221011-7-%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86/" title="7.安全管理">7.安全管理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-11T07:43:47.000Z" title="发表于 2022-10-11 15:43:47">2022-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/istio/">istio</a></span></div><div class="content">1. 简介
+mTLS (mutual TLS，双向TLS)： 让客户端和服务器端通信的时候都必须进行TLS认证
+默认情况下，在网格内部默认启用了mTLS了。
+2. 启用tls网关
+2.1 创建私钥
+1openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/istio/ingressgateway-certs/mykey.key -out /etc/istio/ingressgateway-certs/mycrt.crt -subj &quot;/CN=mytest/O=my-test&quot;
+2.2 创建secret
+1kubectl create secret generic istio-ingressgateway-certs --from-file /etc/istio/ingressgateway-certs/mykey.key --from-file /etc/istio/ingressgateway-certs/mycrt.crt -n istio-system
+2.3 创建gateway
+123 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/8/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#content-inner">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/#content-inner">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/#content-inner">15</a><a class="extend next" rel="next" href="/page/10/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.gif" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ren_mcc</div><div class="author-info__description">一个收藏回忆与分享技术的地方！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">149</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/renmcc"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-SockerServer/" title="SockerServer">SockerServer</a><time datetime="2023-07-07T15:28:58.000Z" title="发表于 2023-07-07 23:28:58">2023-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-TCP%E7%BC%96%E7%A8%8B/" title="TCP编程">TCP编程</a><time datetime="2023-07-07T14:23:21.000Z" title="发表于 2023-07-07 22:23:21">2023-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/" title="二叉树遍历">二叉树遍历</a><time datetime="2023-07-07T14:14:38.000Z" title="发表于 2023-07-07 22:14:38">2023-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%A4%9A%E8%BF%9B%E7%A8%8B/" title="多线程和多进程">多线程和多进程</a><time datetime="2023-07-07T13:42:46.000Z" title="发表于 2023-07-07 21:42:46">2023-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-%E9%93%BE%E6%8E%A5%E8%A1%A8/" title="链接表">链接表</a><time datetime="2023-07-07T13:39:15.000Z" title="发表于 2023-07-07 21:39:15">2023-07-07</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>分类</span>
             <a class="card-more-btn" href="/categories/" title="查看更多">
@@ -278,8 +427,8 @@ Kubernetes Jobs会一直运行到Job中指定的任务完成。也就是说，�
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/"><span class="card-category-list-name">JavaScript</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/containerd/"><span class="card-category-list-name">containerd</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/docker/"><span class="card-category-list-name">docker</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/docker-compose/"><span class="card-category-list-name">docker-compose</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/git/"><span class="card-category-list-name">git</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/golang/"><span class="card-category-list-name">golang</span><span class="card-category-list-count">38</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/istio/"><span class="card-category-list-name">istio</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/kafka/"><span class="card-category-list-name">kafka</span><span class="card-category-list-count">2</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/containerd/" style="font-size: 1.28em; color: rgb(123, 66, 160)">containerd</a><a href="/tags/JavaScript/" style="font-size: 1.15em; color: rgb(57, 112, 91)">JavaScript</a><a href="/tags/docker/" style="font-size: 1.35em; color: rgb(114, 100, 153)">docker</a><a href="/tags/git/" style="font-size: 1.15em; color: rgb(170, 147, 118)">git</a><a href="/tags/docker-compose/" style="font-size: 1.25em; color: rgb(132, 118, 30)">docker-compose</a><a href="/tags/istio/" style="font-size: 1.35em; color: rgb(45, 68, 166)">istio</a><a href="/tags/kubrnetes/" style="font-size: 1.32em; color: rgb(142, 84, 32)">kubrnetes</a><a href="/tags/kubernetes/" style="font-size: 1.42em; color: rgb(158, 45, 168)">kubernetes</a><a href="/tags/golang/" style="font-size: 1.45em; color: rgb(19, 10, 71)">golang</a><a href="/tags/kafka/" style="font-size: 1.18em; color: rgb(181, 40, 45)">kafka</a><a href="/tags/nginx/" style="font-size: 1.15em; color: rgb(99, 9, 67)">nginx</a><a href="/tags/python/" style="font-size: 1.38em; color: rgb(192, 200, 107)">python</a><a href="/tags/redis/" style="font-size: 1.18em; color: rgb(191, 6, 32)">redis</a><a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.15em; color: rgb(10, 198, 170)">工具</a><a href="/tags/rancher/" style="font-size: 1.22em; color: rgb(116, 169, 196)">rancher</a><a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 1.22em; color: rgb(18, 107, 66)">大数据</a><a href="/tags/vue/" style="font-size: 1.25em; color: rgb(184, 59, 50)">vue</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">25</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">十一月 2022</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">129</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2021-12-06T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">256.9k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-07-07T12:18:13.415Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By ren_mcc</div><div class="footer_custom_text"><a rel="noopener external nofollow noreferrer noopener" target="_blank" href="https://beian.miit.gov.cn/"> <img class="icp-icon entered loading" alt="ICP" src="/img/icp.png" data-ll-status><span>京ICP备2022001205号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/docker-compose/" style="font-size: 1.26em; color: rgb(102, 136, 25)">docker-compose</a><a href="/tags/containerd/" style="font-size: 1.3em; color: rgb(73, 166, 190)">containerd</a><a href="/tags/docker/" style="font-size: 1.38em; color: rgb(141, 80, 157)">docker</a><a href="/tags/git/" style="font-size: 1.15em; color: rgb(149, 160, 177)">git</a><a href="/tags/JavaScript/" style="font-size: 1.15em; color: rgb(121, 95, 30)">JavaScript</a><a href="/tags/golang/" style="font-size: 1.45em; color: rgb(105, 112, 149)">golang</a><a href="/tags/kafka/" style="font-size: 1.19em; color: rgb(102, 187, 188)">kafka</a><a href="/tags/istio/" style="font-size: 1.38em; color: rgb(66, 145, 99)">istio</a><a href="/tags/kubrnetes/" style="font-size: 1.34em; color: rgb(77, 59, 79)">kubrnetes</a><a href="/tags/kubernetes/" style="font-size: 1.41em; color: rgb(80, 158, 186)">kubernetes</a><a href="/tags/nginx/" style="font-size: 1.15em; color: rgb(185, 91, 21)">nginx</a><a href="/tags/rancher/" style="font-size: 1.22em; color: rgb(97, 14, 58)">rancher</a><a href="/tags/python/" style="font-size: 1.45em; color: rgb(74, 38, 9)">python</a><a href="/tags/redis/" style="font-size: 1.19em; color: rgb(29, 63, 89)">redis</a><a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.15em; color: rgb(58, 148, 153)">工具</a><a href="/tags/vue/" style="font-size: 1.26em; color: rgb(114, 137, 185)">vue</a><a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 1.22em; color: rgb(151, 155, 11)">大数据</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">21</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">25</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">十一月 2022</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">149</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2021-12-06T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">302.5k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-07-07T17:23:00.079Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By ren_mcc</div><div class="footer_custom_text"><a rel="noopener external nofollow noreferrer noopener" target="_blank" href="https://beian.miit.gov.cn/"> <img class="icp-icon entered loading" alt="ICP" src="/img/icp.png" data-ll-status><span>京ICP备2022001205号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
   const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
   if ($mermaid.length === 0) return
   const runMermaid = () => {
@@ -486,7 +635,7 @@ document.addEventListener('pjax:error', (e) => {
   }
 })</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
     var parent = document.getElementById('recent-posts');
-    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/python/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 python (18)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/containerd/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🎮 containerd (6)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/docker/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🐱 docker (8)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/kubernetes/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👩‍💻 kubernetes (27)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/golang/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📒 golang (38)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/redis/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">💡 redis (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><a class="magnet_link_more"  href="https://blog.renm.cc/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/python/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 python (38)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/containerd/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🎮 containerd (6)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/docker/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🐱 docker (8)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/kubernetes/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👩‍💻 kubernetes (27)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/golang/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📒 golang (38)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/redis/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">💡 redis (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><a class="magnet_link_more"  href="https://blog.renm.cc/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
     console.log('已挂载magnet')
     parent.insertAdjacentHTML("afterbegin",child)}
      </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #b30070}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>

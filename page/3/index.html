@@ -56,7 +56,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-07-07 20:18:14'
+  postUpdate: '2023-07-08 01:23:00'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -160,170 +160,260 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="referrer" content="no-referrer-when-downgrade" /><script src="/js/jquery.min.js"></script><link rel="stylesheet" href="/js/function.min.css"><link rel="stylesheet" href="/css/iconfont.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><script src="/js/custom.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.gif" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">129</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ren_mccの博客"><span class="site-name">ren_mccの博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230328/vue-20230328-vue-router/" title="vue-router">vue-router</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-28T09:19:57.000Z" title="发表于 2023-03-28 17:19:57">2023-03-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/vue/">vue</a></span></div><div class="content">1. 前端路由的概念
-1.1 什么是路由
-路由（英文：router）就是对应关系。
-1.2 SPA与前端路由
-SPA 指的是一个 web 网站只有唯一的一个 HTML 页面，所有组件的展示与切换都在这唯一的一个页面内完成。
-此时，不同组件之间的切换需要通过前端路由来实现。
-结论：在 SPA 项目中，不同功能之间的切换，要依赖于前端路由来完成！
-1.3 什么是前端路由
-通俗易懂的概念：Hash 地址与组件之间的对应关系
-1.4 前端路由的工作方式
-① 用户点击了页面上的路由链接
-② 导致了 URL 地址栏中的 Hash 值发生了变化
-③ 前端路由监听了到 Hash 地址的变化
-④ 前端路由把当前 Hash 地址对应的组件渲染到浏览器中
+    })(window)</script><meta name="referrer" content="no-referrer-when-downgrade" /><script src="/js/jquery.min.js"></script><link rel="stylesheet" href="/js/function.min.css"><link rel="stylesheet" href="/css/iconfont.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><script src="/js/custom.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.gif" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">149</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ren_mccの博客"><span class="site-name">ren_mccの博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230701/python-20230701-%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" title="序列化和反序列化">序列化和反序列化</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-30T22:14:52.000Z" title="发表于 2023-07-01 06:14:52">2023-07-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">1. 序列化和反序列化
+1.1 为什么要序列化
+内存中的字典、列表、集合以及各种对象，如何保存到一个文件中？
+如果是自己定义的类的实例，如何保存到一个文件中？
+如何从文件中读取数据，并让它们在内存中再次恢复成自己对应的类的实例？
+要设计一套协议，按照某种规则，把内存中数据保存到文件中。文件是一个字节序列，所以必须把数据转换成字节序列，输出到文件。这就是序列化。
+反之，从文件的字节序列恢复到内存并且还是原来的类型，就是反序列化。
+1.2 定义
+
+serialization 序列化
+
+将内存中对象存储下来，把它变成一个个字节。 数据结构 → 二进制
 
 
-结论：前端路由，指的是 Hash 地址与组件之间的对应关系！
+deserialization 反序列化
 
-2. vue-router
-vue-router 是 vue.js 官方给出的路由解决方案。它只能结合 vue 项目进行使用，能够轻松的管理 SPA 项目中组件的切换。
-vue-router 的官方文档地址：https://router.vuejs.org/zh/
-2.1 vue-rout ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230328/vue-20230328-vue%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6%E6%8F%92%E6%A7%BD%E4%BB%A5%E5%8F%8A%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/" title="vue动态组件插槽以及自定义指令">vue动态组件插槽以及自定义指令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-28T06:44:28.000Z" title="发表于 2023-03-28 14:44:28">2023-03-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/vue/">vue</a></span></div><div class="content">1. 动态组件
-动态组件指的是动态切换组件的显示与隐藏。
-1.1 如何实现动态组件渲染
-vue 提供了一个内置的 &lt;component&gt; 组件，专门用来实现动态组件的渲染。示例代码如下：
-123456789101112131415161718192021222324252627282930&lt;template&gt;  &lt;div id=&quot;app&quot;&gt;    &lt;!-- 通过is属性，动态指定要渲染的组件 --&gt;    &lt;component :is=&quot;comName&quot;&gt;&lt;/component&gt;    &lt;!-- 点击按钮，动态切换组件的名称 --&gt;    &lt;button @click=&quot;comName = &#x27;LeftCom&#x27;&quot;&gt;展示 Left 组件&lt;/button&gt;    &lt;button @click=&quot;comName = &#x27;RightCom&#x27;&quot;&gt;展示 Right  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230327/vue-20230327-vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8C%E6%95%B0%E6%8D%AE%E5%85%B1%E4%BA%AB/" title="vue生命周期和数据共享">vue生命周期和数据共享</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-27T09:22:58.000Z" title="发表于 2023-03-27 17:22:58">2023-03-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/vue/">vue</a></span></div><div class="content">1. 组件的生命周期
-生命周期（Life Cycle）是指一个组件从创建 -&gt; 运行 -&gt; 销毁的整个阶段，强调的是一个时间段。
-生命周期函数：是由 vue 框架提供的内置函数，会伴随着组件的生命周期，自动按次序执行。
-
-注意：生命周期强调的是时间段，生命周期函数强调的是时间点。
-
-2. 组件之间的数据共享
-2.1 组件之间的关系
-在项目开发中，组件之间的最常见的关系分为如下两种：
-① 父子关系
-② 兄弟关系
-
-2.2 父子组件之间的数据共享
-父子组件之间的数据共享又分为：
-① 父 -&gt; 子共享数据
-② 子 -&gt; 父共享数据
-2.3 父组件向子组件共享数据
-父组件向子组件共享数据需要使用自定义属性。示例代码如下：
-
-父组件
-12345678910111213141516171819202122232425&lt;template&gt;  &lt;div id=&quot;app&quot;&gt;    &lt;TestVue :msg=&quot;message&quot; :user=&quot;userinfo&quot;&gt;&lt;/TestVue ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230326/vue-20230326-vue%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" title="vue基础入门">vue基础入门</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-25T16:23:58.000Z" title="发表于 2023-03-26 00:23:58">2023-03-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/vue/">vue</a></span></div><div class="content">1. vue介绍
-1.1 什么是vue
-官方给出的概念：Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的前端框架。
-
-构建用户界面
-
-用vue往html页面中填充数据，非常的方便
+将文件的一个个字节恢复成内存中对象。 二进制 → 数据结构
 
 
-框架
 
-框架是一套现成的解决方案，程序员只能遵守框架的规范，去编写自己的业务功能
-要学习vue，就是在学习vue框架中规定的用法
-vue的指令、组件（是对UI结构的复用）、路由、Vuex、vue组件库
-只有把上面罗列的内容掌握以后，才有才发vue项目的能力
+序列化保存到文件就是持久化。
+可以将数据序列化后持久化，或者网络传输；也可以将从文件中或者网络接收到的字节序列反序列化。
+Python 提供了pickle 库。
+1.3 pickle
+Python中的序列化、反序列化模块
+
+
+
+函数
+说明
 
 
 
 
-1.2 vue的特性
-vue 框架的特性，主要体现在如下两方面：
-① 数据驱动视图
-② 双向数据绑定
-1.2.1 数据驱动视图
-在使用了 vue 的页面中，vue 会监听数据的变化，从而自动重新渲染页面的结构。示意图如下：
-
-1.2.2 双向数据绑定
-在填写表单时，双向数据绑定可以辅助开发者在不操作 DOM 的前提下，自动把用户填写的内容同步到数据源
-中。示意图如下：
-
-1.3 MVVM
-MVVM 是 vue 实现数据驱动视图和双向数据绑定的核心原理。MVVM 指的是 Model、View 和 ViewModel，
-它 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230301/golang-20230301-GRPC/" title="GRPC">GRPC</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-28T16:14:12.000Z" title="发表于 2023-03-01 00:14:12">2023-03-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">
-gRPC是Google公司基于Protobuf开发的跨语言的开源RPC框架。gRPC基于HTTP/2协议设计，可以基于一个HTTP/2链接提供多个服务，对于移动设备更加友好。
-GRPC技术栈
+dumps
+对象序列化为bytes对象
 
 
-数据交互格式: protobuf
-通信方式: 最底层为TCP或Unix Socket协议，在此之上是HTTP/2协议的实现
-核心库: 在HTTP/2协议之上又构建了针对Go语言的gRPC核心库
-Stub: 应用程序通过gRPC插件生产的Stub代码和gRPC核心库通信，也可以直接和gRPC核心库通信
-
-gRPC采用protobuf描述 接口和数据, 我们可以把他理解为: protobuf ON HTTP2 的一种RPC
-Hello gRPC
-下面我们讲演示一个基础的gRPC服务.
-protobuf grpc插件
-protobuf 不仅可以定义交互的数据结构(message), 还可以定义交互的接口:
-123service HelloService &#123;    rpc Hello (String) returns (String);&#125;
-从Protobuf的角度看，gRPC只不 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230227/golang-20230227-Protobuf%E7%BC%96%E8%A7%A3%E7%A0%81/" title="Protobuf编解码">Protobuf编解码</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-27T15:25:30.000Z" title="发表于 2023-02-27 23:25:30">2023-02-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">
-Protobuf是Protocol Buffers的简称，它是Google公司开发的一种数据描述语言，并于2008年对外开源。Protobuf刚开源时的定位类似于XML、JSON等数据描述语言，通过附带工具生成代码并实现将结构化数据序列化的功能。但是我们更关注的是Protobuf作为接口规范的描述语言，可以作为设计安全的跨语言PRC接口的基础工具
-官网
-为什么选择Protobuf
-一般而言我们需要一种编解码工具会参考:
-
-编解码效率
-高压缩比
-多语言支持
-
-其中压缩与效率 最被关注的点:
-
-使用流程
-首先需要定义我们的数据，通过编译器，来生成不同语言的代码
-
-之前我们的RPC要么使用的Gob, 要么使用的json, 接下来我们将使用probuf
-首先创建hello.proto文件，其中包装HelloService服务中用到的字符串类型
-12345678syntax = &quot;proto3&quot;;package hello;option go_package=&quot;pbrpc/pb&quot;;message String &#123;    string value ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230219/golang-20230219-go%E8%AF%AD%E8%A8%80RPC/" title="go语言RPC">go语言RPC</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-19T10:06:21.000Z" title="发表于 2023-02-19 18:06:21">2023-02-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">概念
-RPC是远程过程调用的简称，是分布式系统中不同节点间流行的通信方式。在互联网时代，RPC已经和IPC一样成为一个不可或缺的基础构件。
+dump
+对象序列化到文件对象，就是存入文 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230628/python-20230628-%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/" title="目录文件处理">目录文件处理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-28T09:02:25.000Z" title="发表于 2023-06-28 17:02:25">2023-06-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">1. 文件IO操作
 
 
-RPC传输协议
-消息序列化与反序列化
 
-下面是一个基于HTTP的 JSON的 RPC:
+函数
+说明
 
-Go语言RPC
-Go语言的标准库也提供了一个简单的RPC实现, 包的路径为net/rpc，也就是放在了net包目录下面。因此我们可以猜测该RPC包是建立在net包基础之上的
-由上图可知一个rpc服务由2个部分组成:
 
-server
-client
 
-基础的RPC服务
-RPC Server
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647package mainimport (	&quot;fmt&quot;	&quot;log&quot;	&quot;net&quot;	&quot;net/rpc&quot;)type HelloService struct &#123;&#125;// Hello的逻辑 就是 将对方发送的消息前面添加一 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230211/golang-20230211-golang%E5%91%BD%E4%BB%A4%E8%A1%8C/" title="golang命令行">golang命令行</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-11T15:35:25.000Z" title="发表于 2023-02-11 23:35:25">2023-02-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">flag
-案例
-使用阿里云oss实现文件中转站
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283package mainimport (	&quot;flag&quot;	&quot;fmt&quot;	&quot;os&quot;	&quot;github.com/aliyun/aliyun-oss-go-sdk/oss&quot;)var (	endpint        = &quot;oss-cn-beijing.aliyuncs.com&quot;	ak             = &quot;xx&quot;	sk             = &quot;xx&quot;	bucketName     = &quot;clouds-station&quot;	uploadFilePath = &quot;&quo ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230129/golang-20230129-golang%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BC%96%E7%A8%8B/" title="golang数据库编程">golang数据库编程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-29T07:23:53.000Z" title="发表于 2023-01-29 15:23:53">2023-01-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">SQL语法简介
-  SQL(i/ˈsiːkwəl/; Structured Query Language)是一套语法标准，不区分大小写。MySQL、sql-server和Oracle都是关系型数据库，在一些高级语法上跟标准SQL略有出入。
-以管理员登录
-1mysql -h localhost -P 3306 -u root -p&#x27;123456&#x27;
 
--h：mysql server host，不写时默认是localhost。
--P：mysql server port，不写时默认是3306。
--u：user name，-u后可以加空格也可以不加。
--p：password，密码中可能包含空格，所以要加引号。高版本的mysql不允许在命令行中直接输入密码，此时只输入-p后面不要写密码即可。
+open
+打开
 
-创建表
-1234567891011create table if not exists student(    id int not null auto_increment comment &#x27;主键自增id&#x27;,    name char(10) not null com ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230120/golang-20230120-golang%E4%B8%ADwebsocket%E7%BC%96%E7%A8%8B/" title="golang中websocket编程">golang中websocket编程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-20T15:45:34.000Z" title="发表于 2023-01-20 23:45:34">2023-01-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">WebSocket协议解读
 
-websocket和http协议的关联：
+read
+读取
 
-都是应用层协议，都基于tcp传输协议。
-跟http有良好的兼容性，ws和http的默认端口都是80，wss和https的默认端口都是443。
-websocket在握手阶段采用http发送数据。
 
-websocket和http协议的差异：
+write
+写入
 
-http是半双工，而websocket通过多路复用实现了全双工。
-http只能由client主动发起数据请求，而websocket还可以由server主动向client推送数据。在需要及时刷新的场景中，http只能靠client高频地轮询，浪费严重。
-http是短连接(也可以实现长连接, HTTP1.1 的连接默认使用长连接)，每次数据请求都得经过三次握手重新建立连接，而websocket是长连接。
-http长连接中每次请求都要带上header，而websocket在传输数据阶段不需要带header。
 
-  WebSocket是HTML5下的产物，能更好的节省服务器资源和带宽，websocket应用场景举例：
+close
+关闭
 
-html5多人游戏
-聊天室
-协同编辑
-基于实时位置的应用
-股票实时 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/#content-inner">13</a><a class="extend next" rel="next" href="/page/4/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.gif" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ren_mcc</div><div class="author-info__description">一个收藏回忆与分享技术的地方！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">129</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/renmcc"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230701/python-20230701-%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" title="序列化和反序列化">序列化和反序列化</a><time datetime="2023-06-30T22:14:52.000Z" title="发表于 2023-07-01 06:14:52">2023-07-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230628/python-20230628-%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/" title="目录文件处理">目录文件处理</a><time datetime="2023-06-28T09:02:25.000Z" title="发表于 2023-06-28 17:02:25">2023-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230628/python-20230628-functools%E6%A8%A1%E5%9D%97/" title="functools模块">functools模块</a><time datetime="2023-06-28T06:27:10.000Z" title="发表于 2023-06-28 14:27:10">2023-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230628/python-20230628-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" title="插入排序">插入排序</a><time datetime="2023-06-28T06:20:00.000Z" title="发表于 2023-06-28 14:20:00">2023-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230627/python-20230627-%E7%B1%BB%E5%9E%8B%E6%B3%A8%E9%87%8A/" title="类型注释">类型注释</a><time datetime="2023-06-27T11:25:46.000Z" title="发表于 2023-06-27 19:25:46">2023-06-27</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline">
+
+readline
+行读取
+
+
+readlines
+多行读取
+
+
+
+1.1 open方法
+open(file, mode=‘r’, buffering=-1, encoding=None, errors=None, newline=None,closefd=True, opener=None)
+打开一个文件，返回一个文件对象(流对象)和文件描述符。打开文件失败，则返回异常
+基本使用：创建一个文件test，然后打开它，用完关闭
+12345f = open(&quot;test&quot;) # file对象# windows &lt;_io.TextIOWrapper name=&#x27;test&#x27; mode=&#x27;r&#x27; encoding=&#x27;cp936&#x27;&gt;# linux &lt;_io.TextIOWrapper name=&#x27;test&#x27; mode=&#x27;r&#x27; encodin ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230628/python-20230628-functools%E6%A8%A1%E5%9D%97/" title="functools模块">functools模块</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-28T06:27:10.000Z" title="发表于 2023-06-28 14:27:10">2023-06-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">1. reduce
+
+functools.reduce(function, iterable[, initial])
+就是减少的意思
+初始值没有提供就在可迭代对象中取一个
+
+123456from functools import reduces = sum(range(10))print(s)s = reduce(lambda x: x, range(10))print(s)  # TypeError: &lt;lambda&gt;() takes 1 positional argument but 2 were given
+12345678910111213s = reduce(lambda x,y: print(x,y), range(10))print(s)返回结果如下0 1None 2None 3None 4None 5None 6None 7None 8None 9None
+上一次lambda函数返回值会成为下一次的x
+1234567from functools import reduces = sum(range(10))print(s)s = reduce(lambda  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230628/python-20230628-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" title="插入排序">插入排序</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-28T06:20:00.000Z" title="发表于 2023-06-28 14:20:00">2023-06-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">插入排序
+
+每一趟都要把待排序数放到有序区中合适的插入位置
+
+
+1. 核心算法
+
+结果可为升序或降序排列，默认升序排列。以升序为例
+扩大有序区，减小无序区。图中绿色部分就是增大的有序区，黑色部分就是减小的无序区
+增加一个哨兵位，图中最左端红色数字，其中放置每一趟待比较数值
+将哨兵位数值与有序区数值从右到左依次比较，找到哨兵位数值合适的插入点
+
+2. 算法实现
+
+增加哨兵位
+
+为了方便，采用列表头部索引0位置插入哨兵位
+每一次从有序区最右端后的下一个数，即无序区最左端的数放到哨兵位
+
+
+比较与挪动
+
+从有序区最右端开始，从右至左依次与哨兵比较
+比较数比哨兵大，则右移一下，换下一个左边的比较数
+直到找到不大于哨兵的比较数，这是把哨兵插入到这个数右侧的空位即可
+
+
+
+1234567891011121314151617181920m_list = [    [1, 9, 8, 5, 6, 7, 4, 3, 2],    [1, 2, 3, 4, 5, 6, 7, 8, 9],    [9, 8, 7, 6, 5, 4, 3, 2, 1]]nums = [0] + m_list[0]print( ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230627/python-20230627-%E7%B1%BB%E5%9E%8B%E6%B3%A8%E9%87%8A/" title="类型注释">类型注释</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-27T11:25:46.000Z" title="发表于 2023-06-27 19:25:46">2023-06-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">Python是动态语言，变量可以随时被赋值并改变类型，也就是说Python的变量是运行时决定的
+12345678def add(x, y):    return x + yprint(add(4, 5))print(add(&#x27;1&#x27;, &#x27;fff&#x27;))print(add([10], [11]))print(add(4, &#x27;abc&#x27;))  # 不到运行时，无法判断类型是否正确
+动态语言缺点：
+
+难发现：由于不能做任何类型检查，往往到了运行时问题才显现出来，或到了线上运行时才暴露出来
+难使用：函数使用者看到函数时，并不知道函数设计者的意图，如果没有详尽的文档，使用者只能猜测数据的类型。对于一个新的API，使用者往往不知道该怎么使用，对于返回的类型更是不知道该怎么使用
+
+动态类型对类型的约束不强，在小规模开发的危害不大，但是随着Python的广泛使用，这种缺点确实对大项目的开发危害非常大。
+如何解决这种问题呢？
+
+文档字符串。对函数、类、模块使用详尽的使用描述、举例，让使用者使用帮助就能知道使用方式。但是，大多数项目管理不严格，可能文档 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230627/python-20230627-%E8%A3%85%E9%A5%B0%E5%99%A8/" title="装饰器">装饰器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-27T07:11:57.000Z" title="发表于 2023-06-27 15:11:57">2023-06-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">1. 高阶函数
+1.1 一等公民
+
+函数在Python是一等公民（First-Class Object）
+函数也是对象，是可调用对象
+函数可以作为普通变量，也可以作为函数的参数、返回值
+
+1.2 高阶函数
+高阶函数（High-order Function）
+
+数学概念 y = f(g(x))
+在数学和计算机科学中，高阶函数应当是至少满足下面一个条件的函数
+
+接受一个或多个函数作为参数
+输出一个函数
+
+
+
+观察下面的函数定义，回答问题
+1234567def counter(base):    def inc(step=1):        base += step        return base    return inc
+
+请问counter是不是高阶函数？
+上面代码有没有问题？如果有，如何改？
+如何调用以完成计数功能？
+f1 = counter(5)和f2=counter(5)，请问f1和f2相等吗？
+
+1234567891011121314151617def counter(base):    def inc(step=1):  # 有没有闭包？        nonloca ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230627/python-20230627-%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/" title="选择排序">选择排序</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-27T06:56:58.000Z" title="发表于 2023-06-27 14:56:58">2023-06-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">1. 简单选择排序
+
+选择排序
+
+每一趟两两比较大小，找出极值（极大值或极小值）并放置到有序区的位置
+
+
+
+
+1.1 核心算法
+
+结果可为升序或降序排列，默认升序排列。以降序为例
+扩大有序区，减小无序区。图中红色部分就是增大的有序区，反之就是减小的无序区
+相邻元素依次两两比较，获得每一次比较后的最大值，并记住此值的索引
+每一趟都从无序区中选择出最大值，然后交换到当前无序区最左端
+
+1.2 算法实现
+1234567891011121314151617181920212223m_list = [    [1, 9, 8, 5, 6, 7, 4, 3, 2],    [1, 2, 3, 4, 5, 6, 7, 8, 9],    [9, 8, 7, 6, 5, 4, 3, 2, 1]]nums = m_list[0]length = len(nums)print(nums)count_iter = 0count_swap = 0# 选择排序for i in range(length - 1):    maxindex = i    for j in range(i + 1, length): ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230627/python-20230627-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" title="冒泡排序">冒泡排序</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-27T05:25:41.000Z" title="发表于 2023-06-27 13:25:41">2023-06-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">1. 冒泡排序Bubble Sort
+
+交换排序
+
+相邻元素两两比较大小，有必要则交换
+元素越小或越大，就会在数列中慢慢的交换并“浮”向顶端，如同水泡咕嘟咕嘟往上冒
+
+
+
+
+1.1 核心算法
+
+排序算法，一般都实现为就地排序，输出为升序
+扩大有序区，减小无序区。图中红色部分就是增大的有序区，反之就是减小的无序区
+每一趟比较中，将无序区中所有元素依次两两比较，升序排序将大数调整到两数中的右侧
+每一趟比较完成，都会把这一趟的最大数推倒当前无序区的最右侧
+
+1.2 基本实现
+思考时，将问题规模减小，一般2次不一定能找到规律，3次基本上可以看出规律。所以，我们思考时认为列表里面就只有4个元素。
+123456789101112131415nums = [1, 9, 8, 5]  # 数字少好思考print(nums)length = len(nums)  # 4# 第一趟i = 0# 本趟内两两比较，大数换到右边# 2个数比1下，3个数比2下，那么比较次数就是当前比较数个数-1for j in range(length - 1):  # j 为0, 1, 2    print(j, nums[j ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230625/python-20230625-%E5%8F%AF%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%B1%A1%E5%92%8C%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0/" title="可迭代对象和内建函数">可迭代对象和内建函数</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-25T10:21:05.000Z" title="发表于 2023-06-25 18:21:05">2023-06-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">1. 可迭代对象
+
+
+
+建函数
+函数签名
+说明
+
+
+
+
+iter
+iter(iterable)
+把一个可迭代对象包装成迭代器
+
+
+next
+next(iterable[, default])
+取迭代器下一个元素如果已经取完，继续取抛StopIteration异常
+
+
+reversed
+reversed(seq)
+返回一个翻转元素的迭代器
+
+
+enumerate
+enumerate(seq, start=0)
+迭代一个可迭代对象，返回一个迭代器每一个元素都是数字和元素构成的二元组
+
+
+
+迭代器
+
+特殊的对象，一定是可迭代对象，具备可迭代对象的特征
+通过iter方法把一个可迭代对象封装成迭代器
+通过next方法，获取 迭代器对象的一个元素
+生成器对象，就是迭代器对象。但是迭代器对象未必是生成器对象
+
+可迭代对象
+
+能够通过迭代一次次返回不同的元素的对象
+
+所谓相同，不是指值是否相同，而是元素在容器中是否是同一个，例如列表中值可以重复的，
+[‘a’, ‘a’]，虽然这个列表有2个元素，值一样，但是两个’a’是不同的元素
+
+
+可以迭代，但是未必有序，未必可索引
+可迭代对象有：list、tupl ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230625/python-20230625-%E9%80%92%E5%BD%92%E5%87%BD%E6%95%B0/" title="递归函数">递归函数</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-25T10:02:29.000Z" title="发表于 2023-06-25 18:02:29">2023-06-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">1. 函数执行流程
+C语言中，函数的活动和栈有关。
+栈是后进先出的数据结构。栈是由底端向顶端生长，栈顶加入数据称为压栈、入栈，栈顶弹出数据称为出栈。
+1234567891011121314def add(x, y):    r = x + y    print(r)    return rdef main():    a = 1    b = add(a, 2)    return bmain()
+
+main调用，在栈顶创建栈帧
+a = 1，在main栈帧中增加a，堆里增加1，a指向这个1
+b = add(a, 2)，等式右边先执行，add函数调用
+add调用，在栈顶创建栈帧，压在main栈帧上面
+add栈帧中增加2个变量，x变量指向1，y指向堆中新的对象2
+在堆中保存计算结果3，并在add栈帧中增加r指向3
+print函数创建栈帧，实参r被压入print的栈帧中
+print函数执行完毕，函数返回，移除栈帧
+add函数返回，移除栈帧
+main栈帧中增加b指向add函数的返回值对象
+main函数返回，移除栈帧
+
+问题：如果再次调用main函数，和刚才的main函数调用，有什么关系？
+每一 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/#content-inner">15</a><a class="extend next" rel="next" href="/page/4/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.gif" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ren_mcc</div><div class="author-info__description">一个收藏回忆与分享技术的地方！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">149</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/renmcc"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-SockerServer/" title="SockerServer">SockerServer</a><time datetime="2023-07-07T15:28:58.000Z" title="发表于 2023-07-07 23:28:58">2023-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-TCP%E7%BC%96%E7%A8%8B/" title="TCP编程">TCP编程</a><time datetime="2023-07-07T14:23:21.000Z" title="发表于 2023-07-07 22:23:21">2023-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/" title="二叉树遍历">二叉树遍历</a><time datetime="2023-07-07T14:14:38.000Z" title="发表于 2023-07-07 22:14:38">2023-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%A4%9A%E8%BF%9B%E7%A8%8B/" title="多线程和多进程">多线程和多进程</a><time datetime="2023-07-07T13:42:46.000Z" title="发表于 2023-07-07 21:42:46">2023-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-%E9%93%BE%E6%8E%A5%E8%A1%A8/" title="链接表">链接表</a><time datetime="2023-07-07T13:39:15.000Z" title="发表于 2023-07-07 21:39:15">2023-07-07</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>分类</span>
             <a class="card-more-btn" href="/categories/" title="查看更多">
@@ -331,8 +421,8 @@ html5多人游戏
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/"><span class="card-category-list-name">JavaScript</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/containerd/"><span class="card-category-list-name">containerd</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/docker/"><span class="card-category-list-name">docker</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/docker-compose/"><span class="card-category-list-name">docker-compose</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/git/"><span class="card-category-list-name">git</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/golang/"><span class="card-category-list-name">golang</span><span class="card-category-list-count">38</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/istio/"><span class="card-category-list-name">istio</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/kafka/"><span class="card-category-list-name">kafka</span><span class="card-category-list-count">2</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/containerd/" style="font-size: 1.28em; color: rgb(123, 66, 160)">containerd</a><a href="/tags/JavaScript/" style="font-size: 1.15em; color: rgb(57, 112, 91)">JavaScript</a><a href="/tags/docker/" style="font-size: 1.35em; color: rgb(114, 100, 153)">docker</a><a href="/tags/git/" style="font-size: 1.15em; color: rgb(170, 147, 118)">git</a><a href="/tags/docker-compose/" style="font-size: 1.25em; color: rgb(132, 118, 30)">docker-compose</a><a href="/tags/istio/" style="font-size: 1.35em; color: rgb(45, 68, 166)">istio</a><a href="/tags/kubrnetes/" style="font-size: 1.32em; color: rgb(142, 84, 32)">kubrnetes</a><a href="/tags/kubernetes/" style="font-size: 1.42em; color: rgb(158, 45, 168)">kubernetes</a><a href="/tags/golang/" style="font-size: 1.45em; color: rgb(19, 10, 71)">golang</a><a href="/tags/kafka/" style="font-size: 1.18em; color: rgb(181, 40, 45)">kafka</a><a href="/tags/nginx/" style="font-size: 1.15em; color: rgb(99, 9, 67)">nginx</a><a href="/tags/python/" style="font-size: 1.38em; color: rgb(192, 200, 107)">python</a><a href="/tags/redis/" style="font-size: 1.18em; color: rgb(191, 6, 32)">redis</a><a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.15em; color: rgb(10, 198, 170)">工具</a><a href="/tags/rancher/" style="font-size: 1.22em; color: rgb(116, 169, 196)">rancher</a><a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 1.22em; color: rgb(18, 107, 66)">大数据</a><a href="/tags/vue/" style="font-size: 1.25em; color: rgb(184, 59, 50)">vue</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">25</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">十一月 2022</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">129</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2021-12-06T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">256.9k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-07-07T12:18:13.415Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By ren_mcc</div><div class="footer_custom_text"><a rel="noopener external nofollow noreferrer noopener" target="_blank" href="https://beian.miit.gov.cn/"> <img class="icp-icon entered loading" alt="ICP" src="/img/icp.png" data-ll-status><span>京ICP备2022001205号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/docker-compose/" style="font-size: 1.26em; color: rgb(102, 136, 25)">docker-compose</a><a href="/tags/containerd/" style="font-size: 1.3em; color: rgb(73, 166, 190)">containerd</a><a href="/tags/docker/" style="font-size: 1.38em; color: rgb(141, 80, 157)">docker</a><a href="/tags/git/" style="font-size: 1.15em; color: rgb(149, 160, 177)">git</a><a href="/tags/JavaScript/" style="font-size: 1.15em; color: rgb(121, 95, 30)">JavaScript</a><a href="/tags/golang/" style="font-size: 1.45em; color: rgb(105, 112, 149)">golang</a><a href="/tags/kafka/" style="font-size: 1.19em; color: rgb(102, 187, 188)">kafka</a><a href="/tags/istio/" style="font-size: 1.38em; color: rgb(66, 145, 99)">istio</a><a href="/tags/kubrnetes/" style="font-size: 1.34em; color: rgb(77, 59, 79)">kubrnetes</a><a href="/tags/kubernetes/" style="font-size: 1.41em; color: rgb(80, 158, 186)">kubernetes</a><a href="/tags/nginx/" style="font-size: 1.15em; color: rgb(185, 91, 21)">nginx</a><a href="/tags/rancher/" style="font-size: 1.22em; color: rgb(97, 14, 58)">rancher</a><a href="/tags/python/" style="font-size: 1.45em; color: rgb(74, 38, 9)">python</a><a href="/tags/redis/" style="font-size: 1.19em; color: rgb(29, 63, 89)">redis</a><a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.15em; color: rgb(58, 148, 153)">工具</a><a href="/tags/vue/" style="font-size: 1.26em; color: rgb(114, 137, 185)">vue</a><a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 1.22em; color: rgb(151, 155, 11)">大数据</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">21</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">25</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">十一月 2022</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">149</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2021-12-06T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">302.5k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-07-07T17:23:00.079Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By ren_mcc</div><div class="footer_custom_text"><a rel="noopener external nofollow noreferrer noopener" target="_blank" href="https://beian.miit.gov.cn/"> <img class="icp-icon entered loading" alt="ICP" src="/img/icp.png" data-ll-status><span>京ICP备2022001205号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
   const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
   if ($mermaid.length === 0) return
   const runMermaid = () => {
@@ -539,7 +629,7 @@ document.addEventListener('pjax:error', (e) => {
   }
 })</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
     var parent = document.getElementById('recent-posts');
-    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/python/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 python (18)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/containerd/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🎮 containerd (6)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/docker/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🐱 docker (8)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/kubernetes/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👩‍💻 kubernetes (27)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/golang/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📒 golang (38)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/redis/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">💡 redis (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><a class="magnet_link_more"  href="https://blog.renm.cc/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/python/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 python (38)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/containerd/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🎮 containerd (6)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/docker/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🐱 docker (8)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/kubernetes/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👩‍💻 kubernetes (27)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/golang/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📒 golang (38)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/redis/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">💡 redis (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><a class="magnet_link_more"  href="https://blog.renm.cc/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
     console.log('已挂载magnet')
     parent.insertAdjacentHTML("afterbegin",child)}
      </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #b30070}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>

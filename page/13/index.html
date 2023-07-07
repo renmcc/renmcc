@@ -56,7 +56,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-07-07 20:18:14'
+  postUpdate: '2023-07-08 01:23:00'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -160,392 +160,124 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="referrer" content="no-referrer-when-downgrade" /><script src="/js/jquery.min.js"></script><link rel="stylesheet" href="/js/function.min.css"><link rel="stylesheet" href="/css/iconfont.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><script src="/js/custom.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.gif" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">129</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ren_mccの博客"><span class="site-name">ren_mccの博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220110/docker-compose-20220110-2-compose%E5%91%BD%E4%BB%A4%E5%92%8Cyaml%E6%A8%A1%E6%9D%BF/" title="2-compose命令和yaml模板">2-compose命令和yaml模板</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-10T09:00:18.000Z" title="发表于 2022-01-10 17:00:18">2022-01-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/docker-compose/">docker-compose</a></span></div><div class="content">一 compose命令和模板说明
-A. compse命令列表说明
-每个命令后后还有很多参数,具体的请用--help去查看
-
-
-
-命令名
-参数说明
-
-
-
-
-build
-构建项目中的服务容器
-
-
-images
-列出所有镜像
-
-
-kill
-通过发送SIGKILL信号来强制停止服务容器
-
-
-logs
-查看服务器容器的输出
-
-
-pause
-暂停一个服务容器
-
-
-port
-打印某个容器的端口所映射的公共端口
-
-
-ps
-列出项目中目前的所有容器
-
-
-pull
-拉取服务依赖的镜像
-
-
-push
-推送服务依赖的镜像
-
-
-restart
-重启项目中的服务
-
-
-rm
-删除所有的服务器容器（停止状态的）
-
-
-run
-在指定服务上执行一个命令
-
-
-scale
-设置指定服务运行的容器个数
-
-
-start
-启动已经存在的服务容器
-
-
-stop
-停止已经处于运行状态的容器，但不删除它
-
-
-top
-展示运行的进程
-
-
-unpause
-恢复处于暂停状态中的服务
-
-
-up
-自动完成包括构建镜像、创建服务、启动服务并关联服务相关容器的一系列操作
-
-
-
-B. Compose模板文件的说明
-
-compose模板文件官方文档
-co ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220110/docker-compose-20220110-1-docker-compose%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" title="1-docker-compose快速入门">1-docker-compose快速入门</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-10T03:19:56.000Z" title="发表于 2022-01-10 11:19:56">2022-01-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/docker-compose/">docker-compose</a></span></div><div class="content">一 docker-compose的简介
-docker-compose是dokcer官方的单机编排工具，让用户通过编写一个简单的模板文件，快速地创建和管理基于docker容器的应用集群。实现对docker容器集群的快速编排。
-允许用户通过一个单独的docker-compose.yml模板文件（YAML格式）来定义一组相关联的应用容器作为一个项目（project）
-A. Compose2个重要概念：
-
-服务（service）
-一个应用的容器，实际上可以包含若干运行相同镜像的容器实例。
-项目（project）
-由一组关联的应用容器组成的一个完整业务单元，在docker-compose.yml文件中定义。
-
-B. 使用Compose的三步骤：
-
-Dockerfile 定义应用的运行环境
-docker-compose.yml 定义组成应用的各服务
-docker-compose up 启动整个应用
-
-C. docker-compose命令与模板文件
-
-docker-compose命令
-对于Compose来说，大部分命令的对象既可以是项目本身，也可以指定为项目中的服务或容器。默认针对项目
-
-1234 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220110/docker-20220110-7-docker%E5%AE%B9%E5%99%A8%E7%9A%84%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/" title="7-docker容器的网络通信">7-docker容器的网络通信</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-10T03:00:35.000Z" title="发表于 2022-01-10 11:00:35">2022-01-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/docker/">docker</a></span></div><div class="content">一 容器网络的类型
-Docker 网络从覆盖范围可分为单个 host 上的容器网络和跨多个 host 的网络,多host网络又分为原生网络和第三方网络,如下:
-
-原生单机网络
-
-None：不为容器配置任何网络功能,–net=none
-Host：与主机共享Network Namespace,–net=host
-Container：与另一个运行中的容器共享网络名称空间,–net=container:ID
-Bridge：Docker设计的,默认的NAT网络模型,–net=bridge
-
-
-原生多机网络
-
-overlay：基于vxlan的隧道网络
-macvlan：基于网卡虚拟化的大局域网
-
-
-第三方多机网络[本章不讨论]
-
-flannel
-weave
-calico
-
-
-
-
-原生网络和单机网络都是通过不同的driver来实现的,未来可能还会有更多的开源driver
-
-二 原生单机网络
-docker安装好后,默认会创建三个网络,分别是none,host和bridge,用docker network ls命令查看如下
-12345[root@docker01 ~]# docker network ls ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220110/docker-20220110-6-docker%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93%E5%92%8C%E6%A0%87%E7%AD%BEtag/" title="6-docker镜像仓库和标签tag">6-docker镜像仓库和标签tag</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-10T02:44:15.000Z" title="发表于 2022-01-10 10:44:15">2022-01-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/docker/">docker</a></span></div><div class="content">一 docker仓库和镜像tag
-A. docker仓库分类
-docker镜像是需要放到一个统一的仓库的,以便不同的主机可以下载和使用相同的镜像而不必每次都用dockerfile自己做,docker镜像仓库按如下方式划分
-
-公共仓库
-
-官方公共仓库
-
-docker hub
-
-
-第三方公共仓库
-
-阿里云
-七牛云
-DaoCloud
-时速云
-
-
-
-
-私有仓库
-
-官方命令行仓库:registry
-第三方web仓库:harbor
-
-
-
-B. docker镜像tag命名规范
-在基础知识部分,介绍了标准镜像名由四部分组成: 仓库地址/项目名/镜像名:标签,如 daocloud.io/library/nginx:latest
-一个高效的版本命名方案可以让用户清楚地知道当前使用的是哪个镜像，同时还可以保持足够的灵活性。
-每个镜像可以有多个 tag，而多个 tag 可能对应的是同一个镜像。下面介绍 Docker 社区普遍使用的 tag 方案。
-
-初始版本v1.9.1
-镜像名为myimage，当前需要的版本为 v1.9.1。那么可以给镜像打上四个 tag：1、1.9、1.9.1和 latest。
-
-1234 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220110/docker-20220110-5-docker%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA/" title="5-docker镜像构建">5-docker镜像构建</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-10T02:07:21.000Z" title="发表于 2022-01-10 10:07:21">2022-01-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/docker/">docker</a></span></div><div class="content">一 docker镜像构建说明
-A. 两种构建方式
-
-手动构建docker镜像
-自动构建docker镜像[dockerfile]
-
-B. 构建步骤
-
-手工构建步骤
-
-启动容器安装软件服务
-将安装好服务的容器commit提交为镜像
-启动新容器来测试新提交的镜像
-
-
-自动构建步骤
-
-编写dockerfile文件
-通过build命令使用该dockerfile构建镜像
-启动新容器来测试新提交的镜像
-
-
-
-C. dockerfile命令集
-
-
-
-指令
-功能
-特殊说明
-
-
-
-
-FROM
-指定基础镜像
-必须有
-
-
-MAINTAINER
-指定维护者信息
-可以没有
-
-
-ENV
-设置环境变量
-可被后面的指令使用
-
-
-COPY
-复制文件到容器
-
-
-
-ADD
-复制文件到容器
-压缩文件会自动解压
-
-
-WORKDIR
-设置当前工作目录
-类似linux的cd命令
-
-
-VOLUME
-设置卷，挂载主机目录
-需’-v’配合
-
-
-EXPOSE
-指定对外的端口
-默认不暴露,需&quot;-P&quot;配合
-
-
-RUN
-运行指定的命令
-在用于容器创建过程中执行命令
-
-
-CMD
-容器启动后执行的命令
-容易被替换
-
-
-ENTRYP ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220110/docker-20220110-4-%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8C%81%E4%B9%85%E5%8C%96%E5%92%8C%E5%85%B1%E4%BA%AB%E4%BA%92%E8%BF%9E/" title="4-数据的持久化和共享互连">4-数据的持久化和共享互连</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-10T01:39:30.000Z" title="发表于 2022-01-10 09:39:30">2022-01-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/docker/">docker</a></span></div><div class="content">一 容器数据持久化和共享方案
-A.为什么要使用docker数据持久化
-正常情况下，删除容器，容器中所有的文件也会被删除。所以需要能持久化容器中数据的方法,也就是数据卷
-数据卷(Data Volume)的作用：
-
-持久化容器运行过程中产生的数据文件
-实现多个容器间的文件共享。
-实现多个主机间有状态容器的迁移
-
-B.docker数据卷的分类
-在集群环境下,数据卷分为:
-
-单机内容器间的数据持久化和共享
-
-数据卷[Data Volume]
-
-绑定挂载[bind mount]
-容器管理卷[docker managed volume]
-
-
-容器卷[volume container]
-
-
-跨主机容器间的数据持久化和共享
-
-使用分布式文件系统(如NFS)
-使用volume driver实现跨主机存储
-
-Rex-Ray插件
-更多官方插件
-
-
-
-
-
-C.容器间互连的方式
-容器互联大体有以下三种方式：
-
-基于volume的互联
-基于link的互联
-基于网络的互联
-
-
-其中基于网络的互连会在网络部分单独写,基于volume的互连和基于link的互连会在本节详细说明
-
-二 数据卷的使用详情
-数据卷[Data  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220110/docker-20220110-3-docker%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/" title="3-docker基础操作命令">3-docker基础操作命令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-10T01:12:50.000Z" title="发表于 2022-01-10 09:12:50">2022-01-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/docker/">docker</a></span></div><div class="content">一 命令格式
-docker的命令分老版命令格式和新版命令格式,新版命令主要是更直观了,添加了镜像[image]和容器[container]来区分命令,简单举例对比:
-1.显示容器命令
-老版命令:docker ps
-新版命令:docker container ls
-2.显示镜像命令
-老版命令: docker images
-新版命令: docker image ls
-3.删除镜像命令
-老版命令: docker rmi centos:latest
-新版命令: docker image rm centos:latest
-二 镜像相关命令
-1.搜索镜像：
-docker search xxx
-选镜像的建议：优先考虑官方镜像,然后是starts数量多的镜像
-2.拉取/推送镜像:
-1.拉取镜像到本地
-docker image pull centos
-2.推送centos镜像到仓库
-docker image push centos
-3. 镜像加速器
-在/etc/docker/daemon.json文件中写上仓库和地址,详见docker部署章节
-4. 查看/删除镜像
-1.查看镜像
-docker image ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220110/docker-20220110-2-docker%E8%BD%AF%E4%BB%B6%E9%83%A8%E7%BD%B2/" title="2-docker软件部署">2-docker软件部署</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-09T16:34:18.000Z" title="发表于 2022-01-10 00:34:18">2022-01-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/docker/">docker</a></span></div><div class="content">一 环境规划
-内核版本必须3.8以上,所以我们之间使用centos7.4
+    })(window)</script><meta name="referrer" content="no-referrer-when-downgrade" /><script src="/js/jquery.min.js"></script><link rel="stylesheet" href="/js/function.min.css"><link rel="stylesheet" href="/css/iconfont.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><script src="/js/custom.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.gif" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">149</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ren_mccの博客"><span class="site-name">ren_mccの博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220801/containerd-20220801-6-%E5%AE%B9%E5%99%A8%E7%9B%91%E6%8E%A7/" title="容器监控">容器监控</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-31T17:42:45.000Z" title="发表于 2022-08-01 01:42:45">2022-08-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/containerd/">containerd</a></span></div><div class="content">1. cadvisor监控
+利用谷歌的cadvisor，目前只能监控docker下的容器
+1234567 docker pull hub.c.163.com/xbingo/cadvisor:latestdocker run \-v /var/run:/var/run \-v /sys:/sys:ro \-v /var/lib/docker:/var/lib/docker:ro \-d -p 8080:8080 --name=mon \hub.c.163.com/xbingo/cadvisor:latest
+2. scope监控
+123456[root@control ~]# ./scope launch6766fe71c2edc2977631a9b419f640d974f590af52ffd8b15581672e1193c896Scope probe startedWeave Scope is listening at the following URL(s):  * http://192.168.10.10:4040/  * http://10.4.0.1:4040/
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220731/containerd-20220731-5-%E9%99%90%E5%88%B6%E5%AE%B9%E5%99%A8%E8%B5%84%E6%BA%90/" title="限制容器资源">限制容器资源</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-31T15:33:34.000Z" title="发表于 2022-07-31 23:33:34">2022-07-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/containerd/">containerd</a></span></div><div class="content">1. 了解Cgroup
+cgroups的全称是Linux Control Groups，主要作用是限制、记录和隔离进程组（process groups）使用的物理资源（cpu、memory、IO等）
+Cgroup提供了一个原生接口并通过cgroupfs提供（cgroupfs就是Cgroup的一个借口封装）。类似于procfs和sysfs，是一种虚拟文件系统。并且cgroupfs是可以挂载的，默认情况下挂载在/sys/fs/cgroup目录。
+Systemd也是对于Cgroup接口的一个封装。systemd以PID1的形式在系统启动的时候运行，并提供了一套系统管理守护程序、库和实用程序，用来控制、管理Linux计算机操作系统资源。通过systemd-cgls命令我们可以看到systemd工作的进程PID是1，而目录/sys/cgroup/systemd/是systemd维护的自己使用的非subsystem的cgroups层级结构。
+2. 对容器内存的限制
+运行一个容器,不限制的情况下压测
+1nerdctl run -d --name=c1 --restart=always centos  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220717/containerd-20220717-4-harbor/" title="4.harbor">4.harbor</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-17T14:59:31.000Z" title="发表于 2022-07-17 22:59:31">2022-07-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/containerd/">containerd</a></span></div><div class="content">1. 安装docker-compose
+1[root@harbor ~]# yum install docker-compose -y
+2. 配置docker允许http访问
+12345678910111213141516[root@harbor ~]# cat /etc/docker/daemon.json&#123;    &quot;log-driver&quot;: &quot;json-file&quot;,    &quot;log-opts&quot;: &#123;    &quot;max-size&quot;: &quot;100m&quot;,    &quot;max-file&quot;: &quot;3&quot;    &#125;,    &quot;max-concurrent-downloads&quot;: 10,    &quot;max-concurrent-uploads&quot;: 10,    &quot;registry-mirrors&quot;: [&quot;https://7bezldxe.mirror.aliyuncs.co ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220710/containerd-20220710-3-%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F/" title="3.自定义镜像">3.自定义镜像</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-10T13:57:18.000Z" title="发表于 2022-07-10 21:57:18">2022-07-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/containerd/">containerd</a></span></div><div class="content">1. 概述
+nerdctl想要构建镜像需要安装buildkit插件，且不能基于本地镜像进行构建，所以建议构建镜像和镜像仓库仍使用docker作为运行时。
+2. 安装docker-ce
+123[root@localhost ~]# rm -rf /etc/yum.repos.d/* &amp;&amp; wget ftp://ftp.rhce.cc/k8s/* -P /etc/yum.repos.d/[root@harbor ~]# yum install docker-ce -y[root@harbor ~]# systemctl enable docker --now
+3. 添加配置文件
+123456789101112131415[root@harbor ~]# cat /etc/docker/daemon.json&#123;    &quot;log-driver&quot;: &quot;json-file&quot;,    &quot;log-opts&quot;: &#123;    &quot;max-size&quot;: &quot;100m&quot;,    & ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220709/containerd-20220709-2-containerd%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/" title="2.containerd安装使用">2.containerd安装使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-09T03:48:27.000Z" title="发表于 2022-07-09 11:48:27">2022-07-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/containerd/">containerd</a></span></div><div class="content">1. 安装
+配置yum源安装
+123wget ftp://ftp.rhce.cc/k8s/* -P /etc/yum.repos.d/yum install containerd.io cri-tools -y
+生成默认配置文件
+1containerd config default &gt; /etc/containerd/config.toml
+修改配置文件
+12345678 [plugins.&quot;io.containerd.grpc.v1.cri&quot;.registry.mirrors]	[plugins.&quot;io.containerd.grpc.v1.cri&quot;.registry.mirrors.&quot;docker.io&quot;]		endpoint = [&quot;https://frz7i079.mirror.aliyuncs.com&quot;]sandbox_image = &quot;registry.aliyuncs.com/google_containers/pause:3.7&quot;[plugins.&quot;io. ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220703/containerd-20220703-1-%E5%AE%B9%E5%99%A8%E4%BB%8B%E7%BB%8D/" title="1.容器介绍">1.容器介绍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-03T15:52:15.000Z" title="发表于 2022-07-03 23:52:15">2022-07-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/containerd/">containerd</a></span></div><div class="content">1. 容器概念介绍
+对于初学者来说并不太容易理解什么是容器，这里举个例子。想象一下，我们把系统安装在一个U盘里，此系统安装好了MySQL。然后我们把这个U盘插入到一台正在运行的宿主机上，这台宿主机上并没有安装MySQL，如图1-1所示。
+
+图1-1 了解容器和镜像
+然后把U盘里的mysqld进程“拽”到物理机上运行。但是这个mysqld进程只能适应U盘里的生态环境（系统环境），并不能适应物理机的生态环境（系统）。所以找一个类似于气球的东西把mysqld包裹保护起来，这个mysqld进程就可以正常运行了，因为它感觉现在所处的生态环境，仍然是U盘里的生态环境。
+但是这个进程mysqld运行的时候是需要消耗CPU和内存的，这个U盘里并不提供CPU和内存，所以气球里的mysqld进程可以从物理机里吸收CPU和内存，作为维持它正常运行的“养分”。
+那么这个类似气球的东西就是容器，U盘就是镜像。在Linux下安装软件包的时候经常会遇到各种包依赖，或者有人不会在Linux系统（比如 Ubuntu、centos）里安装软件包。这样以后就不需要安装和配mysql了，直接把这个“U盘”插到电脑上，然后生成 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220303/%E5%A4%A7%E6%95%B0%E6%8D%AE-20220221-Hadoop%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="Hadoop运行环境搭建">Hadoop运行环境搭建</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-03-03T08:37:04.000Z" title="发表于 2022-03-03 16:37:04">2022-03-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="content">1. 虚拟机环境准备
 
 
 
 主机名
-IP地址
-操作系统
+IP
 内存
-docker版本
+系统
 
 
 
 
-docker01
-10.0.0.11
-centos7.4
-4G
-1.83
+hadoop101
+192.168.10.11
+2G
+Ubuntu 20.04.3 LTS
 
 
-docker02
-10.0.0.12
-centos7.4
-4G
-1.83
+hadoop102
+192.168.10.12
+2G
+Ubuntu 20.04.3 LTS
+
+
+hadoop103
+192.168.10.13
+2G
+Ubuntu 20.04.3 LTS
 
 
 
-二 docker部署
-1. 添加yum源
-12curl -o /etc/yum.repos.d/docker-ce.repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repoyum clean all
-2. 安装docker
-1yum install -y docker-ce
-3. 配置docker镜像加速
-docker的镜像默认都从docker-hub上拉取,然而由于不可描述的原因,国内访问速度很很慢,因此会采用镜像加速的方式拉取镜像,常用的有四个地址,分别是daocloud,七牛,docker-cn,阿里云,阿里云的要注册后才能使用专用地址,使用使用方法如下
+以下步骤三台服务器均需要操作
 
-方法1:DaoCloud+七牛+docker-cn ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220110/docker-20220110-1-%E5%AE%B9%E5%99%A8%E5%92%8Cdocker%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="1-容器和docker基础知识">1-容器和docker基础知识</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-09T16:21:52.000Z" title="发表于 2022-01-10 00:21:52">2022-01-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/docker/">docker</a></span></div><div class="content">一 容器的概念
-1.什么是容器：
-容器是在隔离的环境里面运行的一个进程，这个隔离的环境有自己的系统目录文件，有自己的ip地址，主机名等。
-也可以说：容器是一种轻量级虚拟化的技术。
-2.容器相对于kvm虚拟机的优势：
+1.1 添加主机名映射
+1234ren@hadoop101:~$ cat /etc/hosts192.168.10.11 hadoop101192.168.10.12 hadoop102192.168.10.13 hadoop103
+1.2 ssh三机互信
+1234ren@hadoop101:~$ ssh-keygenren@hadoop101:~$ ssh-copy-id ren@192.168.10.11ren@hadoop101:~$ ssh-copy-id ren@192.168.10.12ren@hadoop101:~$ ssh-copy-id ren@192.168.10.13
+1.3 创建项目目 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220228/istio-20220228-1-%E6%9C%8D%E5%8A%A1%E7%BD%91%E6%A0%BC/" title="1.服务网格">1.服务网格</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-02-28T07:35:05.000Z" title="发表于 2022-02-28 15:35:05">2022-02-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/istio/">istio</a></span></div><div class="content">1. 前言
+如果你比较关注新兴技术的话，那么很可能在不同的地方听说过 istio，并且知道它和 service mesh 有着牵扯。这篇文章可以作为了解 istio 的入门介绍，了解什么是 istio，istio 为什么最近这么火，以及 istio 能够我们带来什么好处。
+2. 什么是 istio？
+官方对 istio 的介绍浓缩成了一句话：
 
-容器能提供接近宿主机的性能，而kvm虚拟机会损害一部分宿主机的性能
-若宿主机最多能启动10虚拟机，那么它可以启动100+容器
-启动一台kvm虚拟机，可以能需要20秒，容器只需要1秒
-kvm需要硬件cpu的支持，容器不需要
+An open platform to connect, secure, control and observe services.
 
-3.docker容器是什么？
-Docker是通过内核虚拟化技术（namespaces及cgroups）来提供容器的资源隔离与资源限制。
-由于Docker通过操作系统层的虚拟化实现隔离（对操作系统的内核有要求），所以Docker容器在运行时，不需要类似虚拟机（VM）额外的操作系统开销，从而比kvm虚拟机更轻量。
-二 docker相关概念
-docker是一种软件的打包技术。
-1.docker的理念
-docker的主要目标是&quot;Build,Ship and Run any App,Angwhere&quot;,构建，运输，然后处处运行
+翻译过来，就是”连接、安全加固、控制和观察服务的开放平台“。开放平台就是指它本身是开源的，服务对应的是微服务，也可以粗略地理解为单个应用。
+中间的四个动词就是 istio 的主要功能，官方也各有一句话的说明。这里再阐释一下：
 
-构建：制作d ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/12/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/#content-inner">12</a><span class="page-number current">13</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.gif" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ren_mcc</div><div class="author-info__description">一个收藏回忆与分享技术的地方！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">129</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/renmcc"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230701/python-20230701-%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" title="序列化和反序列化">序列化和反序列化</a><time datetime="2023-06-30T22:14:52.000Z" title="发表于 2023-07-01 06:14:52">2023-07-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230628/python-20230628-%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/" title="目录文件处理">目录文件处理</a><time datetime="2023-06-28T09:02:25.000Z" title="发表于 2023-06-28 17:02:25">2023-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230628/python-20230628-functools%E6%A8%A1%E5%9D%97/" title="functools模块">functools模块</a><time datetime="2023-06-28T06:27:10.000Z" title="发表于 2023-06-28 14:27:10">2023-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230628/python-20230628-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" title="插入排序">插入排序</a><time datetime="2023-06-28T06:20:00.000Z" title="发表于 2023-06-28 14:20:00">2023-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230627/python-20230627-%E7%B1%BB%E5%9E%8B%E6%B3%A8%E9%87%8A/" title="类型注释">类型注释</a><time datetime="2023-06-27T11:25:46.000Z" title="发表于 2023-06-27 19:25:46">2023-06-27</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline">
+连接（Connect）：智能控制服务之间的调用流量，能够实现灰度升级、AB 测试和红黑部署等功能
+安全加固（Secure）：自动为服务之间的调用提供认证、授权和加密
+控制（Control）：应用用户定义的 policy，保证资源在消费者中公平分配
+观察（Observe）：查看服务运行期间 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220221/%E5%A4%A7%E6%95%B0%E6%8D%AE-20220221-%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%94%9F%E6%80%81%E4%BD%93%E7%B3%BB/" title="大数据生态体系">大数据生态体系</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-02-21T06:04:21.000Z" title="发表于 2022-02-21 14:04:21">2022-02-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="content">1. Hadoop是什么
+
+Hadoop是由Apache基金会所开发的分布式系统基础架构。
+主要解决，海量数据的存储和海量数据的分析计算问题。
+广义上来说，Hadoop通常是指一个更广泛的概念——Hadoop生态圈。
+
+
+2. Hadoop发展历史
+
+Hadoop创始人Doug Cutting，为了实现与Googole类似的全文搜索功能，他在Lucene框架基础上进行优化升级，查询引擎和索引引擎。
+
+ 
+
+2001年年底Lucene成为Apache基金会的一个子项目。
+对于海量数据的场景，Lucene框架面对与Google同意的困难，存储海量数据困难，检索海量数据速度慢。
+学习和模仿Google解决这些问题的办法：微型版Nutch。
+可以说Google是Hadoop的思想之源（Google在大数据方面的三篇论文）
+GFS --&gt; HDFS
+Map-Reduce —&gt; MR
+BigTable —&gt; HBase
+2003-2004年，Google公开了部分GFS和MapReduce思想的细节，以此为基础Doug Cutting等人用了2年业务时间实现了DFS和MapRed ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20220221/%E5%A4%A7%E6%95%B0%E6%8D%AE-20220221-%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%A6%82%E8%AE%BA/" title="大数据概论">大数据概论</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-02-21T01:56:38.000Z" title="发表于 2022-02-21 09:56:38">2022-02-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="content">1. 大数据概念
+大数据（BigData）：指无法在一定时间范围内用常规软件工具进行捕捉、管理和处理的数据集合，是需要新处理模式才能具有更强的决策力、洞察发现力和流程优化能力的海量、高增长、率和多样化的信息资产。
+大数据主要解决，海量数据的采集、存储和分析计算问题。
+按顺序给出数据存储单位：bit、Byte、KB、MB、GB、TB、PB、EB、ZB、YB、BB、NB、DB。
+1Byte=8bit
+1K=1024Byte
+1MB=1024KB
+1G=1024MB
+1T=1024GB
+1P=1024TB
+2. 大数据特点（4V）
+2.1 Volume（大量）
+截至目前，人类生产的所有印刷材料的数据量是200PB，而历史上全人类总共说过的话的数据量大约是5EB。当前，典型个人计算机硬盘的容量为TB量级，而一些大企业的数据量已经接近EB量级。
+2.2 Velocity(高速)
+这是大数据区分与传统数据挖掘的最显著特征。根据IDC的“数字宇宙”的报告，预计到2025年，全球数据使用量将达到163ZB。在如此海量的数据面前，处理数据的效率就是企业的生命。
+
+天猫双十一：2017年3分钟01秒，天猫 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/12/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/#content-inner">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/#content-inner">14</a><a class="page-number" href="/page/15/#content-inner">15</a><a class="extend next" rel="next" href="/page/14/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.gif" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ren_mcc</div><div class="author-info__description">一个收藏回忆与分享技术的地方！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">149</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/renmcc"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-SockerServer/" title="SockerServer">SockerServer</a><time datetime="2023-07-07T15:28:58.000Z" title="发表于 2023-07-07 23:28:58">2023-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-TCP%E7%BC%96%E7%A8%8B/" title="TCP编程">TCP编程</a><time datetime="2023-07-07T14:23:21.000Z" title="发表于 2023-07-07 22:23:21">2023-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/" title="二叉树遍历">二叉树遍历</a><time datetime="2023-07-07T14:14:38.000Z" title="发表于 2023-07-07 22:14:38">2023-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%A4%9A%E8%BF%9B%E7%A8%8B/" title="多线程和多进程">多线程和多进程</a><time datetime="2023-07-07T13:42:46.000Z" title="发表于 2023-07-07 21:42:46">2023-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-%E9%93%BE%E6%8E%A5%E8%A1%A8/" title="链接表">链接表</a><time datetime="2023-07-07T13:39:15.000Z" title="发表于 2023-07-07 21:39:15">2023-07-07</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>分类</span>
             <a class="card-more-btn" href="/categories/" title="查看更多">
@@ -553,8 +285,8 @@ docker的主要目标是&quot;Build,Ship and Run any App,Angwhere&quot;,构建�
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/"><span class="card-category-list-name">JavaScript</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/containerd/"><span class="card-category-list-name">containerd</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/docker/"><span class="card-category-list-name">docker</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/docker-compose/"><span class="card-category-list-name">docker-compose</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/git/"><span class="card-category-list-name">git</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/golang/"><span class="card-category-list-name">golang</span><span class="card-category-list-count">38</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/istio/"><span class="card-category-list-name">istio</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/kafka/"><span class="card-category-list-name">kafka</span><span class="card-category-list-count">2</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/containerd/" style="font-size: 1.28em; color: rgb(123, 66, 160)">containerd</a><a href="/tags/JavaScript/" style="font-size: 1.15em; color: rgb(57, 112, 91)">JavaScript</a><a href="/tags/docker/" style="font-size: 1.35em; color: rgb(114, 100, 153)">docker</a><a href="/tags/git/" style="font-size: 1.15em; color: rgb(170, 147, 118)">git</a><a href="/tags/docker-compose/" style="font-size: 1.25em; color: rgb(132, 118, 30)">docker-compose</a><a href="/tags/istio/" style="font-size: 1.35em; color: rgb(45, 68, 166)">istio</a><a href="/tags/kubrnetes/" style="font-size: 1.32em; color: rgb(142, 84, 32)">kubrnetes</a><a href="/tags/kubernetes/" style="font-size: 1.42em; color: rgb(158, 45, 168)">kubernetes</a><a href="/tags/golang/" style="font-size: 1.45em; color: rgb(19, 10, 71)">golang</a><a href="/tags/kafka/" style="font-size: 1.18em; color: rgb(181, 40, 45)">kafka</a><a href="/tags/nginx/" style="font-size: 1.15em; color: rgb(99, 9, 67)">nginx</a><a href="/tags/python/" style="font-size: 1.38em; color: rgb(192, 200, 107)">python</a><a href="/tags/redis/" style="font-size: 1.18em; color: rgb(191, 6, 32)">redis</a><a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.15em; color: rgb(10, 198, 170)">工具</a><a href="/tags/rancher/" style="font-size: 1.22em; color: rgb(116, 169, 196)">rancher</a><a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 1.22em; color: rgb(18, 107, 66)">大数据</a><a href="/tags/vue/" style="font-size: 1.25em; color: rgb(184, 59, 50)">vue</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">25</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">十一月 2022</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">129</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2021-12-06T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">256.9k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-07-07T12:18:13.415Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By ren_mcc</div><div class="footer_custom_text"><a rel="noopener external nofollow noreferrer noopener" target="_blank" href="https://beian.miit.gov.cn/"> <img class="icp-icon entered loading" alt="ICP" src="/img/icp.png" data-ll-status><span>京ICP备2022001205号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/docker-compose/" style="font-size: 1.26em; color: rgb(102, 136, 25)">docker-compose</a><a href="/tags/containerd/" style="font-size: 1.3em; color: rgb(73, 166, 190)">containerd</a><a href="/tags/docker/" style="font-size: 1.38em; color: rgb(141, 80, 157)">docker</a><a href="/tags/git/" style="font-size: 1.15em; color: rgb(149, 160, 177)">git</a><a href="/tags/JavaScript/" style="font-size: 1.15em; color: rgb(121, 95, 30)">JavaScript</a><a href="/tags/golang/" style="font-size: 1.45em; color: rgb(105, 112, 149)">golang</a><a href="/tags/kafka/" style="font-size: 1.19em; color: rgb(102, 187, 188)">kafka</a><a href="/tags/istio/" style="font-size: 1.38em; color: rgb(66, 145, 99)">istio</a><a href="/tags/kubrnetes/" style="font-size: 1.34em; color: rgb(77, 59, 79)">kubrnetes</a><a href="/tags/kubernetes/" style="font-size: 1.41em; color: rgb(80, 158, 186)">kubernetes</a><a href="/tags/nginx/" style="font-size: 1.15em; color: rgb(185, 91, 21)">nginx</a><a href="/tags/rancher/" style="font-size: 1.22em; color: rgb(97, 14, 58)">rancher</a><a href="/tags/python/" style="font-size: 1.45em; color: rgb(74, 38, 9)">python</a><a href="/tags/redis/" style="font-size: 1.19em; color: rgb(29, 63, 89)">redis</a><a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.15em; color: rgb(58, 148, 153)">工具</a><a href="/tags/vue/" style="font-size: 1.26em; color: rgb(114, 137, 185)">vue</a><a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 1.22em; color: rgb(151, 155, 11)">大数据</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">21</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">25</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">十一月 2022</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">149</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2021-12-06T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">302.5k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-07-07T17:23:00.079Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By ren_mcc</div><div class="footer_custom_text"><a rel="noopener external nofollow noreferrer noopener" target="_blank" href="https://beian.miit.gov.cn/"> <img class="icp-icon entered loading" alt="ICP" src="/img/icp.png" data-ll-status><span>京ICP备2022001205号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
   const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
   if ($mermaid.length === 0) return
   const runMermaid = () => {
@@ -761,7 +493,7 @@ document.addEventListener('pjax:error', (e) => {
   }
 })</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
     var parent = document.getElementById('recent-posts');
-    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/python/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 python (18)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/containerd/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🎮 containerd (6)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/docker/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🐱 docker (8)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/kubernetes/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👩‍💻 kubernetes (27)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/golang/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📒 golang (38)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/redis/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">💡 redis (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><a class="magnet_link_more"  href="https://blog.renm.cc/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/python/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 python (38)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/containerd/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🎮 containerd (6)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/docker/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🐱 docker (8)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/kubernetes/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👩‍💻 kubernetes (27)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/golang/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📒 golang (38)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/redis/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">💡 redis (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><a class="magnet_link_more"  href="https://blog.renm.cc/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
     console.log('已挂载magnet')
     parent.insertAdjacentHTML("afterbegin",child)}
      </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #b30070}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>

@@ -56,7 +56,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-07-07 20:18:14'
+  postUpdate: '2023-07-08 01:23:00'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -160,149 +160,196 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="referrer" content="no-referrer-when-downgrade" /><script src="/js/jquery.min.js"></script><link rel="stylesheet" href="/js/function.min.css"><link rel="stylesheet" href="/css/iconfont.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><script src="/js/custom.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.gif" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">129</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ren_mccの博客"><span class="site-name">ren_mccの博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221212/golang-20221212-golang%E6%A0%87%E5%87%86%E5%BA%93os%E6%A8%A1%E5%9D%97/" title="golang标准库os模块">golang标准库os模块</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-12T11:13:58.000Z" title="发表于 2022-12-12 19:13:58">2022-12-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">os标准库实现了平台(操作系统)相关的编程接口
-1. 文件目录相关
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140package mainimport (	&quot;fmt&quot;	&quot;log&quot;	&quot;os&quot;)// 创建文件func createFile() &#123;	if f, err := os.Create(&quot;test.txt&quot;); err != n ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221211/golang-20221211-golang%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" title="golang并发编程">golang并发编程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-11T13:42:20.000Z" title="发表于 2022-12-11 21:42:20">2022-12-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">1. 协程
-Golang中的并发是函数相互独立运行的能力。Goroutines是并发运行的函数。Golang提供了Goroutines作为并发处理操作的一种方式。
-创建一个携程非常简单，就是在一个任务函数前面添加一个go关键字
-1. 实例
-12345678910111213141516171819202122232425package mainimport (	&quot;fmt&quot;	&quot;sync&quot;	&quot;time&quot;)var wg sync.WaitGroupfunc show(msg string) &#123;	defer wg.Done()	for i := 0; i &lt; 5; i++ &#123;		fmt.Printf(&quot;msg: %v\n&quot;, msg)		time.Sleep(time.Millisecond * 100)	&#125;&#125;func main() &#123;	wg.Add(1)	go show(&quot;java&quot;)	wg.Wait()	fmt.Println(&quo ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221211/golang-20221211-golang%E7%BB%A7%E6%89%BF/" title="golang面向对象">golang面向对象</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-11T11:27:11.000Z" title="发表于 2022-12-11 19:27:11">2022-12-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">面向对象的概念
-  洗衣服过程剖析：
+    })(window)</script><meta name="referrer" content="no-referrer-when-downgrade" /><script src="/js/jquery.min.js"></script><link rel="stylesheet" href="/js/function.min.css"><link rel="stylesheet" href="/css/iconfont.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><script src="/js/custom.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.gif" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">149</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ren_mccの博客"><span class="site-name">ren_mccの博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230114/golang-20230114-golang%E4%B8%ADsocket%E7%BC%96%E7%A8%8B/" title="golang中socket编程">golang中socket编程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-13T17:31:51.000Z" title="发表于 2023-01-14 01:31:51">2023-01-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">网络通信过程
 
-给洗衣机里加脏衣服和洗衣粉。
-启动洗衣机。
-洗衣机自动注水，然后滚动。
-脏衣服从黑颜色变成白颜色。
-洗衣机自动停止。
 
-  用面向过程的思想实现代码。
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859//准备洗衣服//输入参数：//powder 洗衣机里放多少洗衣粉//closes 洗衣机里放多少衣服//clean 衣服是否是干净的//返回值：//洗衣机是否开启//准备洗多少衣服func prepare(powder int, closes int, clean bool) (bool, int) &#123;	if powder &lt;= 0 || closes &lt;= 0 || clean == true &#123;		return false, 0	&#125;	return true, closes&#125;//开始洗衣服//输入参数：//washer_stat ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221211/golang-20221209-golang%E5%8C%85%E4%B8%8E%E5%B7%A5%E7%A8%8B%E5%8C%96/" title="golang包与工程化">golang包与工程化</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-11T07:48:10.000Z" title="发表于 2022-12-11 15:48:10">2022-12-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">用go mod管理工程
-  初始化项目:
-1go mod init $module_name
-$module_name和目录名可以不一样。上述命令会生成go.mod文件，该文件内容形如：
-12345678module go-coursego 1.17require (    github.com/ethereum/go-ethereum v1.10.8    github.com/gin-gonic/gin v1.7.4)
-  Go依次从当前项目、GOROOT、GOPATH下寻找依赖包。
+DMA：网卡和磁盘数据拷贝到内存流程比较固定，不涉及到运算操作，且非常耗时。在磁盘嵌入一个DMA芯片，完成上述拷贝工作，把CPU解脱出来，让CPU专注于运算。
+mmap：用户空间和内核空间映射同一块内存空间，从而达到省略将数据从内核缓冲区拷贝到用户空间的操作，用户空间通过映射直接操作内核缓冲区的数据。
 
-从当前go文件所在的目录逐级向上查找go.mod文件（假设go.mod位于目录mode_path下），里面定义了module_name，则引入包的路径为&quot;module_name/包相对于mode_path的路径&quot;。
-go标准库提供的包在GOROOT/src下。
-第三方依赖包在GOPATH/pkg/mod下。
+阻塞式网络I/O
 
-  从go1.7开始，go get只负责下载第三方依赖包，并把它加到go.mod文件里，由go install负责安装二进制文件。
+非阻塞式网络I/O
 
-go get github.com/m ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221209/golang-20221209-golang%E6%8E%A5%E5%8F%A3/" title="golang接口">golang接口</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-09T15:28:41.000Z" title="发表于 2022-12-09 23:28:41">2022-12-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">接口的基本概念
-  接口是一组行为规范的集合。
-12345type Transporter interface &#123; //定义接口。通常接口名以er结尾    //接口里面只定义方法，不定义变量    move(src string, dest string) (int, error) //方法名 (参数列表) 返回值列表    whistle(int) int //参数列表和返回值列表里的变量名可以省略&#125;
-  只要结构体拥有接口里声明的所有方法，就称该结构体“实现了接口”。一个struct可以同时实现多个接口。
-12345678910type Car struct &#123; //定义结构体时无需要显式声明它要实现什么接口    price int&#125;func (car Car) move(src string, dest string) (int, error) &#123;    return car.price, nil&#125;func (car Car) whistle(n int) int &#123;    return n&#125;
-  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221209/golang-20221209-golang%E7%BB%93%E6%9E%84%E4%BD%93/" title="golang结构体">golang结构体</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-09T13:17:04.000Z" title="发表于 2022-12-09 21:17:04">2022-12-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">结构体创建、访问与修改
-定义结构体
-123456type user struct &#123;    id int    score float32    enrollment time.Time    name, addr string //多个字段类型相同时可以简写到一行里&#125;
-声明和初始化结构体
-1234var u user //声明，会用相应类型的默认值初始化struct里的每一个字段u = user&#123;&#125; //用相应类型的默认值初始化struct里的每一个字段u = user&#123;id: 3, name: &quot;zcy&quot;&#125; //赋值初始化u = user&#123;4, 100.0, time.Now(), &quot;zcy&quot;, &quot;beijing&quot;&#125; //赋值初始化，可以不写字段名，但需要跟结构体定义里的字段顺序一致
-访问与修改结构体
-12u.enrollment = time.Now() //给结构体的成员变量赋值fmt.Printf(&quot;id=%d, enrollm ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221209/golang-20221209-golang%E6%8C%87%E9%92%88/" title="golang指针">golang指针</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-09T08:24:30.000Z" title="发表于 2022-12-09 16:24:30">2022-12-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">Go语言中的函数传参都是值拷贝，当我们想要修改某个变量的时候，我们可以创建一个指向该变量地址的指针变量。传递数据使用指针，而无需拷贝数据。
-类型指针不能进行偏移和运算
-Go语言中的指针操作非常简单，只需要记住两个符号：&amp;(取地址)和*(根据地址取值)
-1. 指针地址和指针类型
-每个变量在运行时都拥有一个地址，这个地址代表变量在内存中的位置。Go语言中使用&amp;字符放在变量前面对变量进行取地址操作。Go语言中的值类型(int、float、bool、string、array、struct)都有对应的指针类型。如*init、*init64、*string等。
-2. 指针语法
-一个指针变量指向了一个值的内存地址。(也就是我们声明了一个指针之后，可以像变量赋值一样，把一个值的内存地址放入到指针当中)
-类似于变量和常量，在使用指针前你需要声明指针。
-1var var_name *var-type
-var-type：为指针类型
-var_name：为指针变量名
-*：用于指定变量是作为一个指针
-3. 指针声明
-12var ip *int // 指向整型var fp *float32 // 指 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221208/golang-20221208-golang%E5%87%BD%E6%95%B0/" title="golang函数">golang函数</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-08T07:20:10.000Z" title="发表于 2022-12-08 15:20:10">2022-12-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">函数的基本形式
-123456//函数定义。a,b是形参func argf(a int, b int) &#123; 	a = a + b &#125;var x, y int = 3, 6argf(x, y) //函数调用。x,y是实参
+多路复用网络I/O
 
-形参是函数内部的局部变量，实参的值会拷贝给形参。
-函数定义时的第一个的大括号不能另起一行。
-形参可以有0个或多个。
-参数类型相同时可以只写一次，比如argf(a,b int)。
-在函数内部修改形参的值，实参的值不受影响。
-如果想通过函数修改实参，就需要指针类型。
+  socket把复杂的传输层协议封装成简单的接口，使应用层可以像读写文件一样进行网络数据的传输。
 
-123456func argf(a, b *int) &#123;     *a = *a + *b    *b = 888&#125;var x, y int = 3, 6argf(&amp;x, &amp;y)
-  slice、map、channel都是引用类型，它们作为函数参数时其实跟普通struct没什么区别，都是对struct内部的各个字段做一次拷贝传到函数内部。
-123456789101112131415package mainimport &quot;fmt&quot;fun ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221203/golang-20221203-golang%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" title="golang流程控制">golang流程控制</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-03T14:48:50.000Z" title="发表于 2022-12-03 22:48:50">2022-12-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">if
-123if 5 &gt; 9 &#123;    fmt.Println(&quot;5&gt;9&quot;)&#125;
+socket通信过程
 
-如果逻辑表达式成立，就会执行{}里的内容。
-逻辑表达式不需要加()。
-&quot;{&quot;必须紧跟在逻辑表达式后面，不能另起一行。
+TCP CS架构
+网络通信模型
+OSI参考模型
 
-123if c, d, e := 5, 9, 2; c &lt; d &amp;&amp; (c &gt; e || c &gt; 3) &#123; //初始化多个局部变量。复杂的逻辑表达式    fmt.Println(&quot;fit&quot;)&#125;
+TCP/IP模型
 
-逻辑表达中可以含有变量或常量。
-if句子中允许包含1个(仅1个)分号，在分号前初始化一些局部变量(即只在if块内可见)。
+  传输层数据大小的上限为MSS(Maximum Segment Size, 最大分段大小)，网络接口层数据大小的上限为MTU(Maximum Transmit Unit, 最大传输单元)。
+TCP协议解读
+  MSS=MTU-ip首部-tcp首部，MTU视网络接口层的不同而不同。TCP在建立连接时通常需要协商双方的MSS值。应用层传输的数据大于MSS时需要分段。
 
-if-else的用法
-12345678910color := &quot;black&quot;if color == &quot;red&quot; &#123; //if只能有一个    fmt.Println(&quot;stop&quot;)&#125; else if color == &quot;green&quot ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221202/golang-20221202-golang%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA/" title="golang格式化输出">golang格式化输出</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-02T15:41:28.000Z" title="发表于 2022-12-02 23:41:28">2022-12-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">12345type WebSite struct &#123;	Name string&#125;var site = WebSite&#123;Name: &quot;ren123&quot;&#125;
-普通占位符
+TCP首部
+
+
+前20个字节是固定的，后面还4 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230112/golang-20230112-golang%E6%A0%87%E5%87%86%E5%BA%93http/" title="golang标准库http">golang标准库http</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-12T09:04:06.000Z" title="发表于 2023-01-12 17:04:06">2023-01-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">http协议
+
+http：超文本传输协议Hyper Text Transfer Protocol。
+http属于应用层协议，它在传输层用的是tcp协议。
+无状态，对事务处理没有记忆能力（对比TCP协议里的确认号）。如果要保存状态需要引用其他技术，如cookie。
+无连接，每次连接只处理一个请求。早期带宽和计算资源有限，这么做是为了追求传输速度快，后来通过Connection: Keep-Alive实现长连接。http1.1废弃了Keep-Alive，默认支持长连接。
+
+  
+请求方法
 
 
 
-占位符
-说明
-举例
-输出
+请求方法
+解释
 
 
 
 
-%v
-相应值的默认格式
-fmt.Printf(“site: %v\n”, site)
-site: {ren123}
+GET
+请求获取Request-URI所标识的资源
 
 
-%#v
-响应值的Go语法表示
-fmt.Printf(“site: %#v\n”, site)
-site: main.WebSite{Name:“ren123”}
+POST
+向URI提交数据（例如提交表单或上传数据）
 
 
-%T
-相应值的类型的Go语法表示
-fmt.Printf(“site: %T\n”, site)
-site: main.WebSite
+HEAD
+类似于GET，返回的响应中没有具体的内容，用于获取报头
 
 
-%%
-字面上的百分号，并非值的占位符
-fmt.Printf(“site: %%\n”, site)
-site: %
+PUT
+对服务器上已存在的资源进行更新
 
 
-
-布尔占位符
-
-
-
-占位符
-说明
-举例
-输出
+DELETE
+请求服务器删除指定的页面
 
 
+CONNECT
+HTTP/1.1预留，能够将连接改为管道方式的代理服务器
 
 
-%t
-单词true或false
-fmt.Printf(“b: %t\n”, b)
-b: true
+OPTIONS
+查看服务端性能
+
+
+TRACE
+回显服务器收到的请求，主要用于测试或诊断
+
+
+PATCH
+同PUT，可只对资源的一 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230105/golang-20230105-golang%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" title="golang并发编程">golang并发编程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-05T07:18:21.000Z" title="发表于 2023-01-05 15:18:21">2023-01-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">并发模型
+  任何语言的并行，到操作系统层面，都是内核线程的并行。同一个进程内的多个线程共享系统资源，进程的创建、销毁、切换比线程大很多。从进程到线程再到协程, 其实是一个不断共享, 不断减少切换成本的过程。
 
 
 
-整数占位符
 
 
 
-占位符
-说明
-举例
- ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/5/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/#content-inner">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/#content-inner">13</a><a class="extend next" rel="next" href="/page/7/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.gif" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ren_mcc</div><div class="author-info__description">一个收藏回忆与分享技术的地方！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">129</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/renmcc"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230701/python-20230701-%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" title="序列化和反序列化">序列化和反序列化</a><time datetime="2023-06-30T22:14:52.000Z" title="发表于 2023-07-01 06:14:52">2023-07-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230628/python-20230628-%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/" title="目录文件处理">目录文件处理</a><time datetime="2023-06-28T09:02:25.000Z" title="发表于 2023-06-28 17:02:25">2023-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230628/python-20230628-functools%E6%A8%A1%E5%9D%97/" title="functools模块">functools模块</a><time datetime="2023-06-28T06:27:10.000Z" title="发表于 2023-06-28 14:27:10">2023-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230628/python-20230628-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" title="插入排序">插入排序</a><time datetime="2023-06-28T06:20:00.000Z" title="发表于 2023-06-28 14:20:00">2023-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230627/python-20230627-%E7%B1%BB%E5%9E%8B%E6%B3%A8%E9%87%8A/" title="类型注释">类型注释</a><time datetime="2023-06-27T11:25:46.000Z" title="发表于 2023-06-27 19:25:46">2023-06-27</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline">
+
+协程
+线程
+
+
+
+
+创建数量
+轻松创建上百万个协程而不会导致系统资源衰竭
+通常最多不能超过1万个
+
+
+内存占用
+初始分配4k堆栈，随着程序的执行自动增长删除
+创建线程时必须指定堆栈且是固定的，通常以M为单位
+
+
+切换成本
+协程切换只需保存三个寄存器，耗时约200纳秒
+线程切换需要保存几十个寄存器，耗时约1000纳秒
+
+
+调度方式
+非抢占式，由Go runtime主动交出控制权（对于开发者而言是抢占式）
+在时间片用完后，由 CPU 中断任务强行将其调度走，这时必须保存很多信息
+
+
+创建销毁
+goroutine因为是由Go runtime负责管理的，创建和销毁的消耗非常小，是用户级的
+创建和销毁开销巨大，因为要和操作系统打交道，是内核级的，通常解决的办法就是线程池
+
+
+
+查看逻辑核心数
+1fmt.Println(runtime.NumCPU())
+Go语言的MPG并发模 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230104/golang-20230104-golang%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="golang数据结构与算法">golang数据结构与算法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-04T10:32:51.000Z" title="发表于 2023-01-04 18:32:51">2023-01-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">链表
+链表是一种非连续的存储容器，由多个节点组成，节点通过一些变量记录彼此之间的关系，链表有多种实现方法，如单链表、双链表等
+在Go语言中，链表使用 container/list 包来实现，内部的实现原理是双链表，链表能够高效地进行任意位置的元素插入和删除操作。
+  
+初始化列表
+list 的初始化有两种方法：分别是使用 New() 函数和 var 关键字声明，两种方法的初始化效果都是一致的。
+
+通过 container/list 包的 New() 函数初始化 list
+
+1变量名 := list.New()
+
+通过 var 关键字声明初始化 list
+
+1var 变量名 list.List
+链表与切片和 map 不同的是，链表并没有具体元素类型的限制，因此，链表的元素可以是任意类型，这既带来了便利，也引来一些问题，例如给链表中放入了一个 interface{} 类型的值，取出值后，如果要将 interface{} 转换为其他类型将会发生宕机。
+
+在链表中插入元素
+双链表支持从队列前方或后方插入元素，分别对应的方法是 PushFront 和 PushBack。
+提示
+这两个方法都会返回 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230103/golang-20230103-golang%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" title="golang加密算法">golang加密算法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-03T15:47:40.000Z" title="发表于 2023-01-03 23:47:40">2023-01-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">对称加密
+
+  加密过程的每一步都是可逆的。加密和解密用的是同一组密钥。异或是最简单的对称加密算法。
+12345678910//XOR 异或运算，要求plain和key的长度相同func XOR(plain string, key []byte) string &#123;	bPlain := []byte(plain)	bCipher := make([]byte, len(key))	for i, k := range key &#123;		bCipher[i] = k ^ bPlain[i]	&#125;	cipher := string(bCipher)	return cipher&#125;
+  DES（Data Encryption Standard）数据加密标准，是目前最为流行的加密算法之一。对原始数据（明文）进行分组，每组64位，最后一组不足64位时按一定规则填充。每一组上单独施加DES算法。
+DES子密钥生成
+  初始密钥64位，实际有效位56位，每隔7位有一个校验位。根据初始密钥生成16个48位的子密钥。
+  
+   
+  N取值从1到16，N和x有固定的映射表。 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221230/golang-20221230-golang%E5%8F%8D%E5%B0%84/" title="golang反射">golang反射</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-30T08:38:30.000Z" title="发表于 2022-12-30 16:38:30">2022-12-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">反射介绍
+  反射就是在运行期间（不是编译期间）探知对象的类型信息和内存结构、更新变量、调用它们的方法。
+  反射的使用场景：
+
+函数的参数类型是interface{}，需要在运行时对原始类型进行判断，针对不同的类型采取不同的处理方式。比如json.Marshal(v interface{})。
+在运行时根据某些条件动态决定调用哪个函数，比如根据配置文件执行相应的算子函数。
+
+  Go标准库里的json序列化就使用了反射。
+1234567891011type User struct &#123;    Name string    Age int    Sex byte `json:&quot;gender&quot;`&#125;user := User&#123;    Name: &quot;钱钟书&quot;,    Age: 57,    Sex: 1,&#125;json.Marshal(user)  //返回 &#123;&quot;Name&quot;:&quot;钱钟书&quot;,&quot;Age&quot;:57,&quot;gender&quot;:1&#12 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221230/golang-20221230-golang%E6%B3%9B%E5%9E%8B/" title="golang泛型">golang泛型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-30T08:30:21.000Z" title="发表于 2022-12-30 16:30:21">2022-12-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">  在有泛型之前，同样的功能需要为不同的参数类型单独实现一个函数。
+123456789func add4int(a, b int) int &#123;	return a + b&#125;func add4float32(a, b float32) float32 &#123;	return a + b&#125;func add4string(a, b string) string &#123;	return a + b&#125;
+使用泛型
+12345678type Addable interface&#123;type int, int8, int16, int32, int64,	uint, uint8, uint16, uint32, uint64, uintptr,	float32, float64, complex64, complex128,string&#125;func add[T Addable](a,b T)T&#123;	return a+b&#125;
+  在go1.17中泛型默认没有开启，如果想用需要加-gcflags=-G=3，或者设置环境变量expo ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221230/golang-20221230-golang%E5%8E%8B%E7%BC%A9/" title="golang压缩">golang压缩</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-29T18:12:19.000Z" title="发表于 2022-12-30 02:12:19">2022-12-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">1. zip
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586package mainimport (	&quot;archive/zip&quot;	&quot;fmt&quot;	&quot;io&quot;	&quot;log&quot;	&quot;os&quot;	&quot;path/filepath&quot;	&quot;strings&quot;)func new_zip(files []string) &#123;	// 创建压缩文件	fout, err2 := os.OpenFile(&quot;test2.zip&quot;, os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0666)	if err2 != nil &#123;		log.Fatal(err2)	& ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221225/git-20221225-git%E5%85%A5%E9%97%A8/" title="git">git</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-25T07:46:27.000Z" title="发表于 2022-12-25 15:46:27">2022-12-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/git/">git</a></span></div><div class="content">Git是一个开源的分布式版本控制软件，用来管理项目版本。Git最初是由Linus Torvalds设计开发的，用于管理Linux内核开发。
+1. 为什么需要本本控制
+
+备份用
+团队协同开发
+
+2. Git的历史
+很多人都知道，Linus在1991年创建了开源的Linux,从此Linux系统不断发展，已经称为最大的服务器系统软件。
+Linus虽然创建了Linux，但Linux的壮大是靠全世界热心的志愿者参与的，这么多人在世界各地为Linux编写代码，那Linux的代码是如何管理的呢?
+事实上，在2002年以前，世界各地的志愿者把代码文件通过diff的方式发给Linus,然后由Linus本人通过手工方式合并代码
+你也许会想，为什么Linus不把Linux代码放到版本控制系统里呢？不是有CVS、SVN这些免费的版本控制系统码？因为Linus坚定的反对CVS和SVN，这些集中式的版本控制系统不但速度慢，而且必须联网才能使用。有一些商用的版本控制系统，虽然比CVS、SVN好用，但那时付费的，和Linux的开源精神不符。
+不过，到了2002年，Linux系统已经发展了十年了，代码库之大让Linus ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20221224/golang-20221224-golang%E6%93%8D%E4%BD%9Cmysql/" title="golang操作mysql">golang操作mysql</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-23T17:20:47.000Z" title="发表于 2022-12-24 01:20:47">2022-12-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">1. 准备表
+创建数据库
+1create database go_db DEFAULT CHARSET utf8mb4 COLLATE utf8mb4_general_ci;
+创建表
+12345CREATE TABLE user_tb1(    id INTEGER PRIMARY KEY AUTO_INCREMENT,    username VARCHAR(20),    `password` VARCHAR(20))
+添加数据
+12INSERT INTO user_tb1(username,password) VALUES(&quot;tom&quot;, &quot;123&quot;);INSERT INTO user_tb1(username,password) VALUES(&quot;kite&quot;, &quot;456&quot;);
+2. 安装驱动
+1go get -u github.com/go-sql-driver/mysql
+初始化模块
+1go mod init m
+更新依赖
+1go mod tidy
+3. 获取连接
+123456789101112131 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/5/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/#content-inner">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/#content-inner">15</a><a class="extend next" rel="next" href="/page/7/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.gif" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ren_mcc</div><div class="author-info__description">一个收藏回忆与分享技术的地方！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">149</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/renmcc"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-SockerServer/" title="SockerServer">SockerServer</a><time datetime="2023-07-07T15:28:58.000Z" title="发表于 2023-07-07 23:28:58">2023-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-TCP%E7%BC%96%E7%A8%8B/" title="TCP编程">TCP编程</a><time datetime="2023-07-07T14:23:21.000Z" title="发表于 2023-07-07 22:23:21">2023-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/" title="二叉树遍历">二叉树遍历</a><time datetime="2023-07-07T14:14:38.000Z" title="发表于 2023-07-07 22:14:38">2023-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%A4%9A%E8%BF%9B%E7%A8%8B/" title="多线程和多进程">多线程和多进程</a><time datetime="2023-07-07T13:42:46.000Z" title="发表于 2023-07-07 21:42:46">2023-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-%E9%93%BE%E6%8E%A5%E8%A1%A8/" title="链接表">链接表</a><time datetime="2023-07-07T13:39:15.000Z" title="发表于 2023-07-07 21:39:15">2023-07-07</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>分类</span>
             <a class="card-more-btn" href="/categories/" title="查看更多">
@@ -310,8 +357,8 @@ b: true
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/"><span class="card-category-list-name">JavaScript</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/containerd/"><span class="card-category-list-name">containerd</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/docker/"><span class="card-category-list-name">docker</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/docker-compose/"><span class="card-category-list-name">docker-compose</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/git/"><span class="card-category-list-name">git</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/golang/"><span class="card-category-list-name">golang</span><span class="card-category-list-count">38</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/istio/"><span class="card-category-list-name">istio</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/kafka/"><span class="card-category-list-name">kafka</span><span class="card-category-list-count">2</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/containerd/" style="font-size: 1.28em; color: rgb(123, 66, 160)">containerd</a><a href="/tags/JavaScript/" style="font-size: 1.15em; color: rgb(57, 112, 91)">JavaScript</a><a href="/tags/docker/" style="font-size: 1.35em; color: rgb(114, 100, 153)">docker</a><a href="/tags/git/" style="font-size: 1.15em; color: rgb(170, 147, 118)">git</a><a href="/tags/docker-compose/" style="font-size: 1.25em; color: rgb(132, 118, 30)">docker-compose</a><a href="/tags/istio/" style="font-size: 1.35em; color: rgb(45, 68, 166)">istio</a><a href="/tags/kubrnetes/" style="font-size: 1.32em; color: rgb(142, 84, 32)">kubrnetes</a><a href="/tags/kubernetes/" style="font-size: 1.42em; color: rgb(158, 45, 168)">kubernetes</a><a href="/tags/golang/" style="font-size: 1.45em; color: rgb(19, 10, 71)">golang</a><a href="/tags/kafka/" style="font-size: 1.18em; color: rgb(181, 40, 45)">kafka</a><a href="/tags/nginx/" style="font-size: 1.15em; color: rgb(99, 9, 67)">nginx</a><a href="/tags/python/" style="font-size: 1.38em; color: rgb(192, 200, 107)">python</a><a href="/tags/redis/" style="font-size: 1.18em; color: rgb(191, 6, 32)">redis</a><a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.15em; color: rgb(10, 198, 170)">工具</a><a href="/tags/rancher/" style="font-size: 1.22em; color: rgb(116, 169, 196)">rancher</a><a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 1.22em; color: rgb(18, 107, 66)">大数据</a><a href="/tags/vue/" style="font-size: 1.25em; color: rgb(184, 59, 50)">vue</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">25</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">十一月 2022</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">129</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2021-12-06T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">256.9k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-07-07T12:18:13.415Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By ren_mcc</div><div class="footer_custom_text"><a rel="noopener external nofollow noreferrer noopener" target="_blank" href="https://beian.miit.gov.cn/"> <img class="icp-icon entered loading" alt="ICP" src="/img/icp.png" data-ll-status><span>京ICP备2022001205号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/docker-compose/" style="font-size: 1.26em; color: rgb(102, 136, 25)">docker-compose</a><a href="/tags/containerd/" style="font-size: 1.3em; color: rgb(73, 166, 190)">containerd</a><a href="/tags/docker/" style="font-size: 1.38em; color: rgb(141, 80, 157)">docker</a><a href="/tags/git/" style="font-size: 1.15em; color: rgb(149, 160, 177)">git</a><a href="/tags/JavaScript/" style="font-size: 1.15em; color: rgb(121, 95, 30)">JavaScript</a><a href="/tags/golang/" style="font-size: 1.45em; color: rgb(105, 112, 149)">golang</a><a href="/tags/kafka/" style="font-size: 1.19em; color: rgb(102, 187, 188)">kafka</a><a href="/tags/istio/" style="font-size: 1.38em; color: rgb(66, 145, 99)">istio</a><a href="/tags/kubrnetes/" style="font-size: 1.34em; color: rgb(77, 59, 79)">kubrnetes</a><a href="/tags/kubernetes/" style="font-size: 1.41em; color: rgb(80, 158, 186)">kubernetes</a><a href="/tags/nginx/" style="font-size: 1.15em; color: rgb(185, 91, 21)">nginx</a><a href="/tags/rancher/" style="font-size: 1.22em; color: rgb(97, 14, 58)">rancher</a><a href="/tags/python/" style="font-size: 1.45em; color: rgb(74, 38, 9)">python</a><a href="/tags/redis/" style="font-size: 1.19em; color: rgb(29, 63, 89)">redis</a><a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.15em; color: rgb(58, 148, 153)">工具</a><a href="/tags/vue/" style="font-size: 1.26em; color: rgb(114, 137, 185)">vue</a><a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 1.22em; color: rgb(151, 155, 11)">大数据</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">21</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">25</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">十一月 2022</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">149</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2021-12-06T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">302.5k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-07-07T17:23:00.079Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By ren_mcc</div><div class="footer_custom_text"><a rel="noopener external nofollow noreferrer noopener" target="_blank" href="https://beian.miit.gov.cn/"> <img class="icp-icon entered loading" alt="ICP" src="/img/icp.png" data-ll-status><span>京ICP备2022001205号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
   const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
   if ($mermaid.length === 0) return
   const runMermaid = () => {
@@ -518,7 +565,7 @@ document.addEventListener('pjax:error', (e) => {
   }
 })</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
     var parent = document.getElementById('recent-posts');
-    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/python/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 python (18)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/containerd/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🎮 containerd (6)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/docker/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🐱 docker (8)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/kubernetes/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👩‍💻 kubernetes (27)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/golang/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📒 golang (38)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/redis/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">💡 redis (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><a class="magnet_link_more"  href="https://blog.renm.cc/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/python/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 python (38)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/containerd/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🎮 containerd (6)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/docker/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🐱 docker (8)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/kubernetes/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👩‍💻 kubernetes (27)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/golang/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📒 golang (38)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/redis/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">💡 redis (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><a class="magnet_link_more"  href="https://blog.renm.cc/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
     console.log('已挂载magnet')
     parent.insertAdjacentHTML("afterbegin",child)}
      </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #b30070}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>

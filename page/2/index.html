@@ -56,7 +56,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-07-07 20:18:14'
+  postUpdate: '2023-07-08 01:23:00'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -160,227 +160,216 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="referrer" content="no-referrer-when-downgrade" /><script src="/js/jquery.min.js"></script><link rel="stylesheet" href="/js/function.min.css"><link rel="stylesheet" href="/css/iconfont.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><script src="/js/custom.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.gif" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">129</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ren_mccの博客"><span class="site-name">ren_mccの博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230625/python-20230625-%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E3%80%81%E7%94%9F%E6%88%90%E5%99%A8%E5%87%BD%E6%95%B0/" title="匿名函数、生成器函数">匿名函数、生成器函数</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-25T09:29:40.000Z" title="发表于 2023-06-25 17:29:40">2023-06-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">1. 匿名函数
-匿名：隐藏名字，即没有名称
-匿名函数：没有名字的函数。
-函数没有名字该如何定义？函数没有名字如何调用？
-1.1 Lambda表达式
-Python中，使用Lambda表达式构建匿名函数。
-1234567lambda x: x ** 2 # 定义(lambda x: x ** 2)(4) # 调用foo = lambda x,y: (x+y) ** 2 # 定义函数foo(1, 2)# 等价于def foo(x,y):    return (x+y) ** 2
-
-使用lambda关键字定义匿名函数，格式为 lambda [参数列表]: 表达式
-参数列表不需要小括号。无参就不写参数
-冒号用来分割参数列表和表达式部分
-不需要使用return。表达式的值，就是匿名函数的返回值。表达式中不能出现等号
-lambda表达式（匿名函数）只能写在一行上，也称为单行函数
-
-匿名函数往往用在为高阶函数传参时，使用lambda表达式，往往能简化代码
-1234567891011121314# 返回常量的函数print((lambda :0)())print((lambda x:100)(1))#  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230624/python-20230624-%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F/" title="函数作用域">函数作用域</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-23T16:29:51.000Z" title="发表于 2023-06-24 00:29:51">2023-06-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">1. 作用域
-一个标识符的可见范围，这就是标识符的作用域。一般常说的是变量的作用域
-1234def foo():    x = 100print(x) # 可以访问到吗
-上例中x不可以访问到，会抛出异常（NameError: name ‘x’ is not defined），原因在于函数是一个封装，它会开辟一个作用域，x变量被限制在这个作用域中，所以在函数外部x变量不可见。
-注意：每一个函数都会开辟一个作用域
-2. 作用域分类
-
-全局作用域
-
-在整个程序运行环境中都可见
-全局作用域中的变量称为全局变量global
-
-
-局部作用域
-
-在函数、类等内部可见
-局部作用域中的变量称为局部变量，其使用范围不能超过其所在局部作用域
-也称为本地作用域local
+    })(window)</script><meta name="referrer" content="no-referrer-when-downgrade" /><script src="/js/jquery.min.js"></script><link rel="stylesheet" href="/js/function.min.css"><link rel="stylesheet" href="/css/iconfont.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><script src="/js/custom.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.gif" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">149</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ren_mccの博客"><span class="site-name">ren_mccの博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230707/python-20230707-logging%E6%A8%A1%E5%9D%97/" title="logging模块">logging模块</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-07T13:22:34.000Z" title="发表于 2023-07-07 21:22:34">2023-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">类
 
 
 
-1234567# 局部变量def fn1():    x = 1 # 局部作用域，x为局部变量，使用范围在fn1内def fn2():    print(x) # x能打印吗？可见吗？为什么？print(x) # x能打印吗？可见吗？为什么？
-123456# 全局变量x = 5 # 全局变量，也在函数外定义def foo():    p ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230623/python-20230623-%E5%87%BD%E6%95%B0/" title="函数">函数</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-23T13:31:09.000Z" title="发表于 2023-06-23 21:31:09">2023-06-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">1. 函数
-数学定义
-
-y=f(x) ，y是x的函数，x是自变量。y=f(x0, x1, …, xn)
-
-Python函数
-
-由若干语句组成的语句块、函数名称、参数列表构成，它是组织代码的最小单元
-完成一定的功能
-
-函数的作用
-
-结构化编程对代码的最基本的封装，一般按照功能组织一段代码
-封装的目的为了复用，减少冗余代码
-代码更加简洁美观、可读易懂
-
-函数的分类
-
-内建函数，如max()、reversed()等
-库函数，如math.ceil()等
-自定义函数，使用def关键字定义‘
-
-2. 函数定义
-123def 函数名(参数列表):    函数体（代码块）    [return 返回值]
-
-函数名就是标识符，命名要求一样
-语句块必须缩进，约定4个空格
-Python的函数若没有return语句，会隐式返回一个None值
-定义中的参数列表称为形式参数，只是一种符号表达（标识符），简称形参
-
-3. 函数调用
-
-函数定义，只是声明了一个函数，它不能被执行，需要调用执行
-调用的方式，就是函数名后加上小括号，如有必要在括号内填写上参数
-调用时写的参数是实际参数，是实实在在传入的值，简称实参
-
-12 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230622/python-20230622-%E8%A7%A3%E6%9E%90%E5%BC%8F%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="解析式和生成器表达式">解析式和生成器表达式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-21T18:17:54.000Z" title="发表于 2023-06-22 02:17:54">2023-06-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">1.列表解析式
-列表解析式List Comprehension，也叫列表推导式
-12345678# 生成一个列表，元素0~9，将每一个元素加1后的平方值组成新的列表x = []for i in range(10):    x.append((i+1)**2)    print(x)# 列表解析式print([(i+1)**2 for i in range(10)])
-语法
-
-[返回值 for 元素 in 可迭代对象 if 条件]
-使用中括号[]，内部是for循环，if条件语句可选
-返回一个新的列表
-
-列表解析式是一种语法糖
-
-编译器会优化，不会因为简写而影响效率，反而因优化提高了效率
-减少程序员工作量，减少出错
-简化了代码，增强了可读性
-
-1234567891011121314[expr for item in iterable if cond1 if cond2]等价于ret = []for item in iterable:    if cond1:        if cond2:            ret.append(expr)# [expr for i in itera ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230622/python-20230622-%E5%93%88%E5%B8%8C%E8%A1%A8/" title="哈希表">哈希表</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-21T16:43:24.000Z" title="发表于 2023-06-22 00:43:24">2023-06-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">1. 集合Set
-集合，简称集。由任意个元素构成的集体。高级语言都实现了这个非常重要的数据结构类型。
-Python中，它是可变的、无序的、不重复的元素的集合。
-1.1 初始化
-
-set() -&gt; new empty set object
-set(iterable) -&gt; new set object
-
-12345678s1 = set()s2 = set(range(5))s3 = set([1, 2, 3])s4 = set(&#x27;abcdabcd&#x27;)s5 = &#123;&#125; # 这是什么？s6 = &#123;1, 2, 3&#125;s7 = &#123;1, (1,)&#125;s8 = &#123;1, (1,), [1]&#125; # ？
-1.2 元素性质
-
-去重：在集合中，所有元素必须相异
-无序：因为无序，所以不可索引
-可哈希：Python集合中的元素必须可以hash，即元素都可以使用内建函数hash
-
-目前学过不可hash的类型有：list、set、bytearray
+类
+父类
 
 
-可迭代：set中虽然元素不一样，但元素都可以迭代出来
 
-1 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230621/python-20230621-%E5%B0%81%E8%A3%85%E5%92%8C%E7%BB%93%E6%9E%84/" title="封装和解构">封装和解构</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-21T06:38:26.000Z" title="发表于 2023-06-21 14:38:26">2023-06-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">1. 基本概念
-1234t1 = 1, 2print(type(t1)) # 什么类型t2 = (1, 2)print(type(t2))
-Python等式右侧出现逗号分隔的多值的时候，就会将这几个值封装到元组中。这种操作称为封装packing
-123x, y = (1, 2)print(x) # 1print(y) # 2
-Python中等式右侧是一个容器类型，左侧是逗号分隔的多个标识符，将右侧容器中数据的一个个和左侧标识符一一对应。这种操作称为解构unpacking。
-从Python3开始，对解构做了很大的改进，现在用起来已经非常的方便快捷。
-封装和解构是非常方便的提取数据的方法，在Python、JavaScript等语言中应用极广
-12345678910# 交换数据x = 4y = 5t = xx = yy = t# 封装和解构，交换x = 10y = 11x, y = y, x
-2. 简单解构
-12345678910# 左右个数相同a,b = 1,2a,b = (1,2)a,b = [1,2]a,b = [10,20]a,b = &#123;10,20&#125; # 非线性结 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230619/python-20230619-%E7%BA%BF%E6%80%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="线性数据结构">线性数据结构</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-19T08:36:48.000Z" title="发表于 2023-06-19 16:36:48">2023-06-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">1. 内建常用数据类型
+
+
+Logger
+
+日志记录器
+
+
+RootLogger
+Logger
+根日志记录器类
+
+
+Handler
+
+处理器，日志的实际处理者。有众多处理器子类
+
+
+Formatter
+
+格式化器，日志输出格式控制
+
+
+Filter
+
+过滤器，在Logger实例或Handler实例上过滤日志记录
+
+
+
+记录器Logger
+日志记录器都是Logger类的实例，可以通过它实例化得到。但是logging模块也提供了工厂方法。
+Logger实例的构建，使用Logger类也行，但推荐getLogger函数。
+根记录器
+logger模块为了使用简单，提供了一些快捷方法，这些方法本质上都用到了记录器实例，即根记录器实例。
+1234567891011121314151617181920# logging模块代码中有下列代码class RootLogger(Logger):    &quot;&quot;&quot;    A root logger is not that different to any other logger, except that    it must ha ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230707/python-20230707-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E7%BB%A7%E6%89%BF%E5%92%8CMixin/" title="面向对象-继承和Mixin">面向对象-继承和Mixin</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-07T13:18:06.000Z" title="发表于 2023-07-07 21:18:06">2023-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">类的继承
+基本概念
+面向对象三要素之一，继承Inheritance
+人类和猫类都继承自动物类。
+个体继承自父母，继承了父母的一部分特征，但也可以有自己的个性。
+在面向对象的世界中，从父类继承，就可以直接拥有父类的属性和方法，这样可以减少代码冗余、多复用。子类也可以定义自己的属性和方法。
+看一个不用继承的例子
+1234567891011121314151617class Animal:    def shout(self):        print(&#x27;Animal shouts&#x27;)a = Animal()a.shout()class Cat:    def shout(self):        print(&#x27;Cat shouts&#x27;)c = Cat()c.shout()
+上面的2个类虽然有关系，但是定义时并没有建立这种关系，而是各自完成定义。动物类和猫类都会叫，但是它们的叫法有区别，所以分别定义
+12345678910111213141516171819202122232425262728293031class Animal:    def __ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230707/python-20230707-%E6%97%B6%E9%97%B4%E6%A8%A1%E5%9D%97/" title="时间模块">时间模块</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-07T13:16:38.000Z" title="发表于 2023-07-07 21:16:38">2023-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">GMT
+格林威治标准时间（Greenwich Mean Time，GMT），指的是太阳经过格林威治处的本初子午线时的时间。是最早的世界时（UT，Universal Time）标准。
+时区
+1884年制定了时区，以本初子午线为起点，经度每隔15度，划分一个时区，相邻时区相差一个小时。一些国家会根据行政管理方便，调整时区。
+UTC
+协调世界时（Coodinated Universal Time），目前的世界时标准。
+它由全球很多国家的铯原子钟时间协调得来，与所处地点无关。为了适应地球自转误差，UTC会做人为调整，比如闰秒。
+可以简单的认为，GMT就是UTC + 0。
+CST
+中国标准时间（China Standard Time），UTC + 8:00，也称北京时间。当然CST也可以是美国中部时间等的缩写。
+datetime模块
+datetime类是时间高级类
+
+类方法，即使用类调用的方法，由类方法获得一个时间对象
+
+now(tz=None) 返回当前时间的datetime对象，时间到微秒，如果tz为None，返回当前时区的不带时区信息的时间
+utcnow() 不带时区的0时区时间
+from ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230707/python-20230707-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%B0%81%E8%A3%85/" title="面向对象-封装">面向对象-封装</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-07T13:15:15.000Z" title="发表于 2023-07-07 21:15:15">2023-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">封装就是定义类，将属性和操作组织在类中
+Python类定义
+12class ClassName:    语句块
+
+必须使用class关键字
+类名强烈建议使用大驼峰命名方式，即每个单词首字母大写。其本质上就是一个标识符
+类定义完成后，就产生了一个类对象，绑定到了标识符ClassName上
+
+举例
+12345678910111213class Person:    &quot;&quot;&quot;A Example Class&quot;&quot;&quot;    x = &#x27;abc&#x27;  # 类属性    def showme(self):  # 方法，也是类属性        return __class__.__name__  # 返回当前类的名称print(Person)print(Person.__name__)  # 类名字print(Person.__doc__)  # 类文档print(Person.showme)  # 类属性
+类及类属性
+
+类对象：类也是对象，类的定义执行后会生成一个类对象
+类属性：类定义中的变量和类中定义的方法都是类的属性。上例 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230707/python-20230707-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" title="面向对象">面向对象</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-07T13:12:11.000Z" title="发表于 2023-07-07 21:12:11">2023-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">什么是面向对象呢？
+一种认识世界、分析世界的方法论。将万事万物抽象为各种对象。
+类class
+类是抽象的概念，是万事万物的抽象，是一类事物的共同特征的集合。
+用计算机语言来描述类，是属性和方法的集合。
+对象instance、object
+对象是类的具象，是一个实体。
+对于我们每个人这个个体，都是抽象概念人类的不同的实体。
+举例：
+你吃鱼
+你，就是对象；鱼，也是对象；吃就是动作
+你是具体的人，是具体的对象。你属于人类，人类是个抽象的概念，是无数具体的人的个体的抽象。
+鱼，也是具体的对象，就是你吃的这一条具体的鱼。这条鱼属于鱼类，鱼类是无数的鱼抽象出来的概念。
+吃，是动作，也是操作，也是方法，这个吃是你的动作，也就是人类具有的方法。如果反过来，鱼吃人。吃就是鱼类的动作了。
+吃，这个动作，很多动物都具有的动作，人类和鱼类都属于动物类，而动物类是抽象的概念，是动物都有吃的动作，但是吃法不同而已。
+你驾驶车，这个车也是车类的具体的对象（实例），驾驶这个动作是鱼类不具有的，是人类具有的方法。
+属性：对对象状态的抽象，用数据结构来描述。
+操作：对对象行为的抽象，用操作名和实现该操作的方法来描述。
+每 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230707/python-20230707-argparse%E6%A8%A1%E5%9D%97/" title="argparse模块">argparse模块</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-07T13:08:57.000Z" title="发表于 2023-07-07 21:08:57">2023-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">一个可执行文件或者脚本都可以接收参数
+123$ ls -l /etc/etc 是位置参数-l 是短选项
+如何把这些参数传递给程序呢？
+从3.2开始Python提供了功能强大的参数分析的模块argparse
+参数分类
+参数分为：
+
+位置参数，参数放在那里，就要对应一个参数位置。例如/etc就是对应一个参数位置。
+选项参数，必须通过前面是 - 的短选项或者 – 的长选项，然后后面的才算该选项的参数，当然选项后面也可以没有参数。
+
+上例中，/etc对应的是位置参数，-l是选项参数。
+ls -alh src
+基本解析
+先来一段最简单的程序
+1234import argparseparser = argparse.ArgumentParser() # 获得一个参数解析器args = parser.parse_args() # 分析参数parser.print_help() # 打印帮助
+运行结果
+12345$ python test.py -husage: test1.py [-h]optional arguments:    -h, --help show this help message  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230707/python-20230707-re%E6%A8%A1%E5%9D%97/" title="re模块">re模块</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-07T13:02:24.000Z" title="发表于 2023-07-07 21:02:24">2023-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">Python使用re模块提供了正则表达式处理的能力。
+常量
+
+
+
+常量
+说明
+
+
+
+
+re.Mre.MULTILINE
+多行模式
+
+
+re.Sre.DOTALL
+单行模式
+
+
+re.Ire.IGNORECASE
+忽略大小写
+
+
+re.Xre.VERBOSE
+忽略表达式中的空白字符
+
+
+
+使用 | 位或 运算开启多种选项
+方法
+编译
+re.compile(pattern, flags=0)
+设定flags，编译模式，返回正则表达式对象regex。
+pattern就是正则表达式字符串，flags是选项。正则表达式需要被编译，为了提高效率，这些编译后的结果被保存，下次使用同样的pattern的时候，就不需要再次编译。
+re的其它方法为了提高效率都调用了编译方法，就是为了提速。
+单次匹配
+re.match(pattern, string, flags=0)
+regex.match(string[, pos[, endpos]])
+match匹配从字符串的开头匹配，regex对象match方法可以重设定开始位置和结束位置。返回match对象
+re.search(pattern, string,  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230707/python-20230707-%E6%AD%A3%E5%88%99%E4%B9%A0%E9%A2%98/" title="正则习题">正则习题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-07T13:00:42.000Z" title="发表于 2023-07-07 21:00:42">2023-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">IP地址
+匹配合法的IP地址
+12345678192.168.1.1500.0.0.0255.255.255.25517.16.52.100172.16.0.100400.400.999.888001.022.003.000257.257.255.256
+12(\d&#123;1,3&#125;\.)&#123;3&#125;\d&#123;1,3&#125;(?:\d&#123;1,3&#125;\.)&#123;3&#125;\d&#123;1,3&#125; # 400.400.999.888
+对于ip地址验证的问题
+
+可以把数据提出来后，交给IP地址解析库 处理，如果解析异常，就说明有问题，正则的验证只是一个初步的筛选，把明显错误过滤掉。
+可以使用复杂的正则表达式验证地址正确性
+前导0是可以的
+
+123import socketnw = socket.inet_aton(&#x27;192.168.05.001&#x27;) # 错了抛异常print(nw, socket.inet_ntoa(nw))
+分析：
+每一段上可以写的数字有1、01、001、000、23、023、230 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230707/python-20230707-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">正则表达式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-07T12:57:25.000Z" title="发表于 2023-07-07 20:57:25">2023-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">概述
+正则表达式，Regular Expression，缩写为regex、regexp、RE等。
+正则表达式是文本处理极为重要的技术，用它可以对字符串按照某种规则进行检索、替换。
+1970年代，Unix之父Ken Thompson将正则表达式引入到Unix中文本编辑器ed和grep命令中，由此正则表达式普及开来。
+1980年后，perl语言对Henry Spencer编写的库，扩展了很多新的特性。1997年开始，Philip Hazel开发出了PCRE (Perl Compatible Regular Expressions)，它被PHP和HTTPD等工具采用。
+正则表达式应用极其广泛，shell中处理文本的命令、各种高级编程语言都支持正则表达式。
+参考 https://www.w3cschool.cn/regex_rmjc/
 分类
 
-数值型
+BRE
+基本正则表达式，grep、sed、vi等软件支持。vim有扩展。
+ERE
+扩展正则表达式，egrep（grep -E）、sed -r等。
+PCRE
+几乎所有高级语言都是PCRE的方言或者变种。Python从1.6开始使用SRE正则表达式引擎，可以 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230707/python-20230707-csv%E6%96%87%E4%BB%B6/" title="csv文件">csv文件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-07T12:54:14.000Z" title="发表于 2023-07-07 20:54:14">2023-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">csv文件简介
+参看 RFC 4180 http://www.ietf.org/rfc/rfc4180.txt
+CSV即逗号分隔值Comma-Separated Values
 
-int、float、complex、bool
+它是一个被行分隔符、列分隔符划分成行和列的文本文件
+CSV 不指定字符编码
+每一行称为一条记录record
+表头可选，和字段列对齐就行了
 
+分隔符
 
-序列sequence
+行分隔符为\r\n，最后一行可以没有换行符
+列分隔符常为逗号或者制表符
 
-字符串str、字节序列bytes、bytearray
+字段
 
+字段可以使用双引号括起来，也可以不使用
+如果字段中出现了双引号、逗号、换行符必须使用双引号括起来
+如果字段的值是双引号，使用两个双引号表示一个转义
 
-列表list、元组tuple
+csv 模块
+csv.reader(csvfile, dialect=‘excel’, **fmtparams) 返回reader对象，是一个行迭代器。
+默认使用excel方言，如下：
 
-键值对
-集合set、字典dict
+delimiter 列分隔符 , 逗号
+lineterminator 行分隔符 \r\n
+quotechar 字段的引用符号，缺省为 &quot; 双引号
+双引号的处理
 
-
-
-2. 数值型
-
-int、float、complex、bool都是class，1、5.0、2+3j都是对象即实例
-int：python3的int就是长整型，且没有大小限制，受限于内存区域的大小
-float：由整数部分和小数部分组成。支持十进制和科学计数法表示。C的双精度型实现
-complex：有实数和虚数部分组成，实数和虚数部分都是浮点数，3+4.2J
-bool：int的子类，仅有2个实例True、False对应1和0，可以和整数直接运算
-
-2.1 类型转换
-
-int、float、complex、bool也可以当做内建函数对数据进行类型转换
-int(x) 返回一个整数
-float(x) 返回一个浮点数
-complex(x)、complex(x,y) 返回一个复数
-bool(x) 返回布尔值，前面讲过False等价的对象
-
-2.2 取整
-math模 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230619/python-20230619-01%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" title="基础语法">基础语法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-19T03:38:54.000Z" title="发表于 2023-06-19 11:38:54">2023-06-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">1. Python发展
-
-1989年圣诞节期间，为了打发无聊的时间，荷兰人Guido van Rossum（数学、计算机双硕士，2005年加入Google，2013年加入DropBox），决心开发一种新的解释性脚本语言。
-1991年初发布了第一个公开发行版。由于他是英国BBC喜剧《Monty Python’s Flying Circus》的忠实粉丝，因此为这门语言取名Python。
-Python目前已经成为很多大学的编程课语言。甚至在国内一些考试已经引入了Python。科学计算方面、运维领域Python几乎已经成为最主要的编程语言，拥有非常方便快捷开发的库。
-Python的哲学，可以使用 import this 查看Python之禅。
-2. Python的版本
-目前企业中使用的主要版本还是2.x和3.x。
-2.x最后一个版本是2.7，很多企业为了兼容老项目依然在维护。从2020年开始，不在支持Python2，官方还提供了一个倒计时网站https://pythonclock.org/。
-3.x还在不断的扩充发展，当前主流版本是3.6+。
-
-2015年9月发布3.5
-2016年12月发布3 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230402/JavaScript-20230325-JavaScript%E5%9F%BA%E7%A1%80/" title="JavaScript基础语法">JavaScript基础语法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-04-02T08:36:32.000Z" title="发表于 2023-04-02 16:36:32">2023-04-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a></span></div><div class="content">1. 简介
-1.1 JavaScript是什么
-JavaScript是一种运行在客户端（浏览器）的编程语言，实现人机交互效果。
-1.2 作用
-
-网页特效(监听用户的一些行为让网页作出对应的反馈)
-表单验证(针对表单数据的合法性进行判断)
-数据交互(获取后台的数据，渲染到前端)
-服务端编程(node.js)
-
-
-1.3 JavaScript的组成
-
-ECMAScript
-
-
-规定了js基础语法核心知识
-比如：变量、分支语句、循环语句、对象等等
-
-
-Web Apis
-
-
-DOM 操作文档，比如对页面元素进行移动、大小、添加删除等操作
-BOM 操作浏览器，比如页面弹窗，检测窗口宽度、存储数据到浏览器等等
-
-
-JavaScript权威网站
-https://developer.mozilla.org/zh-CN/docs/Web/JavaScript
-
-2. JavaScript书写位置
-
-2.1 内部JavaScript
-直接写在html文件里，用script标签包住
-规范：script标签写在&lt;/body&gt;上面
-1234567891011121314&lt;!DOCTYPE ht ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/20230329/vue-20230329-vuex/" title="vuex">vuex</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-29T03:40:23.000Z" title="发表于 2023-03-29 11:40:23">2023-03-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/vue/">vue</a></span></div><div class="content">1. Vuex概述
-1.1 官方解释
-Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式
-
-它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化
-
-Vuex 也集成到 Vue 的官方调试工具 devtools extension，提供了诸如零配置的time-travel调试，状态快照导入导出等高级调试功能。
-
-
-
-
-1.2 大白话
-状态管理模式、集中式存储管理这些名词听起来就非常高大上，让人捉摸不透。
-其实，可以简单的将其看成把需要多个组件共享的变量全部存储在一个对象里面。
-然后，将这个对象放在顶层的Vue实例中，让其他组件可以使用。
-那么，多个组件是不是就可以共享这个对象中的所有变量属性了呢？
-如果是这样的话，为什么官方还要专门出一个插件Vuex呢？难道我们不能自己封装一个对象来管理吗？
-当然可以，只是我们要先想想VueJS带给我们最大的便利是什么呢？没错，就是响应式。
-如果你自己封装实现一个对象能不能保证它里面所有的属性做到响应式呢？当然也可以，只是自己封装可能稍微麻烦一些。
-不用怀疑，Vuex就是为了提供这样一个在多个组件间共享状 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/#content-inner">13</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.gif" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ren_mcc</div><div class="author-info__description">一个收藏回忆与分享技术的地方！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">129</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/renmcc"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230701/python-20230701-%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" title="序列化和反序列化">序列化和反序列化</a><time datetime="2023-06-30T22:14:52.000Z" title="发表于 2023-07-01 06:14:52">2023-07-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230628/python-20230628-%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/" title="目录文件处理">目录文件处理</a><time datetime="2023-06-28T09:02:25.000Z" title="发表于 2023-06-28 17:02:25">2023-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230628/python-20230628-functools%E6%A8%A1%E5%9D%97/" title="functools模块">functools模块</a><time datetime="2023-06-28T06:27:10.000Z" title="发表于 2023-06-28 14:27:10">2023-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230628/python-20230628-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" title="插入排序">插入排序</a><time datetime="2023-06-28T06:20:00.000Z" title="发表于 2023-06-28 14:20:00">2023-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230627/python-20230627-%E7%B1%BB%E5%9E%8B%E6%B3%A8%E9%87%8A/" title="类型注释">类型注释</a><time datetime="2023-06-27T11:25:46.000Z" title="发表于 2023-06-27 19:25:46">2023-06-27</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline">
+doublequote 双引号的处理，默认为True。如果碰到数据中有双引号，而 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/#content-inner">15</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.gif" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ren_mcc</div><div class="author-info__description">一个收藏回忆与分享技术的地方！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">149</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/renmcc"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-SockerServer/" title="SockerServer">SockerServer</a><time datetime="2023-07-07T15:28:58.000Z" title="发表于 2023-07-07 23:28:58">2023-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-TCP%E7%BC%96%E7%A8%8B/" title="TCP编程">TCP编程</a><time datetime="2023-07-07T14:23:21.000Z" title="发表于 2023-07-07 22:23:21">2023-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/" title="二叉树遍历">二叉树遍历</a><time datetime="2023-07-07T14:14:38.000Z" title="发表于 2023-07-07 22:14:38">2023-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%A4%9A%E8%BF%9B%E7%A8%8B/" title="多线程和多进程">多线程和多进程</a><time datetime="2023-07-07T13:42:46.000Z" title="发表于 2023-07-07 21:42:46">2023-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/20230707/python-20230707-%E9%93%BE%E6%8E%A5%E8%A1%A8/" title="链接表">链接表</a><time datetime="2023-07-07T13:39:15.000Z" title="发表于 2023-07-07 21:39:15">2023-07-07</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>分类</span>
             <a class="card-more-btn" href="/categories/" title="查看更多">
@@ -388,8 +377,8 @@ Vuex 也集成到 Vue 的官方调试工具 devtools extension，提供了诸如
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/"><span class="card-category-list-name">JavaScript</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/containerd/"><span class="card-category-list-name">containerd</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/docker/"><span class="card-category-list-name">docker</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/docker-compose/"><span class="card-category-list-name">docker-compose</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/git/"><span class="card-category-list-name">git</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/golang/"><span class="card-category-list-name">golang</span><span class="card-category-list-count">38</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/istio/"><span class="card-category-list-name">istio</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/kafka/"><span class="card-category-list-name">kafka</span><span class="card-category-list-count">2</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/containerd/" style="font-size: 1.28em; color: rgb(123, 66, 160)">containerd</a><a href="/tags/JavaScript/" style="font-size: 1.15em; color: rgb(57, 112, 91)">JavaScript</a><a href="/tags/docker/" style="font-size: 1.35em; color: rgb(114, 100, 153)">docker</a><a href="/tags/git/" style="font-size: 1.15em; color: rgb(170, 147, 118)">git</a><a href="/tags/docker-compose/" style="font-size: 1.25em; color: rgb(132, 118, 30)">docker-compose</a><a href="/tags/istio/" style="font-size: 1.35em; color: rgb(45, 68, 166)">istio</a><a href="/tags/kubrnetes/" style="font-size: 1.32em; color: rgb(142, 84, 32)">kubrnetes</a><a href="/tags/kubernetes/" style="font-size: 1.42em; color: rgb(158, 45, 168)">kubernetes</a><a href="/tags/golang/" style="font-size: 1.45em; color: rgb(19, 10, 71)">golang</a><a href="/tags/kafka/" style="font-size: 1.18em; color: rgb(181, 40, 45)">kafka</a><a href="/tags/nginx/" style="font-size: 1.15em; color: rgb(99, 9, 67)">nginx</a><a href="/tags/python/" style="font-size: 1.38em; color: rgb(192, 200, 107)">python</a><a href="/tags/redis/" style="font-size: 1.18em; color: rgb(191, 6, 32)">redis</a><a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.15em; color: rgb(10, 198, 170)">工具</a><a href="/tags/rancher/" style="font-size: 1.22em; color: rgb(116, 169, 196)">rancher</a><a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 1.22em; color: rgb(18, 107, 66)">大数据</a><a href="/tags/vue/" style="font-size: 1.25em; color: rgb(184, 59, 50)">vue</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">25</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">十一月 2022</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">129</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2021-12-06T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">256.9k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-07-07T12:18:13.415Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By ren_mcc</div><div class="footer_custom_text"><a rel="noopener external nofollow noreferrer noopener" target="_blank" href="https://beian.miit.gov.cn/"> <img class="icp-icon entered loading" alt="ICP" src="/img/icp.png" data-ll-status><span>京ICP备2022001205号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/docker-compose/" style="font-size: 1.26em; color: rgb(102, 136, 25)">docker-compose</a><a href="/tags/containerd/" style="font-size: 1.3em; color: rgb(73, 166, 190)">containerd</a><a href="/tags/docker/" style="font-size: 1.38em; color: rgb(141, 80, 157)">docker</a><a href="/tags/git/" style="font-size: 1.15em; color: rgb(149, 160, 177)">git</a><a href="/tags/JavaScript/" style="font-size: 1.15em; color: rgb(121, 95, 30)">JavaScript</a><a href="/tags/golang/" style="font-size: 1.45em; color: rgb(105, 112, 149)">golang</a><a href="/tags/kafka/" style="font-size: 1.19em; color: rgb(102, 187, 188)">kafka</a><a href="/tags/istio/" style="font-size: 1.38em; color: rgb(66, 145, 99)">istio</a><a href="/tags/kubrnetes/" style="font-size: 1.34em; color: rgb(77, 59, 79)">kubrnetes</a><a href="/tags/kubernetes/" style="font-size: 1.41em; color: rgb(80, 158, 186)">kubernetes</a><a href="/tags/nginx/" style="font-size: 1.15em; color: rgb(185, 91, 21)">nginx</a><a href="/tags/rancher/" style="font-size: 1.22em; color: rgb(97, 14, 58)">rancher</a><a href="/tags/python/" style="font-size: 1.45em; color: rgb(74, 38, 9)">python</a><a href="/tags/redis/" style="font-size: 1.19em; color: rgb(29, 63, 89)">redis</a><a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.15em; color: rgb(58, 148, 153)">工具</a><a href="/tags/vue/" style="font-size: 1.26em; color: rgb(114, 137, 185)">vue</a><a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 1.22em; color: rgb(151, 155, 11)">大数据</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">21</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">25</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">十一月 2022</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">149</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2021-12-06T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">302.5k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-07-07T17:23:00.079Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By ren_mcc</div><div class="footer_custom_text"><a rel="noopener external nofollow noreferrer noopener" target="_blank" href="https://beian.miit.gov.cn/"> <img class="icp-icon entered loading" alt="ICP" src="/img/icp.png" data-ll-status><span>京ICP备2022001205号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
   const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
   if ($mermaid.length === 0) return
   const runMermaid = () => {
@@ -596,7 +585,7 @@ document.addEventListener('pjax:error', (e) => {
   }
 })</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
     var parent = document.getElementById('recent-posts');
-    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/python/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 python (18)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/containerd/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🎮 containerd (6)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/docker/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🐱 docker (8)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/kubernetes/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👩‍💻 kubernetes (27)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/golang/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📒 golang (38)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/redis/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">💡 redis (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><a class="magnet_link_more"  href="https://blog.renm.cc/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/python/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 python (38)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/containerd/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🎮 containerd (6)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/docker/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🐱 docker (8)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/kubernetes/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👩‍💻 kubernetes (27)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/golang/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📒 golang (38)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.renm.cc/categories/redis/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">💡 redis (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><a class="magnet_link_more"  href="https://blog.renm.cc/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
     console.log('已挂载magnet')
     parent.insertAdjacentHTML("afterbegin",child)}
      </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #b30070}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
