@@ -22,8 +22,8 @@ https://blog.renm.cc/movies/keqing/index.html
 https://blog.renm.cc/movies/hutao/index.html
 https://blog.renm.cc/movies/daoqi/index.html
 https://blog.renm.cc/movies/ganyu/index.html
-https://blog.renm.cc/categories/index.html
 https://blog.renm.cc/comments/index.html
+https://blog.renm.cc/categories/index.html
 https://blog.renm.cc/link/index.html
 https://blog.renm.cc/shuoshuo/index.html
 https://blog.renm.cc/tags/index.html
