@@ -45,7 +45,7 @@
     }
   },
   isPhotoFigcaption: true,
-  islazyload: false,
+  islazyload: true,
   isAnchor: false,
   percent: {
     toc: true,
@@ -187,7 +187,7 @@ ispeakBber
       console.log('哔哔 加载完成')
     })
 </script>
-</div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By ren_mcc</div><div class="footer_custom_text"><a rel="noopener external nofollow noreferrer noopener" target="_blank" href="https://beian.miit.gov.cn/"> <img class="icp-icon entered loading" alt="ICP" src="/img/icp.png" data-ll-status><span>京ICP备2022001205号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+</div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By ren_mcc</div><div class="footer_custom_text"><a rel="noopener external nofollow noreferrer noopener" target="_blank" href="https://beian.miit.gov.cn/"> <img class="icp-icon entered loading" alt="ICP" src="/img/icp.png" data-ll-status><span>京ICP备2022001205号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
   document.querySelectorAll('#article-container span.katex-display').forEach(item => {
     btf.wrap(item, 'div', { class: 'katex-wrap'})
   })
@@ -311,7 +311,7 @@ ispeakBber
         result += '<div class=\'aside-list-item\'>'
 
         if (true) {
-          const name = 'src'
+          const name = 'data-lazy-src'
           result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
         }
 
