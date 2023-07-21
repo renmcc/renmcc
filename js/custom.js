@@ -95,3 +95,6 @@ function forbidden_control() {
 
 forbidden_control()
 
+
+var machineName = window.navigator.userAgent;
+console.log(machineName);
