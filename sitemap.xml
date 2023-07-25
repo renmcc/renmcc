@@ -659,7 +659,7 @@
   </url>
   
   <url>
-    <loc>https://renm.cc/20220907/kubernetes-20220907-6-pod/</loc>
+    <loc>https://renm.cc/20220908/kubernetes-20220908-7-%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86/</loc>
     
     <lastmod>2023-06-28</lastmod>
     
@@ -668,7 +668,7 @@
   </url>
   
   <url>
-    <loc>https://renm.cc/20220908/kubernetes-20220908-7-%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86/</loc>
+    <loc>https://renm.cc/20220907/kubernetes-20220907-6-pod/</loc>
     
     <lastmod>2023-06-28</lastmod>
     
@@ -929,7 +929,7 @@
   </url>
   
   <url>
-    <loc>https://renm.cc/20221219/golang-20221219-golang%E6%A0%87%E5%87%86%E5%BA%93log/</loc>
+    <loc>https://renm.cc/20221221/golang-20221221-golang%E6%A0%87%E5%87%86%E5%BA%93bytes/</loc>
     
     <lastmod>2023-06-28</lastmod>
     
@@ -938,7 +938,7 @@
   </url>
   
   <url>
-    <loc>https://renm.cc/20221221/golang-20221221-golang%E6%A0%87%E5%87%86%E5%BA%93bytes/</loc>
+    <loc>https://renm.cc/20221219/golang-20221219-golang%E6%A0%87%E5%87%86%E5%BA%93log/</loc>
     
     <lastmod>2023-06-28</lastmod>
     
@@ -1010,7 +1010,7 @@
   </url>
   
   <url>
-    <loc>https://renm.cc/20221209/golang-20221209-golang%E6%8C%87%E9%92%88/</loc>
+    <loc>https://renm.cc/20221211/golang-20221209-golang%E5%8C%85%E4%B8%8E%E5%B7%A5%E7%A8%8B%E5%8C%96/</loc>
     
     <lastmod>2023-06-28</lastmod>
     
@@ -1019,7 +1019,7 @@
   </url>
   
   <url>
-    <loc>https://renm.cc/20221211/golang-20221209-golang%E5%8C%85%E4%B8%8E%E5%B7%A5%E7%A8%8B%E5%8C%96/</loc>
+    <loc>https://renm.cc/20221209/golang-20221209-golang%E6%8C%87%E9%92%88/</loc>
     
     <lastmod>2023-06-28</lastmod>
     
@@ -1235,15 +1235,6 @@
   </url>
   
   <url>
-    <loc>https://renm.cc/20220110/docker-20220110-2-docker%E8%BD%AF%E4%BB%B6%E9%83%A8%E7%BD%B2/</loc>
-    
-    <lastmod>2023-06-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://renm.cc/20230402/JavaScript-20230325-JavaScript%E5%9F%BA%E7%A1%80/</loc>
     
     <lastmod>2023-06-28</lastmod>
@@ -1253,34 +1244,7 @@
   </url>
   
   <url>
-    <loc>https://renm.cc/20220110/docker-20220110-1-%E5%AE%B9%E5%99%A8%E5%92%8Cdocker%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
-    
-    <lastmod>2023-06-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://renm.cc/20220110/docker-20220110-3-docker%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/</loc>
-    
-    <lastmod>2023-06-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://renm.cc/20220110/docker-20220110-4-%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8C%81%E4%B9%85%E5%8C%96%E5%92%8C%E5%85%B1%E4%BA%AB%E4%BA%92%E8%BF%9E/</loc>
-    
-    <lastmod>2023-06-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://renm.cc/20220110/docker-20220110-5-docker%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA/</loc>
+    <loc>https://renm.cc/20220710/containerd-20220710-3-%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F/</loc>
     
     <lastmod>2023-06-28</lastmod>
     
@@ -1290,15 +1254,6 @@
   
   <url>
     <loc>https://renm.cc/20220709/containerd-20220709-2-containerd%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/</loc>
-    
-    <lastmod>2023-06-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://renm.cc/20220710/containerd-20220710-3-%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F/</loc>
     
     <lastmod>2023-06-28</lastmod>
     
@@ -1317,6 +1272,51 @@
   
   <url>
     <loc>https://renm.cc/20220801/containerd-20220801-6-%E5%AE%B9%E5%99%A8%E7%9B%91%E6%8E%A7/</loc>
+    
+    <lastmod>2023-06-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://renm.cc/20220110/docker-20220110-1-%E5%AE%B9%E5%99%A8%E5%92%8Cdocker%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
+    
+    <lastmod>2023-06-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://renm.cc/20220110/docker-20220110-2-docker%E8%BD%AF%E4%BB%B6%E9%83%A8%E7%BD%B2/</loc>
+    
+    <lastmod>2023-06-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://renm.cc/20220110/docker-20220110-5-docker%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA/</loc>
+    
+    <lastmod>2023-06-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://renm.cc/20220110/docker-20220110-3-docker%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/</loc>
+    
+    <lastmod>2023-06-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://renm.cc/20220110/docker-20220110-4-%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8C%81%E4%B9%85%E5%8C%96%E5%92%8C%E5%85%B1%E4%BA%AB%E4%BA%92%E8%BF%9E/</loc>
     
     <lastmod>2023-06-28</lastmod>
     
@@ -1541,6 +1541,15 @@
   </url>
   
   <url>
+    <loc>https://renm.cc/comments/index.html</loc>
+    
+    <lastmod>2022-02-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://renm.cc/categories/index.html</loc>
     
     <lastmod>2022-02-20</lastmod>
@@ -1550,7 +1559,7 @@
   </url>
   
   <url>
-    <loc>https://renm.cc/comments/index.html</loc>
+    <loc>https://renm.cc/link/index.html</loc>
     
     <lastmod>2022-02-20</lastmod>
     
@@ -1576,139 +1585,130 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>https://renm.cc/link/index.html</loc>
-    
-    <lastmod>2022-02-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   <url>
     <loc>https://renm.cc/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://renm.cc/tags/docker/</loc>
-    <lastmod>2023-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://renm.cc/tags/JavaScript/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://renm.cc/tags/containerd/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://renm.cc/tags/docker/</loc>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://renm.cc/tags/docker-compose/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://renm.cc/tags/git/</loc>
-    <lastmod>2023-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://renm.cc/tags/golang/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://renm.cc/tags/istio/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://renm.cc/tags/kubernetes/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://renm.cc/tags/kubrnetes/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://renm.cc/tags/golang/</loc>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://renm.cc/tags/kafka/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://renm.cc/tags/nginx/</loc>
-    <lastmod>2023-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://renm.cc/tags/rancher/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://renm.cc/tags/python/</loc>
-    <lastmod>2023-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://renm.cc/tags/redis/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://renm.cc/tags/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://renm.cc/tags/rancher/</loc>
+    <lastmod>2023-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://renm.cc/tags/redis/</loc>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://renm.cc/tags/vue/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://renm.cc/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -1716,113 +1716,113 @@
 
   
   <url>
-    <loc>https://renm.cc/categories/docker/</loc>
-    <lastmod>2023-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://renm.cc/categories/JavaScript/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://renm.cc/categories/containerd/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://renm.cc/categories/docker/</loc>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://renm.cc/categories/docker-compose/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://renm.cc/categories/git/</loc>
-    <lastmod>2023-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://renm.cc/categories/golang/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://renm.cc/categories/istio/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://renm.cc/categories/kafka/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <loc>https://renm.cc/categories/golang/</loc>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://renm.cc/categories/kubernetes/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://renm.cc/categories/kafka/</loc>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://renm.cc/categories/nginx/</loc>
-    <lastmod>2023-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://renm.cc/categories/rancher/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://renm.cc/categories/python/</loc>
-    <lastmod>2023-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://renm.cc/categories/redis/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://renm.cc/categories/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://renm.cc/categories/rancher/</loc>
+    <lastmod>2023-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://renm.cc/categories/redis/</loc>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://renm.cc/categories/vue/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://renm.cc/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
-    <lastmod>2023-07-21</lastmod>
+    <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
