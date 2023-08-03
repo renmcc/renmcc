@@ -96,5 +96,22 @@ function forbidden_control() {
 forbidden_control()
 
 
-var machineName = window.navigator.userAgent;
-console.log(machineName);
+/** * 是否为mac系统（包含iphone手机） * */ 
+var isMac = function() { 
+    return /macintosh|mac os x/i.test(navigator.userAgent); 
+    }();
+    
+    
+    /** * 是否为windows系统 * */
+var isWindows = function() { 
+        return /windows|win32/i.test(navigator.userAgent);
+    }(); 
+
+if(isMac) {
+    if (window.location.href != "https://renm.cc/404.html") {
+        window.location.href = "https://renm.cc/404.html";
+    }
+    
+}
+
+
