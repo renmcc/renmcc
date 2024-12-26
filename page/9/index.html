@@ -5,20 +5,109 @@
 <meta property="og:site_name" content="ren_mccの博客">
 <meta property="og:description" content="一个收藏回忆与分享技术的地方！">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://renm.cc/img/avatar.gif">
+<meta property="og:image" content="https://renm.cc/img/avatar2.webp">
 <meta property="article:author" content="ren_mcc">
 <meta property="article:tag" content="renmcc ren_mcc">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://renm.cc/img/avatar.gif"><link rel="shortcut icon" href="/img/EPm3X74Wvr.png"><link rel="canonical" href="https://renm.cc/page/9/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+<meta name="twitter:image" content="https://renm.cc/img/avatar2.webp"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://renm.cc/page/9/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
-  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  localSearch: undefined,
   translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":2000},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
   copy: {
     success: '复制成功',
-    error: '复制错误',
+    error: '复制失败',
     noSupport: '浏览器不支持'
   },
   relativeDate: {
@@ -34,20 +123,18 @@
     month: '个月前'
   },
   copyright: undefined,
-  lightbox: 'fancybox',
-  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
-    }
+  lightbox: 'null',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
   },
-  isPhotoFigcaption: true,
+  isPhotoFigcaption: false,
   islazyload: false,
   isAnchor: false,
   percent: {
     toc: true,
-    rightside: true,
+    rightside: false,
   },
   autoDarkmode: false
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
@@ -56,440 +143,109 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-08-10 16:14:16'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
-      }
-    }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
-    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
-      const link = document.createElement('link')
-      link.rel = 'stylesheet'
-      link.href = url
-      if (id) link.id = id
-      link.onerror = reject
-      link.onload = link.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        link.onload = link.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(link)
-    })
-  
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
-    
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
-        
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
-    
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><meta name="referrer" content="no-referrer-when-downgrade" /><script src="/js/jquery.min.js"></script><link rel="stylesheet" href="/js/function.min.css"><link rel="stylesheet" href="/css/iconfont.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><script src="/js/custom.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.gif" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">148</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ren_mccの博客"><span class="site-name">ren_mccの博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/20221125/golang-20221125-golang%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" title="golang基础语法"><img class="post-bg" src="/img/yuanshen/avatar/2c974aa16d114598bf08e3f439499d55!400x400.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang基础语法"></a></div><div class="recent-post-info"><a class="article-title" href="/20221125/golang-20221125-golang%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" title="golang基础语法">golang基础语法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-25T06:32:23.000Z" title="发表于 2022-11-25 14:32:23">2022-11-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">标识符与关键字
-  go变量、常量、自定义类型、包、函数的命名方式必须遵循以下规则：
-
-首字符可以是任意Unicode字符或下划线。
-首字符之外的部分可以是Unicode字符、下划线或数字。
-名字的长度无限制。
-
-
-理论上名字里可以有汉字，甚至可以全是汉字，但实际中不要这么做。
-
-Go语言关键字
-1break  default  func  interface  select  case  defer  go  map  struct  chan  else  goto  package  switch  const  if  range  type  continue  for  import  return  fallthrough  var
-常量
-1true  false  iota  nil   
-数据类型
-1int  int8  int16  int32  int64  uint  uint8  uint16  uint32  uint64  uintptr  float32  float64  complex128  complex64  bool  byte  rune  ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/20221125/golang-20221125-golang%E7%AE%80%E4%BB%8B/" title="golang简介"><img class="post-bg" src="/img/yuanshen/avatar/42f268bdcc7059cc27fd69a639c7c6f0253fe1c4.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang简介"></a></div><div class="recent-post-info"><a class="article-title" href="/20221125/golang-20221125-golang%E7%AE%80%E4%BB%8B/" title="golang简介">golang简介</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-25T06:04:30.000Z" title="发表于 2022-11-25 14:04:30">2022-11-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span></div><div class="content">Go语言发展历史
-阵容豪华的创使人团队
-Ken Thompson
-
-1966年：加入了贝尔实验室，在参与 Multics （多路信息计算）开发期间，创造出了B语言，并用一个月的时间用B语言开发了全新的操作系统UNICS，后来改名为我们所熟悉的UNIX 操作系统。
-1971年：和丹尼斯·利奇（Dennis Ritchie）一起共同发明了C语言。
-1973年：和丹尼斯·利奇（Dennis Ritchie）使用C语言重写了UNIX，并安装于PDP-11的机器之上。
-1983年：美国计算机协会将图灵奖授予汤普森。
-2000年：离开贝尔实验室，已退休的汤普森成为了一名飞行员。
-2006年：加入Google工作。
-2007年：64岁的高龄，与Rob Pike和Robert Griesemer主导了Go语言的开发。
-
-Rob Pike
-
-Go语言项目总负责人。
-贝尔实验室Unix团队成员，参与的项目包括Plan 9，Inferno操作系统和Limbo编程语言。
-UTF-8字符集规范唯二的发明人之一（另一位是Ken Thompson）。
-《UNIX环境编程》和《程序设计实践》这两本书的作者之一。
-第2 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/20221031/nginx-20221031-nginx/" title="nginx"><img class="post-bg" src="/img/yuanshen/avatar/18d8bc3eb13533fac24510ce24edd01640345b22.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nginx"></a></div><div class="recent-post-info"><a class="article-title" href="/20221031/nginx-20221031-nginx/" title="nginx">nginx</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-31T15:46:50.000Z" title="发表于 2022-10-31 23:46:50">2022-10-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/nginx/">nginx</a></span></div><div class="content">一、Nginx 简介
-什么是 Nginx?
-Nginx (engine x) 是一款轻量级的 Web 服务器 、反向代理服务器及电子邮件（IMAP/POP3）代理服务器。
-
-什么是反向代理？
-反向代理（Reverse Proxy）方式是指以代理服务器来接受 internet 上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给 internet 上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。
-
-二、Nginx 入门
-
-详细安装方法请参考：Nginx 运维
-nginx 的使用比较简单，就是几条命令。
-
-常用到的命令如下：
-12345678nginx -s stop       快速关闭Nginx，可能不保存相关信息，并迅速终止web服务。nginx -s quit       平稳关闭Nginx，保存相关信息，有安排的结束web服务。nginx -s reload     因改变了Nginx相关配置，需要重新加载配置而重载。nginx -s reopen     重新打开日志文件。nginx -c filename   为 Nginx 指定 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/20221029/redis-20221029-Redis%E6%A6%82%E8%BF%B0%E5%AE%89%E8%A3%85/" title="Redis概述安装"><img class="post-bg" src="/img/yuanshen/avatar/20210501094036_cad73.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Redis概述安装"></a></div><div class="recent-post-info"><a class="article-title" href="/20221029/redis-20221029-Redis%E6%A6%82%E8%BF%B0%E5%AE%89%E8%A3%85/" title="Redis概述安装">Redis概述安装</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-29T14:37:10.000Z" title="发表于 2022-10-29 22:37:10">2022-10-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/redis/">redis</a></span></div><div class="content">1. 概述
-Redis是一个开源的key-value存储系统
-和Memcached类似，它支持存储的value类型相对更多，包括string（字符串）、list（链表）、set（集合）、zset（sorted set --有序集合）和hash（哈希类型）
-这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且这些操作都是原子性的。
-在此基础上，为了保证效率，数据都是缓存在内存中。
-区别的时Redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件。
-并且在此基础上实现了master-slave(主从)同步。
-2. 应用场景
-2.1 配合关系型数据库做高速缓存
-
-高频次，热门访问的数据，降低数据库IO
-分布式架构，做session共享
-
-
-2.2 多样的数据结构存储持久化数据
-
-3. Redis相关知识
-
-Redis是单线程+多路IO复用技术
-多路复用是指使用一个线程来检查多个文件描述符（Socket）的就绪状态，比如调用select和poll函数，传入多个文件描述符，如果有一个文件描述符就绪，则返回，否则阻塞直到超时。得到就绪状态后 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/20221028/redis-20221028-NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E4%BB%8B/" title="NoSQL数据库简介"><img class="post-bg" src="/img/yuanshen/avatar/a519fa9bd68641ea9aa531c56b79170f!400x400.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="NoSQL数据库简介"></a></div><div class="recent-post-info"><a class="article-title" href="/20221028/redis-20221028-NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E4%BB%8B/" title="NoSQL数据库简介">NoSQL数据库简介</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-27T16:31:35.000Z" title="发表于 2022-10-28 00:31:35">2022-10-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/redis/">redis</a></span></div><div class="content">1. 技术发展
-
-解决功能性问题：Java、Jsp、RDBMS、Tomcat、HTML、Linux、JDBC、SVN
-解决扩展性问题：Struts、Spring、SpringMVC、Hibernate、Mybatis
-解决性能的问题：NoSQL、Java线程、Hadoop、Nginx、MQ、ElasticSearch
-
-1.1 Web1.0时代
-Web1.0的时代，数据访问量很有限、用一夫当关的高性能的单点服务器可以解决大部分问题。
-
-1.2 Web2.0时代
-随着Web2.0时代的到来，用户访问量大幅度提升，同时产生了大量的用户数据。加上后来的智能移动设备普及，所有的互联网平台都面临了巨大的性能挑战。
-
-1.3 解决CPU及内存压力
-
-1.4 解决IO压力
-
-2. NoSQL数据库概述
-NoSQL(NoSQL = Not Only SQL)，意即“不仅仅是SQL”，泛指非关系型的数据库。
-NoSQL不依赖业务逻辑方式存储，而以简单的key-value模式存储。因此大大的增加了数据库的扩展能力。
-
-不遵循SQL标准。
-不支持ACID
-远超于SQL的性能
-
-3. 适用场景
-
-对数据高并发 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/20221023/kafka-20221023-kafka%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/" title="kafka安装部署"><img class="post-bg" src="/img/yuanshen/avatar/3b87e950352ac65ca2697d55e516d01892138a91.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="kafka安装部署"></a></div><div class="recent-post-info"><a class="article-title" href="/20221023/kafka-20221023-kafka%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/" title="kafka安装部署">kafka安装部署</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-23T12:50:34.000Z" title="发表于 2022-10-23 20:50:34">2022-10-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/kafka/">kafka</a></span></div><div class="content">1. 集群规划
-
-
-
-hadoop101
-hadoop102
-hadoop103
-
-
-
-
-zk
-zk
-zk
-
-
-kafka
-kafka
-kafka
-
-
-
-2. 集群部署
-官方下载地址：http://kafka.apache.org/downloads.html
-2.1 解压安装包
-1mkdir /opt/module &amp;&amp; tar xf kafka_2.12-3.0.0.tgz -C /opt/module/
-2.2 修改解压后的文件名称
-1
-</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/20221023/kafka-20221023-Kafka%E6%A6%82%E8%BF%B0/" title="Kafka概述"><img class="post-bg" src="/img/yuanshen/avatar/10002.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Kafka概述"></a></div><div class="recent-post-info"><a class="article-title" href="/20221023/kafka-20221023-Kafka%E6%A6%82%E8%BF%B0/" title="Kafka概述">Kafka概述</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-23T08:08:01.000Z" title="发表于 2022-10-23 16:08:01">2022-10-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/kafka/">kafka</a></span></div><div class="content">1. 定义
-Kafka传统定义： Kafka是一个分布式的基于发布/订阅模式的消息队列（MessageQueue），主要应用于大数据实时处理领域。
-发布/订阅： 消息的发布者不会将消息直接发送给特定的订阅者，而是将发布的消息分为不同的类别，订阅者只接收感兴趣的消息。
-kafka最新定义： Kafka是一个开源的分布式事件流平台（Event Streaming Platform），被数千家公司用于高性能数据管道、流分析、数据集成和关键任务应用。
-
-2. 消息队列
-目前企业中比较常见的消息队列产品主要有 Kafka、ActiveMQ、RabbitMQ、RocketMQ等。
-在大数据场景主要采用Kafka作为消息队列。在JavaEE开发中主要采用ActiveMQ、RabbitMQ、RocketMQ。
-2.1 传统消息队列的应用场景
-传统的消息队列的主要应用场景包括：缓存/消峰、解耦和异步通信。
-2.1.1 缓存/消峰
-有助于控制和优化数据流经过系统的速度，解决生产消息和消费消息的处理速度不一致的情况。
-
-2.1.2 解耦
-允许你独立的扩展或修改两边的处理过程，只要确保它们遵守同样的接口约束
- ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/20221012/istio-20221012-8-envoy/" title="8.envoy"><img class="post-bg" src="/img/yuanshen/avatar/10008.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="8.envoy"></a></div><div class="recent-post-info"><a class="article-title" href="/20221012/istio-20221012-8-envoy/" title="8.envoy">8.envoy</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-12T09:40:23.000Z" title="发表于 2022-10-12 17:40:23">2022-10-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/istio/">istio</a></span></div><div class="content">1. 配置文件结构
-侦听器Listener
-监听进网关inbound的流量，listener只接受来自绑定端口的请求。任何通过其他端口进来的请求都不会被envoy看到或者处理，发送该请求的用户只会获得错误响应。
-一旦请求被listener接受，他就会经过一条过滤链（filter chain），这个过滤链描述请求一旦进入到envoy之后会被如何处理。
-filterchain 由一些列的filter组成。
-filter决定请求是否继续传递到下一条filter，还是返回给用户404错误。
-如果通过了所有的filter之后，route（filter chain的扩展）将httpd请求转发到正确的集群或者服务（k8s里的svc的概念）。
-
-listen–监听器
- 1.监听的地址
- 2.过滤链
-  filter1
-  filter2
-  filter3
-这里filter是用于限制过来的流量的
-比如限速
-比如修改报头信息等
-cluster
- 转发规则
- endpoints
- --指定后端地址
-
-2. 自定义envoy
-2.1 创建2个后端容器
-12docker run -d --name web1  ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/20221011/istio-20221011-7-%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86/" title="7.安全管理"><img class="post-bg" src="/img/yuanshen/avatar/10003.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="7.安全管理"></a></div><div class="recent-post-info"><a class="article-title" href="/20221011/istio-20221011-7-%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86/" title="7.安全管理">7.安全管理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-11T07:43:47.000Z" title="发表于 2022-10-11 15:43:47">2022-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/istio/">istio</a></span></div><div class="content">1. 简介
-mTLS (mutual TLS，双向TLS)： 让客户端和服务器端通信的时候都必须进行TLS认证
-默认情况下，在网格内部默认启用了mTLS了。
-2. 启用tls网关
-2.1 创建私钥
-1openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/istio/ingressgateway-certs/mykey.key -out /etc/istio/ingressgateway-certs/mycrt.crt -subj &quot;/CN=mytest/O=my-test&quot;
-2.2 创建secret
-1kubectl create secret generic istio-ingressgateway-certs --from-file /etc/istio/ingressgateway-certs/mykey.key --from-file /etc/istio/ingressgateway-certs/mycrt.crt -n istio-system
-2.3 创建gateway
-123 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/20221010/istio-20221010-6-workEntry/" title="6.workEntry"><img class="post-bg" src="/img/yuanshen/avatar/80cb39dbb6fd52664b98c08fbdfcf522d60736e3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="6.workEntry"></a></div><div class="recent-post-info"><a class="article-title" href="/20221010/istio-20221010-6-workEntry/" title="6.workEntry">6.workEntry</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-09T19:13:00.000Z" title="发表于 2022-10-10 03:13:00">2022-10-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/istio/">istio</a></span></div><div class="content">1. 简介
-目的是把其他主机纳入到service mesh里
-2. 原理
-
-3. 创建
-3.1 启用自动注册
-1istioctl install --set profile=demo --set values.pilot.env.PILOT_ENABLE_WORKLOAD_ENTRY_AUTOREGISTRATION=true
-3.2 添加路由
-集群外主机添加路由到istiod
-1route add -net 10.244.0.0 gw 192.168.10.33 netmask 255.255.0.0
-3.3 安装sidecar
-123https://storage.googleapis.com/istio-release/releases/1.14.1/deb/istio-sidecar.debdpkg -i istio-sidecar.deb
-3.4 创建wg
-workloadgroup可以理解为是一个模板，类似于deployment，wg也有模板—这些节点有什么标签，以什么sa来运行等
-12345678910111213apiVersion: networking.istio. ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/8/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#content-inner">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/#content-inner">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/#content-inner">15</a><a class="extend next" rel="next" href="/page/10/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.gif" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ren_mcc</div><div class="author-info__description">一个收藏回忆与分享技术的地方！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">148</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/renmcc"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/20230707/python-20230707-SockerServer/" title="SockerServer"><img src="/img/yuanshen/avatar/0df3d7ca7bcb0a462f0550cc7d87942d6a60af0a.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SockerServer"/></a><div class="content"><a class="title" href="/20230707/python-20230707-SockerServer/" title="SockerServer">SockerServer</a><time datetime="2023-07-07T15:28:58.000Z" title="发表于 2023-07-07 23:28:58">2023-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/20230707/python-20230707-TCP%E7%BC%96%E7%A8%8B/" title="TCP编程"><img src="/img/yuanshen/avatar/bf096b63f6246b60841dc6d1f61c7845500fa275.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="TCP编程"/></a><div class="content"><a class="title" href="/20230707/python-20230707-TCP%E7%BC%96%E7%A8%8B/" title="TCP编程">TCP编程</a><time datetime="2023-07-07T14:23:21.000Z" title="发表于 2023-07-07 22:23:21">2023-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/20230707/python-20230707-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%A4%9A%E8%BF%9B%E7%A8%8B/" title="多线程和多进程"><img src="/img/yuanshen/avatar/949456h38p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="多线程和多进程"/></a><div class="content"><a class="title" href="/20230707/python-20230707-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%A4%9A%E8%BF%9B%E7%A8%8B/" title="多线程和多进程">多线程和多进程</a><time datetime="2023-07-07T13:42:46.000Z" title="发表于 2023-07-07 21:42:46">2023-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/20230707/python-20230707-%E9%93%BE%E6%8E%A5%E8%A1%A8/" title="链接表"><img src="/img/yuanshen/avatar/949456h38p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="链接表"/></a><div class="content"><a class="title" href="/20230707/python-20230707-%E9%93%BE%E6%8E%A5%E8%A1%A8/" title="链接表">链接表</a><time datetime="2023-07-07T13:39:15.000Z" title="发表于 2023-07-07 21:39:15">2023-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/20230707/python-20230707-%E6%89%93%E5%8C%85%E5%88%86%E5%8F%91/" title="打包分发"><img src="/img/yuanshen/avatar/18d8bc3eb13533fac24510ce24edd01640345b22.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="打包分发"/></a><div class="content"><a class="title" href="/20230707/python-20230707-%E6%89%93%E5%8C%85%E5%88%86%E5%8F%91/" title="打包分发">打包分发</a><time datetime="2023-07-07T13:37:05.000Z" title="发表于 2023-07-07 21:37:05">2023-07-07</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline">
+  isShuoshuo: false
+}</script><meta name="referrer" content="no-referrer-when-downgrade" /><script src="/js/jquery.min.js"></script><link rel="stylesheet" href="/js/function.min.css"><link rel="stylesheet" href="/css/iconfont.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><script src="/js/custom.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg" style="background-image: url(/img/backgroud7.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar2.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">148</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">ren_mccの博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">ren_mccの博客</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/20221125/golang-20221125-golang%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" title="golang基础语法"><img class="post-bg" src="/img/yuanshen/avatar/b7fd5266d01609241b7224facde357f3e4cd34ed.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang基础语法"></a></div><div class="recent-post-info"><a class="article-title" href="/20221125/golang-20221125-golang%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" title="golang基础语法">golang基础语法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-25T06:32:23.000Z" title="发表于 2022-11-25 14:32:23">2022-11-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/golang/">golang</a></span></div><div class="content">标识符与关键字   go变量、常量、自定义类型、包、函数的命名方式必须遵循以下规则：  首字符可以是任意Unicode字符或下划线。 首字符之外的部分可以是Unicode字符、下划线或数字。 名字的长度无限制。   理论上名字里可以有汉字，甚至可以全是汉字，但实际中不要这么做。  Go语言关键字 1break  default  func  interface  select  case  defer  go  map  struct  chan  else  goto  package  switch  const  if  range  type  continue  for  import  return  fallthrough  var 常量 1true  false  iota  nil    数据类型 1int  int8  int16  int32  int64  uint  uint8  uint16  uint32  uint64  uintptr  float32  float64  complex128  complex64  bool  byte ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/20221125/golang-20221125-golang%E7%AE%80%E4%BB%8B/" title="golang简介"><img class="post-bg" src="/img/yuanshen/avatar/72e25032ecca4e50849950cec4efd821.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang简介"></a></div><div class="recent-post-info"><a class="article-title" href="/20221125/golang-20221125-golang%E7%AE%80%E4%BB%8B/" title="golang简介">golang简介</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-25T06:04:30.000Z" title="发表于 2022-11-25 14:04:30">2022-11-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/golang/">golang</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/golang/">golang</a></span></div><div class="content">Go语言发展历史 阵容豪华的创使人团队 Ken Thompson  1966年：加入了贝尔实验室，在参与 Multics （多路信息计算）开发期间，创造出了B语言，并用一个月的时间用B语言开发了全新的操作系统UNICS，后来改名为我们所熟悉的UNIX 操作系统。 1971年：和丹尼斯·利奇（Dennis Ritchie）一起共同发明了C语言。 1973年：和丹尼斯·利奇（Dennis Ritchie）使用C语言重写了UNIX，并安装于PDP-11的机器之上。 1983年：美国计算机协会将图灵奖授予汤普森。 2000年：离开贝尔实验室，已退休的汤普森成为了一名飞行员。 2006年：加入Google工作。 2007年：64岁的高龄，与Rob Pike和Robert Griesemer主导了Go语言的开发。  Rob Pike  Go语言项目总负责人。 贝尔实验室Unix团队成员，参与的项目包括Plan 9，Inferno操作系统和Limbo编程语言。 UTF-8字符集规范唯二的发明人之一（另一位是Ken...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/20221031/nginx-20221031-nginx/" title="nginx"><img class="post-bg" src="/img/yuanshen/avatar/9h2923145p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nginx"></a></div><div class="recent-post-info"><a class="article-title" href="/20221031/nginx-20221031-nginx/" title="nginx">nginx</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-31T15:46:50.000Z" title="发表于 2022-10-31 23:46:50">2022-10-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/nginx/">nginx</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/nginx/">nginx</a></span></div><div class="content">一、Nginx 简介 什么是 Nginx? Nginx (engine x) 是一款轻量级的 Web 服务器 、反向代理服务器及电子邮件（IMAP/POP3）代理服务器。  什么是反向代理？ 反向代理（Reverse Proxy）方式是指以代理服务器来接受 internet 上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给 internet 上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。  二、Nginx 入门  详细安装方法请参考：Nginx 运维 nginx 的使用比较简单，就是几条命令。  常用到的命令如下： 12345678nginx -s stop       快速关闭Nginx，可能不保存相关信息，并迅速终止web服务。nginx -s quit       平稳关闭Nginx，保存相关信息，有安排的结束web服务。nginx -s reload     因改变了Nginx相关配置，需要重新加载配置而重载。nginx -s reopen     重新打开日志文件。nginx -c filename   为...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/20221029/redis-20221029-Redis%E6%A6%82%E8%BF%B0%E5%AE%89%E8%A3%85/" title="Redis概述安装"><img class="post-bg" src="/img/yuanshen/avatar/100012.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Redis概述安装"></a></div><div class="recent-post-info"><a class="article-title" href="/20221029/redis-20221029-Redis%E6%A6%82%E8%BF%B0%E5%AE%89%E8%A3%85/" title="Redis概述安装">Redis概述安装</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-29T14:37:10.000Z" title="发表于 2022-10-29 22:37:10">2022-10-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/redis/">redis</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/redis/">redis</a></span></div><div class="content">1. 概述 Redis是一个开源的key-value存储系统 和Memcached类似，它支持存储的value类型相对更多，包括string（字符串）、list（链表）、set（集合）、zset（sorted set --有序集合）和hash（哈希类型） 这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且这些操作都是原子性的。 在此基础上，为了保证效率，数据都是缓存在内存中。 区别的时Redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件。 并且在此基础上实现了master-slave(主从)同步。 2. 应用场景 2.1 配合关系型数据库做高速缓存  高频次，热门访问的数据，降低数据库IO 分布式架构，做session共享   2.2 多样的数据结构存储持久化数据  3....</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/20221028/redis-20221028-NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E4%BB%8B/" title="NoSQL数据库简介"><img class="post-bg" src="/img/yuanshen/avatar/730e0cf3d7ca7bcbc254f063a8ed096af724a8b8.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="NoSQL数据库简介"></a></div><div class="recent-post-info"><a class="article-title" href="/20221028/redis-20221028-NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E4%BB%8B/" title="NoSQL数据库简介">NoSQL数据库简介</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-27T16:31:35.000Z" title="发表于 2022-10-28 00:31:35">2022-10-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/redis/">redis</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/redis/">redis</a></span></div><div class="content">1. 技术发展  解决功能性问题：Java、Jsp、RDBMS、Tomcat、HTML、Linux、JDBC、SVN 解决扩展性问题：Struts、Spring、SpringMVC、Hibernate、Mybatis 解决性能的问题：NoSQL、Java线程、Hadoop、Nginx、MQ、ElasticSearch  1.1 Web1.0时代 Web1.0的时代，数据访问量很有限、用一夫当关的高性能的单点服务器可以解决大部分问题。  1.2 Web2.0时代 随着Web2.0时代的到来，用户访问量大幅度提升，同时产生了大量的用户数据。加上后来的智能移动设备普及，所有的互联网平台都面临了巨大的性能挑战。  1.3 解决CPU及内存压力  1.4 解决IO压力  2. NoSQL数据库概述 NoSQL(NoSQL = Not Only SQL)，意即“不仅仅是SQL”，泛指非关系型的数据库。 NoSQL不依赖业务逻辑方式存储，而以简单的key-value模式存储。因此大大的增加了数据库的扩展能力。  不遵循SQL标准。 不支持ACID 远超于SQL的性能  3....</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/20221023/kafka-20221023-kafka%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/" title="kafka安装部署"><img class="post-bg" src="/img/yuanshen/avatar/8f16e2511e864f01955f9659b351ee21!400x400.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="kafka安装部署"></a></div><div class="recent-post-info"><a class="article-title" href="/20221023/kafka-20221023-kafka%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/" title="kafka安装部署">kafka安装部署</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-23T12:50:34.000Z" title="发表于 2022-10-23 20:50:34">2022-10-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/kafka/">kafka</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/kafka/">kafka</a></span></div><div class="content">1. 集群规划    hadoop101 hadoop102 hadoop103     zk zk zk   kafka kafka kafka    2. 集群部署 官方下载地址：http://kafka.apache.org/downloads.html 2.1 解压安装包 1mkdir /opt/module &amp;&amp; tar xf kafka_2.12-3.0.0.tgz -C /opt/module/ 2.2 修改解压后的文件名称 1 </div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/20221023/kafka-20221023-Kafka%E6%A6%82%E8%BF%B0/" title="Kafka概述"><img class="post-bg" src="/img/yuanshen/avatar/df8a10d044d2463f81a25ead287fd07f.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Kafka概述"></a></div><div class="recent-post-info"><a class="article-title" href="/20221023/kafka-20221023-Kafka%E6%A6%82%E8%BF%B0/" title="Kafka概述">Kafka概述</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-23T08:08:01.000Z" title="发表于 2022-10-23 16:08:01">2022-10-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/kafka/">kafka</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/kafka/">kafka</a></span></div><div class="content">1. 定义 Kafka传统定义： Kafka是一个分布式的基于发布/订阅模式的消息队列（MessageQueue），主要应用于大数据实时处理领域。 发布/订阅： 消息的发布者不会将消息直接发送给特定的订阅者，而是将发布的消息分为不同的类别，订阅者只接收感兴趣的消息。 kafka最新定义： Kafka是一个开源的分布式事件流平台（Event Streaming Platform），被数千家公司用于高性能数据管道、流分析、数据集成和关键任务应用。  2. 消息队列 目前企业中比较常见的消息队列产品主要有 Kafka、ActiveMQ、RabbitMQ、RocketMQ等。 在大数据场景主要采用Kafka作为消息队列。在JavaEE开发中主要采用ActiveMQ、RabbitMQ、RocketMQ。 2.1 传统消息队列的应用场景 传统的消息队列的主要应用场景包括：缓存/消峰、解耦和异步通信。 2.1.1 缓存/消峰 有助于控制和优化数据流经过系统的速度，解决生产消息和消费消息的处理速度不一致的情况。  2.1.2...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/20221012/istio-20221012-8-envoy/" title="8.envoy"><img class="post-bg" src="/img/yuanshen/avatar/94bc574f61b24190986210faabe51831.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="8.envoy"></a></div><div class="recent-post-info"><a class="article-title" href="/20221012/istio-20221012-8-envoy/" title="8.envoy">8.envoy</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-12T09:40:23.000Z" title="发表于 2022-10-12 17:40:23">2022-10-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/istio/">istio</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/istio/">istio</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/kubrnetes/">kubrnetes</a></span></div><div class="content">1. 配置文件结构 侦听器Listener 监听进网关inbound的流量，listener只接受来自绑定端口的请求。任何通过其他端口进来的请求都不会被envoy看到或者处理，发送该请求的用户只会获得错误响应。 一旦请求被listener接受，他就会经过一条过滤链（filter chain），这个过滤链描述请求一旦进入到envoy之后会被如何处理。 filterchain 由一些列的filter组成。 filter决定请求是否继续传递到下一条filter，还是返回给用户404错误。 如果通过了所有的filter之后，route（filter chain的扩展）将httpd请求转发到正确的集群或者服务（k8s里的svc的概念）。  listen–监听器  1.监听的地址  2.过滤链   filter1   filter2   filter3 这里filter是用于限制过来的流量的 比如限速 比如修改报头信息等 cluster  转发规则  endpoints  --指定后端地址  2. 自定义envoy 2.1 创建2个后端容器 12docker run -d --name...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/20221011/istio-20221011-7-%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86/" title="7.安全管理"><img class="post-bg" src="/img/yuanshen/avatar/9323h3124p0.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="7.安全管理"></a></div><div class="recent-post-info"><a class="article-title" href="/20221011/istio-20221011-7-%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86/" title="7.安全管理">7.安全管理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-11T07:43:47.000Z" title="发表于 2022-10-11 15:43:47">2022-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/istio/">istio</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/istio/">istio</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/kubrnetes/">kubrnetes</a></span></div><div class="content">1. 简介 mTLS (mutual TLS，双向TLS)： 让客户端和服务器端通信的时候都必须进行TLS认证 默认情况下，在网格内部默认启用了mTLS了。 2. 启用tls网关 2.1 创建私钥 1openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/istio/ingressgateway-certs/mykey.key -out /etc/istio/ingressgateway-certs/mycrt.crt -subj &quot;/CN=mytest/O=my-test&quot; 2.2 创建secret 1kubectl create secret generic istio-ingressgateway-certs --from-file /etc/istio/ingressgateway-certs/mykey.key --from-file /etc/istio/ingressgateway-certs/mycrt.crt -n istio-system 2.3...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/20221010/istio-20221010-6-workEntry/" title="6.workEntry"><img class="post-bg" src="/img/yuanshen/avatar/2fdda3cc7cd98d1095211fc9b20195077aec901c.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="6.workEntry"></a></div><div class="recent-post-info"><a class="article-title" href="/20221010/istio-20221010-6-workEntry/" title="6.workEntry">6.workEntry</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-09T19:13:00.000Z" title="发表于 2022-10-10 03:13:00">2022-10-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/istio/">istio</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/istio/">istio</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/kubrnetes/">kubrnetes</a></span></div><div class="content">1. 简介 目的是把其他主机纳入到service mesh里 2. 原理  3. 创建 3.1 启用自动注册 1istioctl install --set profile=demo --set values.pilot.env.PILOT_ENABLE_WORKLOAD_ENTRY_AUTOREGISTRATION=true 3.2 添加路由 集群外主机添加路由到istiod 1route add -net 10.244.0.0 gw 192.168.10.33 netmask 255.255.0.0 3.3 安装sidecar 123https://storage.googleapis.com/istio-release/releases/1.14.1/deb/istio-sidecar.debdpkg -i istio-sidecar.deb 3.4 创建wg workloadgroup可以理解为是一个模板，类似于deployment，wg也有模板—这些节点有什么标签，以什么sa来运行等 12345678910111213apiVersion:...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/8/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#content-inner">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/#content-inner">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/#content-inner">15</a><a class="extend next" rel="next" href="/page/10/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar2.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">ren_mcc</div><div class="author-info-description">一个收藏回忆与分享技术的地方！</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">148</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/renmcc"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/20230707/python-20230707-SockerServer/" title="SockerServer"><img src="/img/yuanshen/avatar/128763_7576398147.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SockerServer"/></a><div class="content"><a class="title" href="/20230707/python-20230707-SockerServer/" title="SockerServer">SockerServer</a><time datetime="2023-07-07T15:28:00.000Z" title="发表于 2023-07-07 23:28:00">2023-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/20230707/python-20230707-TCP%E7%BC%96%E7%A8%8B/" title="TCP编程"><img src="/img/yuanshen/avatar/20210501094036_cad73.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="TCP编程"/></a><div class="content"><a class="title" href="/20230707/python-20230707-TCP%E7%BC%96%E7%A8%8B/" title="TCP编程">TCP编程</a><time datetime="2023-07-07T14:23:21.000Z" title="发表于 2023-07-07 22:23:21">2023-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/20230707/python-20230707-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%A4%9A%E8%BF%9B%E7%A8%8B/" title="多线程和多进程"><img src="/img/yuanshen/avatar/20210501094035_643fc.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="多线程和多进程"/></a><div class="content"><a class="title" href="/20230707/python-20230707-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%A4%9A%E8%BF%9B%E7%A8%8B/" title="多线程和多进程">多线程和多进程</a><time datetime="2023-07-07T13:42:46.000Z" title="发表于 2023-07-07 21:42:46">2023-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/20230707/python-20230707-%E9%93%BE%E6%8E%A5%E8%A1%A8/" title="链接表"><img src="/img/yuanshen/avatar/b2de9c82d158ccbf6a206a9f95e69137b03541ba.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="链接表"/></a><div class="content"><a class="title" href="/20230707/python-20230707-%E9%93%BE%E6%8E%A5%E8%A1%A8/" title="链接表">链接表</a><time datetime="2023-07-07T13:39:15.000Z" title="发表于 2023-07-07 21:39:15">2023-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/20230707/python-20230707-%E6%89%93%E5%8C%85%E5%88%86%E5%8F%91/" title="打包分发"><img src="/img/yuanshen/avatar/10008.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="打包分发"/></a><div class="content"><a class="title" href="/20230707/python-20230707-%E6%89%93%E5%8C%85%E5%88%86%E5%8F%91/" title="打包分发">打包分发</a><time datetime="2023-07-07T13:37:05.000Z" title="发表于 2023-07-07 21:37:05">2023-07-07</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>分类</span>
             <a class="card-more-btn" href="/categories/" title="查看更多">
-    <i class="fas fa-angle-right"></i></a>
-            </div>
-            <ul class="card-category-list" id="aside-cat-list">
+      <i class="fas fa-angle-right"></i></a>
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/"><span class="card-category-list-name">JavaScript</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/containerd/"><span class="card-category-list-name">containerd</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/docker/"><span class="card-category-list-name">docker</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/docker-compose/"><span class="card-category-list-name">docker-compose</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/git/"><span class="card-category-list-name">git</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/golang/"><span class="card-category-list-name">golang</span><span class="card-category-list-count">38</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/istio/"><span class="card-category-list-name">istio</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/kafka/"><span class="card-category-list-name">kafka</span><span class="card-category-list-count">2</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/JavaScript/" style="font-size: 1.15em; color: rgb(9, 30, 121)">JavaScript</a><a href="/tags/containerd/" style="font-size: 1.28em; color: rgb(143, 132, 90)">containerd</a><a href="/tags/docker/" style="font-size: 1.35em; color: rgb(82, 75, 158)">docker</a><a href="/tags/docker-compose/" style="font-size: 1.25em; color: rgb(174, 33, 42)">docker-compose</a><a href="/tags/git/" style="font-size: 1.15em; color: rgb(153, 54, 73)">git</a><a href="/tags/golang/" style="font-size: 1.45em; color: rgb(143, 57, 200)">golang</a><a href="/tags/kubernetes/" style="font-size: 1.38em; color: rgb(165, 71, 33)">kubernetes</a><a href="/tags/istio/" style="font-size: 1.35em; color: rgb(99, 26, 159)">istio</a><a href="/tags/kubrnetes/" style="font-size: 1.32em; color: rgb(182, 190, 68)">kubrnetes</a><a href="/tags/nginx/" style="font-size: 1.15em; color: rgb(57, 1, 15)">nginx</a><a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.15em; color: rgb(176, 175, 103)">工具</a><a href="/tags/kafka/" style="font-size: 1.18em; color: rgb(36, 110, 135)">kafka</a><a href="/tags/rancher/" style="font-size: 1.22em; color: rgb(43, 125, 11)">rancher</a><a href="/tags/vue/" style="font-size: 1.25em; color: rgb(17, 196, 109)">vue</a><a href="/tags/python/" style="font-size: 1.42em; color: rgb(51, 4, 47)">python</a><a href="/tags/redis/" style="font-size: 1.18em; color: rgb(159, 142, 62)">redis</a><a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 1.22em; color: rgb(162, 157, 115)">大数据</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">20</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">25</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">十一月 2022</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">148</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2021-12-06T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">302.5k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-08-10T08:14:15.615Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By ren_mcc</div><div class="footer_custom_text"><a rel="noopener external nofollow noreferrer noopener" target="_blank" href="https://beian.miit.gov.cn/"> <img class="icp-icon entered loading" alt="ICP" src="/img/icp.png" data-ll-status><span>京ICP备2022001205号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
-  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
-  if ($mermaid.length === 0) return
-  const runMermaid = () => {
-    window.loadMermaid = true
-    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
-
-    Array.from($mermaid).forEach((item, index) => {
-      const mermaidSrc = item.firstElementChild
-      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
-      const mermaidID = 'mermaid-' + index
-      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
-
-      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
-
-      const renderV10 = () => {
-        renderFn.then(({svg}) => {
-          mermaidSrc.insertAdjacentHTML('afterend', svg)
-        })
-      }
-
-      const renderV9 = svg => {
-        mermaidSrc.insertAdjacentHTML('afterend', svg)
-      }
-
-      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
-    })
-  }
-
-  const loadMermaid = () => {
-    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
-  }
-
-  btf.addModeChange('mermaid', runMermaid)
-
-  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
-})()</script></div><script>window.addEventListener('load', () => {
-  const changeContent = (content) => {
-    if (content === '') return content
-
-    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
-    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
-    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
-    content = content.replace(/<[^>]+>/g,"") // remove html tag
-
-    if (content.length > 150) {
-      content = content.substring(0,150) + '...'
-    }
-    return content
-  }
-
-  const findTrueUrl = (array) => {
-    Promise.all(array.map(item =>
-      fetch(item.url).then(resp => resp.json()).then(data => {
-        const urlArray = data.body.match(/(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/ig)
-        if (data.user.login === 'utterances-bot') {
-          return urlArray.pop()
-        } else {
-          return urlArray.shift()
-        }
-      })
-    )).then(res => {
-        array = array.map((i,index)=> {
-          return {
-            ...i,
-            url: res[index]
-          }
-        })
-
-        saveToLocal.set('github-newest-comments', JSON.stringify(array), 10/(60*24))
-        generateHtml(array)
-    });
-  }
-
-  const getComment = () => {
-    fetch('https://api.github.com/repos/renmcc/renmcc/issues/comments?sort=updated&direction=desc&per_page=6&page=1',{
-      "headers": {
-        Accept: 'application/vnd.github.v3.html+json'
-      }
-    })
-      .then(response => response.json())
-      .then(data => {
-        const githubArray = data.map(item => {
-          return {
-            'avatar': item.user.avatar_url,
-            'content': changeContent(item.body_html),
-            'nick': item.user.login,
-            'url': item.issue_url,
-            'date': item.updated_at,
-            'githubUrl': item.html_url
-          }
-        })
-        findTrueUrl(githubArray)
-      }).catch(e => {
-        const $dom = document.querySelector('#card-newest-comments .aside-list')
-        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
-      })
-  }
-
-  const generateHtml = array => {
-    let result = ''
-
-    if (array.length) {
-      for (let i = 0; i < array.length; i++) {
-        result += '<div class=\'aside-list-item\'>'
-
-        if (true) {
-          const name = 'src'
-          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
-        }
-
-        result += `<div class='content'>
-        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
-        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
-        </div></div>`
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/containerd/" style="font-size: 1.28em; color: rgb(115, 127, 103);">containerd</a><a href="/tags/JavaScript/" style="font-size: 1.15em; color: rgb(128, 50, 174);">JavaScript</a><a href="/tags/docker/" style="font-size: 1.35em; color: rgb(65, 50, 137);">docker</a><a href="/tags/git/" style="font-size: 1.15em; color: rgb(50, 175, 50);">git</a><a href="/tags/docker-compose/" style="font-size: 1.25em; color: rgb(116, 176, 131);">docker-compose</a><a href="/tags/istio/" style="font-size: 1.35em; color: rgb(50, 50, 132);">istio</a><a href="/tags/kubrnetes/" style="font-size: 1.32em; color: rgb(138, 156, 153);">kubrnetes</a><a href="/tags/kubernetes/" style="font-size: 1.38em; color: rgb(50, 144, 145);">kubernetes</a><a href="/tags/golang/" style="font-size: 1.45em; color: rgb(81, 158, 50);">golang</a><a href="/tags/kafka/" style="font-size: 1.18em; color: rgb(151, 150, 198);">kafka</a><a href="/tags/nginx/" style="font-size: 1.15em; color: rgb(120, 62, 50);">nginx</a><a href="/tags/python/" style="font-size: 1.42em; color: rgb(51, 80, 185);">python</a><a href="/tags/rancher/" style="font-size: 1.22em; color: rgb(105, 199, 128);">rancher</a><a href="/tags/redis/" style="font-size: 1.18em; color: rgb(62, 97, 50);">redis</a><a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.15em; color: rgb(165, 163, 87);">工具</a><a href="/tags/vue/" style="font-size: 1.25em; color: rgb(147, 90, 56);">vue</a><a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 1.22em; color: rgb(98, 50, 50);">大数据</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/" title="查看更多"><i class="fas fa-angle-right"></i></a>
+    </div>
+    <ul class="card-archive-list">
+  
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2023/07/">
+          <span class="card-archive-list-date">七月 2023</span>
+          <span class="card-archive-list-count">20</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2023/06/">
+          <span class="card-archive-list-date">六月 2023</span>
+          <span class="card-archive-list-count">17</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2023/04/">
+          <span class="card-archive-list-date">四月 2023</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2023/03/">
+          <span class="card-archive-list-date">三月 2023</span>
+          <span class="card-archive-list-count">6</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2023/02/">
+          <span class="card-archive-list-date">二月 2023</span>
+          <span class="card-archive-list-count">3</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2023/01/">
+          <span class="card-archive-list-date">一月 2023</span>
+          <span class="card-archive-list-count">7</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2022/12/">
+          <span class="card-archive-list-date">十二月 2022</span>
+          <span class="card-archive-list-count">25</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2022/11/">
+          <span class="card-archive-list-date">十一月 2022</span>
+          <span class="card-archive-list-count">3</span>
+        </a>
+      </li>
+    </ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">148</div></div><div class="webinfo-item"><div class="item-name">运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2021-12-06T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-12-26T17:40:33.943Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2024 By ren_mcc</div><div class="footer_custom_text"><a rel="noopener external nofollow noreferrer noopener" target="_blank" href="https://beian.miit.gov.cn/"> <img class="icp-icon entered loading" alt="ICP" src="/img/icp.png" data-ll-status><span>京ICP备2022001205号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
       }
     } else {
-      result += '没有评论'
-    }
-
-    let $dom = document.querySelector('#card-newest-comments .aside-list')
-    $dom.innerHTML= result
-    window.lazyLoadInstance && window.lazyLoadInstance.update()
-    window.pjax && window.pjax.refresh($dom)
-  }
-
-  const newestCommentInit = () => {
-    if (document.querySelector('#card-newest-comments .aside-list')) {
-      const data = saveToLocal.get('github-newest-comments')
-      if (data) {
-        generateHtml(JSON.parse(data))
-      } else {
-        getComment()
-      }
+      subtitleType()
     }
   }
-
-  newestCommentInit()
-  document.addEventListener('pjax:complete', newestCommentInit)
-})</script><div class="aplayer no-destroy" data-id="7211977673" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="list" data-preload="none" data-autoplay="false" muted></div><script type="text/javascript" id="clustrmaps" src="https://clustrmaps.com/map_v2.js?d=Nn9bjjl1Wty5ejFU6wND1o3jH3o6isyJnZx5HWTAxCU&cl=ffffff&w=a"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  if (true) {
+    typedJSFn.init(["风带来故事的种子,时间使之发芽。"])
+  } else {
+    document.getElementById("subtitle").textContent = "风带来故事的种子,时间使之发芽。"
+  }
+}
+typedJSFn.run(subtitleType)</script></div><div class="aplayer no-destroy" data-id="7211977673" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="list" data-preload="none" data-autoplay="false" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
     var parent = document.getElementById('recent-posts');
     var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://renm.cc/categories/docker/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🐱 docker (8)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://renm.cc/categories/docker-compose/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">💡 docker-compose (5)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://renm.cc/categories/containerd/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🎮 containerd (6)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://renm.cc/categories/kubernetes/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👩‍💻 kubernetes (27)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://renm.cc/categories/python/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 python (37)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://renm.cc/categories/golang/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📒 golang (38)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://renm.cc/categories/redis/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">💡 redis (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://renm.cc/categories/kafka/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">💡 kafka (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><a class="magnet_link_more"  href="https://renm.cc/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
     console.log('已挂载magnet')

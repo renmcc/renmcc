@@ -1,7 +1,7 @@
 /*禁用f12*/
 function forbidden_control() {
     $.extend({
-        message: function(a) {
+        message: function (a) {
             var b = {
                 title: "",
                 message: "操作成功",
@@ -9,7 +9,7 @@ function forbidden_control() {
                 type: "success",
                 showClose: !0,
                 autoClose: !0,
-                onClose: function() {}
+                onClose: function () { }
             };
             "string" == typeof a && (b.message = a), "object" == typeof a && (b = $.extend({}, b, a));
             var c, d, e, f = b.showClose ? '<div class="c-message--close">×</div>' : "",
@@ -17,101 +17,99 @@ function forbidden_control() {
                 h = '<div class="c-message animated animated-lento slideInRight"><i class=" c-message--icon c-message--' + b.type + '"></i><div class="el-notification__group">' + g + '<div class="el-notification__content">' + b.message + "</div>" + f + "</div></div>",
                 i = $("body"),
                 j = $(h);
-            d = function() {
-                j.addClass("slideOutRight"), j.one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function() {
+            d = function () {
+                j.addClass("slideOutRight"), j.one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function () {
                     e()
                 })
-            }, e = function() {
+            }, e = function () {
                 j.remove(), b.onClose(b), clearTimeout(c)
-            }, $(".c-message").remove(), i.append(j), j.one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function() {
+            }, $(".c-message").remove(), i.append(j), j.one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function () {
                 j.removeClass("messageFadeInDown")
-            }), i.on("click", ".c-message--close", function(a) {
+            }), i.on("click", ".c-message--close", function (a) {
                 d()
-            }), b.autoClose && (c = setTimeout(function() {
+            }), b.autoClose && (c = setTimeout(function () {
                 d()
             }, b.time))
         }
     }),
-    document.onkeydown = function(e) {
-        if (123 == e.keyCode || e.ctrlKey && e.shiftKey && (74 === e.keyCode || 73 === e.keyCode || 67 === e.keyCode) || (e.ctrlKey && 85 === e.keyCode)) return $.message({
-            message: "采用本站js及css请注明来源，禁止商业使用！",
-            title: "你真坏，不能打开控制台喔!",
-            type: "error",
-            autoHide: !1,
-            time: "3000"
-        }), event.keyCode = 0, event.returnValue = !1, !1
-    }, document.oncontextmenu = function() {
-        return $.message({
-            message: "采用本站js及css请注明来源，禁止商业使用！",
-            title: "不能右键/长按喔！",
-            type: "error",
-            autoHide: !1,
-            time: "3000"
-        }), !1
-    },
-    function() {
-        function e() {
-            var e = new Date;
-            if (new Date - e > 10) {
-                try {
-                    document.getElementsByTagName("html")[0].innerHTML = '<div style="width: 100%;height: 50px;font-size: 30px;text-align: center;font-weight: bold;">啊这个网站炸了，<a href="/" style="color:#4285f4;">点击返回</a>试试吧~</div>'
-                } catch (e) {}
-                return document.body.innerHTML = '<div style="width: 100%;height: 50px;font-size: 30px;text-align: center;font-weight: bold;">啊这个网站炸了，<a href="/" style="color:#4285f4;">点击返回</a>试试吧~</div>', !0
+        document.onkeydown = function (e) {
+            if (123 == e.keyCode || e.ctrlKey && e.shiftKey && (74 === e.keyCode || 73 === e.keyCode || 67 === e.keyCode) || (e.ctrlKey && 85 === e.keyCode)) return $.message({
+                message: "采用本站js及css请注明来源，禁止商业使用！",
+                title: "你真坏，不能打开控制台喔!",
+                type: "error",
+                autoHide: !1,
+                time: "3000"
+            }), event.keyCode = 0, event.returnValue = !1, !1
+        }, document.oncontextmenu = function () {
+            return $.message({
+                message: "采用本站js及css请注明来源，禁止商业使用！",
+                title: "不能右键/长按喔！",
+                type: "error",
+                autoHide: !1,
+                time: "3000"
+            }), !1
+        },
+        function () {
+            function e() {
+                var e = new Date;
+                if (new Date - e > 10) {
+                    try {
+                        document.getElementsByTagName("html")[0].innerHTML = '<div style="width: 100%;height: 50px;font-size: 30px;text-align: center;font-weight: bold;">啊这个网站炸了，<a href="/" style="color:#4285f4;">点击返回</a>试试吧~</div>'
+                    } catch (e) { }
+                    return document.body.innerHTML = '<div style="width: 100%;height: 50px;font-size: 30px;text-align: center;font-weight: bold;">啊这个网站炸了，<a href="/" style="color:#4285f4;">点击返回</a>试试吧~</div>', !0
+                }
+                return !1
             }
-            return !1
-        }
 
-        function t() {
-            for (; e();) e()
-        }
-        e() ? t() : window.onblur = function() {
-            setTimeout(function() {
-                t()
-            }, 500)
-        }
-    }(),
-    function() {
-        var e = /x/;
-        e.toString = function() {
-            try {
-                document.getElementsByTagName("html")[0].innerHTML = '<div style="width: 100%;height: 50px;font-size: 30px;text-align: center;font-weight: bold;">啊这个网站炸了，<a href="/" style="color:#4285f4;">点击返回</a>试试吧~</div>'
-            } catch (e) {}
-            return document.body.innerHTML = '<div style="width: 100%;height: 50px;font-size: 30px;text-align: center;font-weight: bold;">啊这个网站炸了，<a href="/" style="color:#4285f4;">点击返回</a>试试吧~</div>', "禁止打开控制台！"
-        }
-    }(),
-    function() {
-        var e = document.createElement("div");
-        Object.defineProperty(e, "id", {
-            get: function() {
+            function t() {
+                for (; e();) e()
+            }
+            e() ? t() : window.onblur = function () {
+                setTimeout(function () {
+                    t()
+                }, 500)
+            }
+        }(),
+        function () {
+            var e = /x/;
+            e.toString = function () {
                 try {
                     document.getElementsByTagName("html")[0].innerHTML = '<div style="width: 100%;height: 50px;font-size: 30px;text-align: center;font-weight: bold;">啊这个网站炸了，<a href="/" style="color:#4285f4;">点击返回</a>试试吧~</div>'
-                } catch (e) {}
-                document.body.innerHTML = '<div style="width: 100%;height: 50px;font-size: 30px;text-align: center;font-weight: bold;">啊这个网站炸了，<a href="/" style="color:#4285f4;">点击返回</a>试试吧~</div>'
+                } catch (e) { }
+                return document.body.innerHTML = '<div style="width: 100%;height: 50px;font-size: 30px;text-align: center;font-weight: bold;">啊这个网站炸了，<a href="/" style="color:#4285f4;">点击返回</a>试试吧~</div>', "禁止打开控制台！"
             }
-        }), console.log(e)
-    }()
+        }(),
+        function () {
+            var e = document.createElement("div");
+            Object.defineProperty(e, "id", {
+                get: function () {
+                    try {
+                        document.getElementsByTagName("html")[0].innerHTML = '<div style="width: 100%;height: 50px;font-size: 30px;text-align: center;font-weight: bold;">啊这个网站炸了，<a href="/" style="color:#4285f4;">点击返回</a>试试吧~</div>'
+                    } catch (e) { }
+                    document.body.innerHTML = '<div style="width: 100%;height: 50px;font-size: 30px;text-align: center;font-weight: bold;">啊这个网站炸了，<a href="/" style="color:#4285f4;">点击返回</a>试试吧~</div>'
+                }
+            }), console.log(e)
+        }()
 }
 
 
-forbidden_control()
+// forbidden_control()
 
 
-/** * 是否为mac系统（包含iphone手机） * */ 
-var isMac = function() { 
-    return /macintosh|mac os x/i.test(navigator.userAgent); 
-    }();
-    
-    
-    /** * 是否为windows系统 * */
-var isWindows = function() { 
-        return /windows|win32/i.test(navigator.userAgent);
-    }(); 
+/** * 是否为mac系统（包含iphone手机） * */
+var isMac = function () {
+    return /macintosh|mac os x/i.test(navigator.userAgent);
+}();
 
-if(isMac) {
+
+/** * 是否为windows系统 * */
+var isWindows = function () {
+    return /windows|win32/i.test(navigator.userAgent);
+}();
+
+if (isMac) {
     if (window.location.href != "https://renm.cc/404.html") {
         window.location.href = "https://renm.cc/404.html";
     }
-    
+
 }
-
-

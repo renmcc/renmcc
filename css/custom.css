@@ -126,11 +126,11 @@
     box-shadow: unset;
 }
 
-/*隐藏主页名*/
+/*隐藏主页名
 #site-info #site-title{
     display: none;
 }
-
+*/
 
 /*文章图片左对齐*/
 #article-container img {
